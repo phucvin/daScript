@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.8.2.  */
+/* A Bison parser, made by GNU Bison 3.5.1.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
    Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -34,10 +34,6 @@
 /* C LALR(1) parser skeleton written by Richard Stallman, by
    simplifying the original so-called "semantic" parser.  */
 
-/* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
-   especially those whose name start with YY_ or yy_.  They are
-   private implementation details that can be changed or removed.  */
-
 /* All symbols defined below should begin with yy or YY, to avoid
    infringing on user name space.  This should be done even for local
    variables, as they might otherwise be expanded by user macros.
@@ -45,11 +41,14 @@
    define necessary library symbols; they are noted "INFRINGES ON
    USER NAME SPACE" below.  */
 
-/* Identify Bison output, and Bison version.  */
-#define YYBISON 30802
+/* Undocumented macros, especially those whose name start with YY_,
+   are private implementation details.  Do not rely on them.  */
 
-/* Bison version string.  */
-#define YYBISON_VERSION "3.8.2"
+/* Identify Bison output.  */
+#define YYBISON 1
+
+/* Bison version.  */
+#define YYBISON_VERSION "3.5.1"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -130,519 +129,322 @@
 #  endif
 # endif
 
-#include "ds_parser.hpp"
-/* Symbol kind.  */
-enum yysymbol_kind_t
-{
-  YYSYMBOL_YYEMPTY = -2,
-  YYSYMBOL_YYEOF = 0,                      /* "end of file"  */
-  YYSYMBOL_YYerror = 1,                    /* error  */
-  YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
-  YYSYMBOL_LEXER_ERROR = 3,                /* "lexer error"  */
-  YYSYMBOL_DAS_STRUCT = 4,                 /* "struct"  */
-  YYSYMBOL_DAS_CLASS = 5,                  /* "class"  */
-  YYSYMBOL_DAS_LET = 6,                    /* "let"  */
-  YYSYMBOL_DAS_DEF = 7,                    /* "def"  */
-  YYSYMBOL_DAS_WHILE = 8,                  /* "while"  */
-  YYSYMBOL_DAS_IF = 9,                     /* "if"  */
-  YYSYMBOL_DAS_STATIC_IF = 10,             /* "static_if"  */
-  YYSYMBOL_DAS_ELSE = 11,                  /* "else"  */
-  YYSYMBOL_DAS_FOR = 12,                   /* "for"  */
-  YYSYMBOL_DAS_CATCH = 13,                 /* "recover"  */
-  YYSYMBOL_DAS_TRUE = 14,                  /* "true"  */
-  YYSYMBOL_DAS_FALSE = 15,                 /* "false"  */
-  YYSYMBOL_DAS_NEWT = 16,                  /* "new"  */
-  YYSYMBOL_DAS_TYPEINFO = 17,              /* "typeinfo"  */
-  YYSYMBOL_DAS_TYPE = 18,                  /* "type"  */
-  YYSYMBOL_DAS_IN = 19,                    /* "in"  */
-  YYSYMBOL_DAS_IS = 20,                    /* "is"  */
-  YYSYMBOL_DAS_AS = 21,                    /* "as"  */
-  YYSYMBOL_DAS_ELIF = 22,                  /* "elif"  */
-  YYSYMBOL_DAS_STATIC_ELIF = 23,           /* "static_elif"  */
-  YYSYMBOL_DAS_ARRAY = 24,                 /* "array"  */
-  YYSYMBOL_DAS_RETURN = 25,                /* "return"  */
-  YYSYMBOL_DAS_NULL = 26,                  /* "null"  */
-  YYSYMBOL_DAS_BREAK = 27,                 /* "break"  */
-  YYSYMBOL_DAS_TRY = 28,                   /* "try"  */
-  YYSYMBOL_DAS_OPTIONS = 29,               /* "options"  */
-  YYSYMBOL_DAS_TABLE = 30,                 /* "table"  */
-  YYSYMBOL_DAS_EXPECT = 31,                /* "expect"  */
-  YYSYMBOL_DAS_CONST = 32,                 /* "const"  */
-  YYSYMBOL_DAS_REQUIRE = 33,               /* "require"  */
-  YYSYMBOL_DAS_OPERATOR = 34,              /* "operator"  */
-  YYSYMBOL_DAS_ENUM = 35,                  /* "enum"  */
-  YYSYMBOL_DAS_FINALLY = 36,               /* "finally"  */
-  YYSYMBOL_DAS_DELETE = 37,                /* "delete"  */
-  YYSYMBOL_DAS_DEREF = 38,                 /* "deref"  */
-  YYSYMBOL_DAS_TYPEDEF = 39,               /* "typedef"  */
-  YYSYMBOL_DAS_TYPEDECL = 40,              /* "typedecl"  */
-  YYSYMBOL_DAS_WITH = 41,                  /* "with"  */
-  YYSYMBOL_DAS_AKA = 42,                   /* "aka"  */
-  YYSYMBOL_DAS_ASSUME = 43,                /* "assume"  */
-  YYSYMBOL_DAS_CAST = 44,                  /* "cast"  */
-  YYSYMBOL_DAS_OVERRIDE = 45,              /* "override"  */
-  YYSYMBOL_DAS_ABSTRACT = 46,              /* "abstract"  */
-  YYSYMBOL_DAS_UPCAST = 47,                /* "upcast"  */
-  YYSYMBOL_DAS_ITERATOR = 48,              /* "iterator"  */
-  YYSYMBOL_DAS_VAR = 49,                   /* "var"  */
-  YYSYMBOL_DAS_ADDR = 50,                  /* "addr"  */
-  YYSYMBOL_DAS_CONTINUE = 51,              /* "continue"  */
-  YYSYMBOL_DAS_WHERE = 52,                 /* "where"  */
-  YYSYMBOL_DAS_PASS = 53,                  /* "pass"  */
-  YYSYMBOL_DAS_REINTERPRET = 54,           /* "reinterpret"  */
-  YYSYMBOL_DAS_MODULE = 55,                /* "module"  */
-  YYSYMBOL_DAS_PUBLIC = 56,                /* "public"  */
-  YYSYMBOL_DAS_LABEL = 57,                 /* "label"  */
-  YYSYMBOL_DAS_GOTO = 58,                  /* "goto"  */
-  YYSYMBOL_DAS_IMPLICIT = 59,              /* "implicit"  */
-  YYSYMBOL_DAS_EXPLICIT = 60,              /* "explicit"  */
-  YYSYMBOL_DAS_SHARED = 61,                /* "shared"  */
-  YYSYMBOL_DAS_PRIVATE = 62,               /* "private"  */
-  YYSYMBOL_DAS_SMART_PTR = 63,             /* "smart_ptr"  */
-  YYSYMBOL_DAS_UNSAFE = 64,                /* "unsafe"  */
-  YYSYMBOL_DAS_INSCOPE = 65,               /* "inscope"  */
-  YYSYMBOL_DAS_STATIC = 66,                /* "static"  */
-  YYSYMBOL_DAS_FIXED_ARRAY = 67,           /* "fixed_array"  */
-  YYSYMBOL_DAS_DEFAULT = 68,               /* "default"  */
-  YYSYMBOL_DAS_UNINITIALIZED = 69,         /* "uninitialized"  */
-  YYSYMBOL_DAS_TBOOL = 70,                 /* "bool"  */
-  YYSYMBOL_DAS_TVOID = 71,                 /* "void"  */
-  YYSYMBOL_DAS_TSTRING = 72,               /* "string"  */
-  YYSYMBOL_DAS_TAUTO = 73,                 /* "auto"  */
-  YYSYMBOL_DAS_TINT = 74,                  /* "int"  */
-  YYSYMBOL_DAS_TINT2 = 75,                 /* "int2"  */
-  YYSYMBOL_DAS_TINT3 = 76,                 /* "int3"  */
-  YYSYMBOL_DAS_TINT4 = 77,                 /* "int4"  */
-  YYSYMBOL_DAS_TUINT = 78,                 /* "uint"  */
-  YYSYMBOL_DAS_TBITFIELD = 79,             /* "bitfield"  */
-  YYSYMBOL_DAS_TUINT2 = 80,                /* "uint2"  */
-  YYSYMBOL_DAS_TUINT3 = 81,                /* "uint3"  */
-  YYSYMBOL_DAS_TUINT4 = 82,                /* "uint4"  */
-  YYSYMBOL_DAS_TFLOAT = 83,                /* "float"  */
-  YYSYMBOL_DAS_TFLOAT2 = 84,               /* "float2"  */
-  YYSYMBOL_DAS_TFLOAT3 = 85,               /* "float3"  */
-  YYSYMBOL_DAS_TFLOAT4 = 86,               /* "float4"  */
-  YYSYMBOL_DAS_TRANGE = 87,                /* "range"  */
-  YYSYMBOL_DAS_TURANGE = 88,               /* "urange"  */
-  YYSYMBOL_DAS_TRANGE64 = 89,              /* "range64"  */
-  YYSYMBOL_DAS_TURANGE64 = 90,             /* "urange64"  */
-  YYSYMBOL_DAS_TBLOCK = 91,                /* "block"  */
-  YYSYMBOL_DAS_TINT64 = 92,                /* "int64"  */
-  YYSYMBOL_DAS_TUINT64 = 93,               /* "uint64"  */
-  YYSYMBOL_DAS_TDOUBLE = 94,               /* "double"  */
-  YYSYMBOL_DAS_TFUNCTION = 95,             /* "function"  */
-  YYSYMBOL_DAS_TLAMBDA = 96,               /* "lambda"  */
-  YYSYMBOL_DAS_TINT8 = 97,                 /* "int8"  */
-  YYSYMBOL_DAS_TUINT8 = 98,                /* "uint8"  */
-  YYSYMBOL_DAS_TINT16 = 99,                /* "int16"  */
-  YYSYMBOL_DAS_TUINT16 = 100,              /* "uint16"  */
-  YYSYMBOL_DAS_TTUPLE = 101,               /* "tuple"  */
-  YYSYMBOL_DAS_TVARIANT = 102,             /* "variant"  */
-  YYSYMBOL_DAS_GENERATOR = 103,            /* "generator"  */
-  YYSYMBOL_DAS_YIELD = 104,                /* "yield"  */
-  YYSYMBOL_DAS_SEALED = 105,               /* "sealed"  */
-  YYSYMBOL_ADDEQU = 106,                   /* "+="  */
-  YYSYMBOL_SUBEQU = 107,                   /* "-="  */
-  YYSYMBOL_DIVEQU = 108,                   /* "/="  */
-  YYSYMBOL_MULEQU = 109,                   /* "*="  */
-  YYSYMBOL_MODEQU = 110,                   /* "%="  */
-  YYSYMBOL_ANDEQU = 111,                   /* "&="  */
-  YYSYMBOL_OREQU = 112,                    /* "|="  */
-  YYSYMBOL_XOREQU = 113,                   /* "^="  */
-  YYSYMBOL_SHL = 114,                      /* "<<"  */
-  YYSYMBOL_SHR = 115,                      /* ">>"  */
-  YYSYMBOL_ADDADD = 116,                   /* "++"  */
-  YYSYMBOL_SUBSUB = 117,                   /* "--"  */
-  YYSYMBOL_LEEQU = 118,                    /* "<="  */
-  YYSYMBOL_SHLEQU = 119,                   /* "<<="  */
-  YYSYMBOL_SHREQU = 120,                   /* ">>="  */
-  YYSYMBOL_GREQU = 121,                    /* ">="  */
-  YYSYMBOL_EQUEQU = 122,                   /* "=="  */
-  YYSYMBOL_NOTEQU = 123,                   /* "!="  */
-  YYSYMBOL_RARROW = 124,                   /* "->"  */
-  YYSYMBOL_LARROW = 125,                   /* "<-"  */
-  YYSYMBOL_QQ = 126,                       /* "??"  */
-  YYSYMBOL_QDOT = 127,                     /* "?."  */
-  YYSYMBOL_QBRA = 128,                     /* "?["  */
-  YYSYMBOL_LPIPE = 129,                    /* "<|"  */
-  YYSYMBOL_LBPIPE = 130,                   /* " <|"  */
-  YYSYMBOL_LLPIPE = 131,                   /* "$ <|"  */
-  YYSYMBOL_LAPIPE = 132,                   /* "@ <|"  */
-  YYSYMBOL_LFPIPE = 133,                   /* "@@ <|"  */
-  YYSYMBOL_RPIPE = 134,                    /* "|>"  */
-  YYSYMBOL_CLONEEQU = 135,                 /* ":="  */
-  YYSYMBOL_ROTL = 136,                     /* "<<<"  */
-  YYSYMBOL_ROTR = 137,                     /* ">>>"  */
-  YYSYMBOL_ROTLEQU = 138,                  /* "<<<="  */
-  YYSYMBOL_ROTREQU = 139,                  /* ">>>="  */
-  YYSYMBOL_MAPTO = 140,                    /* "=>"  */
-  YYSYMBOL_COLCOL = 141,                   /* "::"  */
-  YYSYMBOL_ANDAND = 142,                   /* "&&"  */
-  YYSYMBOL_OROR = 143,                     /* "||"  */
-  YYSYMBOL_XORXOR = 144,                   /* "^^"  */
-  YYSYMBOL_ANDANDEQU = 145,                /* "&&="  */
-  YYSYMBOL_OROREQU = 146,                  /* "||="  */
-  YYSYMBOL_XORXOREQU = 147,                /* "^^="  */
-  YYSYMBOL_DOTDOT = 148,                   /* ".."  */
-  YYSYMBOL_MTAG_E = 149,                   /* "$$"  */
-  YYSYMBOL_MTAG_I = 150,                   /* "$i"  */
-  YYSYMBOL_MTAG_V = 151,                   /* "$v"  */
-  YYSYMBOL_MTAG_B = 152,                   /* "$b"  */
-  YYSYMBOL_MTAG_A = 153,                   /* "$a"  */
-  YYSYMBOL_MTAG_T = 154,                   /* "$t"  */
-  YYSYMBOL_MTAG_C = 155,                   /* "$c"  */
-  YYSYMBOL_MTAG_F = 156,                   /* "$f"  */
-  YYSYMBOL_MTAG_DOTDOTDOT = 157,           /* "..."  */
-  YYSYMBOL_BRABRAB = 158,                  /* "[["  */
-  YYSYMBOL_BRACBRB = 159,                  /* "[{"  */
-  YYSYMBOL_CBRCBRB = 160,                  /* "{{"  */
-  YYSYMBOL_INTEGER = 161,                  /* "integer constant"  */
-  YYSYMBOL_LONG_INTEGER = 162,             /* "long integer constant"  */
-  YYSYMBOL_UNSIGNED_INTEGER = 163,         /* "unsigned integer constant"  */
-  YYSYMBOL_UNSIGNED_LONG_INTEGER = 164,    /* "unsigned long integer constant"  */
-  YYSYMBOL_UNSIGNED_INT8 = 165,            /* "unsigned int8 constant"  */
-  YYSYMBOL_FLOAT = 166,                    /* "floating point constant"  */
-  YYSYMBOL_DOUBLE = 167,                   /* "double constant"  */
-  YYSYMBOL_NAME = 168,                     /* "name"  */
-  YYSYMBOL_KEYWORD = 169,                  /* "keyword"  */
-  YYSYMBOL_TYPE_FUNCTION = 170,            /* "type function"  */
-  YYSYMBOL_BEGIN_STRING = 171,             /* "start of the string"  */
-  YYSYMBOL_STRING_CHARACTER = 172,         /* STRING_CHARACTER  */
-  YYSYMBOL_STRING_CHARACTER_ESC = 173,     /* STRING_CHARACTER_ESC  */
-  YYSYMBOL_END_STRING = 174,               /* "end of the string"  */
-  YYSYMBOL_BEGIN_STRING_EXPR = 175,        /* "{"  */
-  YYSYMBOL_END_STRING_EXPR = 176,          /* "}"  */
-  YYSYMBOL_END_OF_READ = 177,              /* "end of failed eader macro"  */
-  YYSYMBOL_178_begin_of_code_block_ = 178, /* "begin of code block"  */
-  YYSYMBOL_179_end_of_code_block_ = 179,   /* "end of code block"  */
-  YYSYMBOL_180_end_of_expression_ = 180,   /* "end of expression"  */
-  YYSYMBOL_SEMICOLON_CUR_CUR = 181,        /* ";}}"  */
-  YYSYMBOL_SEMICOLON_CUR_SQR = 182,        /* ";}]"  */
-  YYSYMBOL_SEMICOLON_SQR_SQR = 183,        /* ";]]"  */
-  YYSYMBOL_COMMA_SQR_SQR = 184,            /* ",]]"  */
-  YYSYMBOL_COMMA_CUR_SQR = 185,            /* ",}]"  */
-  YYSYMBOL_186_ = 186,                     /* ','  */
-  YYSYMBOL_187_ = 187,                     /* '='  */
-  YYSYMBOL_188_ = 188,                     /* '?'  */
-  YYSYMBOL_189_ = 189,                     /* ':'  */
-  YYSYMBOL_190_ = 190,                     /* '|'  */
-  YYSYMBOL_191_ = 191,                     /* '^'  */
-  YYSYMBOL_192_ = 192,                     /* '&'  */
-  YYSYMBOL_193_ = 193,                     /* '<'  */
-  YYSYMBOL_194_ = 194,                     /* '>'  */
-  YYSYMBOL_195_ = 195,                     /* '-'  */
-  YYSYMBOL_196_ = 196,                     /* '+'  */
-  YYSYMBOL_197_ = 197,                     /* '*'  */
-  YYSYMBOL_198_ = 198,                     /* '/'  */
-  YYSYMBOL_199_ = 199,                     /* '%'  */
-  YYSYMBOL_UNARY_MINUS = 200,              /* UNARY_MINUS  */
-  YYSYMBOL_UNARY_PLUS = 201,               /* UNARY_PLUS  */
-  YYSYMBOL_202_ = 202,                     /* '~'  */
-  YYSYMBOL_203_ = 203,                     /* '!'  */
-  YYSYMBOL_PRE_INC = 204,                  /* PRE_INC  */
-  YYSYMBOL_PRE_DEC = 205,                  /* PRE_DEC  */
-  YYSYMBOL_POST_INC = 206,                 /* POST_INC  */
-  YYSYMBOL_POST_DEC = 207,                 /* POST_DEC  */
-  YYSYMBOL_DEREF = 208,                    /* DEREF  */
-  YYSYMBOL_209_ = 209,                     /* '.'  */
-  YYSYMBOL_210_ = 210,                     /* '['  */
-  YYSYMBOL_211_ = 211,                     /* ']'  */
-  YYSYMBOL_212_ = 212,                     /* '('  */
-  YYSYMBOL_213_ = 213,                     /* ')'  */
-  YYSYMBOL_214_ = 214,                     /* '$'  */
-  YYSYMBOL_215_ = 215,                     /* '@'  */
-  YYSYMBOL_216_ = 216,                     /* '#'  */
-  YYSYMBOL_YYACCEPT = 217,                 /* $accept  */
-  YYSYMBOL_program = 218,                  /* program  */
-  YYSYMBOL_top_level_reader_macro = 219,   /* top_level_reader_macro  */
-  YYSYMBOL_optional_public_or_private_module = 220, /* optional_public_or_private_module  */
-  YYSYMBOL_module_name = 221,              /* module_name  */
-  YYSYMBOL_module_declaration = 222,       /* module_declaration  */
-  YYSYMBOL_character_sequence = 223,       /* character_sequence  */
-  YYSYMBOL_string_constant = 224,          /* string_constant  */
-  YYSYMBOL_string_builder_body = 225,      /* string_builder_body  */
-  YYSYMBOL_string_builder = 226,           /* string_builder  */
-  YYSYMBOL_reader_character_sequence = 227, /* reader_character_sequence  */
-  YYSYMBOL_expr_reader = 228,              /* expr_reader  */
-  YYSYMBOL_229_1 = 229,                    /* $@1  */
-  YYSYMBOL_options_declaration = 230,      /* options_declaration  */
-  YYSYMBOL_require_declaration = 231,      /* require_declaration  */
-  YYSYMBOL_keyword_or_name = 232,          /* keyword_or_name  */
-  YYSYMBOL_require_module_name = 233,      /* require_module_name  */
-  YYSYMBOL_require_module = 234,           /* require_module  */
-  YYSYMBOL_is_public_module = 235,         /* is_public_module  */
-  YYSYMBOL_expect_declaration = 236,       /* expect_declaration  */
-  YYSYMBOL_expect_list = 237,              /* expect_list  */
-  YYSYMBOL_expect_error = 238,             /* expect_error  */
-  YYSYMBOL_expression_label = 239,         /* expression_label  */
-  YYSYMBOL_expression_goto = 240,          /* expression_goto  */
-  YYSYMBOL_elif_or_static_elif = 241,      /* elif_or_static_elif  */
-  YYSYMBOL_expression_else = 242,          /* expression_else  */
-  YYSYMBOL_if_or_static_if = 243,          /* if_or_static_if  */
-  YYSYMBOL_expression_else_one_liner = 244, /* expression_else_one_liner  */
-  YYSYMBOL_245_2 = 245,                    /* $@2  */
-  YYSYMBOL_expression_if_one_liner = 246,  /* expression_if_one_liner  */
-  YYSYMBOL_expression_if_then_else = 247,  /* expression_if_then_else  */
-  YYSYMBOL_248_3 = 248,                    /* $@3  */
-  YYSYMBOL_expression_for_loop = 249,      /* expression_for_loop  */
-  YYSYMBOL_250_4 = 250,                    /* $@4  */
-  YYSYMBOL_expression_unsafe = 251,        /* expression_unsafe  */
-  YYSYMBOL_expression_while_loop = 252,    /* expression_while_loop  */
-  YYSYMBOL_expression_with = 253,          /* expression_with  */
-  YYSYMBOL_expression_with_alias = 254,    /* expression_with_alias  */
-  YYSYMBOL_255_5 = 255,                    /* $@5  */
-  YYSYMBOL_annotation_argument_value = 256, /* annotation_argument_value  */
-  YYSYMBOL_annotation_argument_value_list = 257, /* annotation_argument_value_list  */
-  YYSYMBOL_annotation_argument_name = 258, /* annotation_argument_name  */
-  YYSYMBOL_annotation_argument = 259,      /* annotation_argument  */
-  YYSYMBOL_annotation_argument_list = 260, /* annotation_argument_list  */
-  YYSYMBOL_metadata_argument_list = 261,   /* metadata_argument_list  */
-  YYSYMBOL_annotation_declaration_name = 262, /* annotation_declaration_name  */
-  YYSYMBOL_annotation_declaration_basic = 263, /* annotation_declaration_basic  */
-  YYSYMBOL_annotation_declaration = 264,   /* annotation_declaration  */
-  YYSYMBOL_annotation_list = 265,          /* annotation_list  */
-  YYSYMBOL_optional_annotation_list = 266, /* optional_annotation_list  */
-  YYSYMBOL_optional_function_argument_list = 267, /* optional_function_argument_list  */
-  YYSYMBOL_optional_function_type = 268,   /* optional_function_type  */
-  YYSYMBOL_function_name = 269,            /* function_name  */
-  YYSYMBOL_global_function_declaration = 270, /* global_function_declaration  */
-  YYSYMBOL_optional_public_or_private_function = 271, /* optional_public_or_private_function  */
-  YYSYMBOL_function_declaration_header = 272, /* function_declaration_header  */
-  YYSYMBOL_function_declaration = 273,     /* function_declaration  */
-  YYSYMBOL_274_6 = 274,                    /* $@6  */
-  YYSYMBOL_expression_block = 275,         /* expression_block  */
-  YYSYMBOL_expr_call_pipe = 276,           /* expr_call_pipe  */
-  YYSYMBOL_expression_any = 277,           /* expression_any  */
-  YYSYMBOL_expressions = 278,              /* expressions  */
-  YYSYMBOL_expr_keyword = 279,             /* expr_keyword  */
-  YYSYMBOL_optional_expr_list = 280,       /* optional_expr_list  */
-  YYSYMBOL_optional_expr_list_in_braces = 281, /* optional_expr_list_in_braces  */
-  YYSYMBOL_type_declaration_no_options_list = 282, /* type_declaration_no_options_list  */
-  YYSYMBOL_expression_keyword = 283,       /* expression_keyword  */
-  YYSYMBOL_284_7 = 284,                    /* $@7  */
-  YYSYMBOL_285_8 = 285,                    /* $@8  */
-  YYSYMBOL_286_9 = 286,                    /* $@9  */
-  YYSYMBOL_287_10 = 287,                   /* $@10  */
-  YYSYMBOL_expr_pipe = 288,                /* expr_pipe  */
-  YYSYMBOL_name_in_namespace = 289,        /* name_in_namespace  */
-  YYSYMBOL_expression_delete = 290,        /* expression_delete  */
-  YYSYMBOL_new_type_declaration = 291,     /* new_type_declaration  */
-  YYSYMBOL_292_11 = 292,                   /* $@11  */
-  YYSYMBOL_293_12 = 293,                   /* $@12  */
-  YYSYMBOL_expr_new = 294,                 /* expr_new  */
-  YYSYMBOL_expression_break = 295,         /* expression_break  */
-  YYSYMBOL_expression_continue = 296,      /* expression_continue  */
-  YYSYMBOL_expression_return_no_pipe = 297, /* expression_return_no_pipe  */
-  YYSYMBOL_expression_return = 298,        /* expression_return  */
-  YYSYMBOL_expression_yield_no_pipe = 299, /* expression_yield_no_pipe  */
-  YYSYMBOL_expression_yield = 300,         /* expression_yield  */
-  YYSYMBOL_expression_try_catch = 301,     /* expression_try_catch  */
-  YYSYMBOL_kwd_let_var_or_nothing = 302,   /* kwd_let_var_or_nothing  */
-  YYSYMBOL_kwd_let = 303,                  /* kwd_let  */
-  YYSYMBOL_optional_in_scope = 304,        /* optional_in_scope  */
-  YYSYMBOL_tuple_expansion = 305,          /* tuple_expansion  */
-  YYSYMBOL_tuple_expansion_variable_declaration = 306, /* tuple_expansion_variable_declaration  */
-  YYSYMBOL_expression_let = 307,           /* expression_let  */
-  YYSYMBOL_expr_cast = 308,                /* expr_cast  */
-  YYSYMBOL_309_13 = 309,                   /* $@13  */
-  YYSYMBOL_310_14 = 310,                   /* $@14  */
-  YYSYMBOL_311_15 = 311,                   /* $@15  */
-  YYSYMBOL_312_16 = 312,                   /* $@16  */
-  YYSYMBOL_313_17 = 313,                   /* $@17  */
-  YYSYMBOL_314_18 = 314,                   /* $@18  */
-  YYSYMBOL_expr_type_decl = 315,           /* expr_type_decl  */
-  YYSYMBOL_316_19 = 316,                   /* $@19  */
-  YYSYMBOL_317_20 = 317,                   /* $@20  */
-  YYSYMBOL_expr_type_info = 318,           /* expr_type_info  */
-  YYSYMBOL_expr_list = 319,                /* expr_list  */
-  YYSYMBOL_block_or_simple_block = 320,    /* block_or_simple_block  */
-  YYSYMBOL_block_or_lambda = 321,          /* block_or_lambda  */
-  YYSYMBOL_capture_entry = 322,            /* capture_entry  */
-  YYSYMBOL_capture_list = 323,             /* capture_list  */
-  YYSYMBOL_optional_capture_list = 324,    /* optional_capture_list  */
-  YYSYMBOL_expr_block = 325,               /* expr_block  */
-  YYSYMBOL_expr_full_block = 326,          /* expr_full_block  */
-  YYSYMBOL_expr_full_block_assumed_piped = 327, /* expr_full_block_assumed_piped  */
-  YYSYMBOL_328_21 = 328,                   /* $@21  */
-  YYSYMBOL_expr_numeric_const = 329,       /* expr_numeric_const  */
-  YYSYMBOL_expr_assign = 330,              /* expr_assign  */
-  YYSYMBOL_expr_assign_pipe_right = 331,   /* expr_assign_pipe_right  */
-  YYSYMBOL_expr_assign_pipe = 332,         /* expr_assign_pipe  */
-  YYSYMBOL_expr_named_call = 333,          /* expr_named_call  */
-  YYSYMBOL_expr_method_call = 334,         /* expr_method_call  */
-  YYSYMBOL_func_addr_name = 335,           /* func_addr_name  */
-  YYSYMBOL_func_addr_expr = 336,           /* func_addr_expr  */
-  YYSYMBOL_337_22 = 337,                   /* $@22  */
-  YYSYMBOL_338_23 = 338,                   /* $@23  */
-  YYSYMBOL_339_24 = 339,                   /* $@24  */
-  YYSYMBOL_340_25 = 340,                   /* $@25  */
-  YYSYMBOL_expr_field = 341,               /* expr_field  */
-  YYSYMBOL_342_26 = 342,                   /* $@26  */
-  YYSYMBOL_343_27 = 343,                   /* $@27  */
-  YYSYMBOL_expr_call = 344,                /* expr_call  */
-  YYSYMBOL_expr = 345,                     /* expr  */
-  YYSYMBOL_346_28 = 346,                   /* $@28  */
-  YYSYMBOL_347_29 = 347,                   /* $@29  */
-  YYSYMBOL_348_30 = 348,                   /* $@30  */
-  YYSYMBOL_349_31 = 349,                   /* $@31  */
-  YYSYMBOL_350_32 = 350,                   /* $@32  */
-  YYSYMBOL_351_33 = 351,                   /* $@33  */
-  YYSYMBOL_expr_mtag = 352,                /* expr_mtag  */
-  YYSYMBOL_optional_field_annotation = 353, /* optional_field_annotation  */
-  YYSYMBOL_optional_override = 354,        /* optional_override  */
-  YYSYMBOL_optional_constant = 355,        /* optional_constant  */
-  YYSYMBOL_optional_public_or_private_member_variable = 356, /* optional_public_or_private_member_variable  */
-  YYSYMBOL_optional_static_member_variable = 357, /* optional_static_member_variable  */
-  YYSYMBOL_structure_variable_declaration = 358, /* structure_variable_declaration  */
-  YYSYMBOL_struct_variable_declaration_list = 359, /* struct_variable_declaration_list  */
-  YYSYMBOL_360_34 = 360,                   /* $@34  */
-  YYSYMBOL_361_35 = 361,                   /* $@35  */
-  YYSYMBOL_362_36 = 362,                   /* $@36  */
-  YYSYMBOL_function_argument_declaration = 363, /* function_argument_declaration  */
-  YYSYMBOL_function_argument_list = 364,   /* function_argument_list  */
-  YYSYMBOL_tuple_type = 365,               /* tuple_type  */
-  YYSYMBOL_tuple_type_list = 366,          /* tuple_type_list  */
-  YYSYMBOL_tuple_alias_type_list = 367,    /* tuple_alias_type_list  */
-  YYSYMBOL_variant_type = 368,             /* variant_type  */
-  YYSYMBOL_variant_type_list = 369,        /* variant_type_list  */
-  YYSYMBOL_variant_alias_type_list = 370,  /* variant_alias_type_list  */
-  YYSYMBOL_copy_or_move = 371,             /* copy_or_move  */
-  YYSYMBOL_variable_declaration = 372,     /* variable_declaration  */
-  YYSYMBOL_copy_or_move_or_clone = 373,    /* copy_or_move_or_clone  */
-  YYSYMBOL_optional_ref = 374,             /* optional_ref  */
-  YYSYMBOL_let_variable_name_with_pos_list = 375, /* let_variable_name_with_pos_list  */
-  YYSYMBOL_let_variable_declaration = 376, /* let_variable_declaration  */
-  YYSYMBOL_global_variable_declaration_list = 377, /* global_variable_declaration_list  */
-  YYSYMBOL_378_37 = 378,                   /* $@37  */
-  YYSYMBOL_optional_shared = 379,          /* optional_shared  */
-  YYSYMBOL_optional_public_or_private_variable = 380, /* optional_public_or_private_variable  */
-  YYSYMBOL_global_let = 381,               /* global_let  */
-  YYSYMBOL_382_38 = 382,                   /* $@38  */
-  YYSYMBOL_enum_list = 383,                /* enum_list  */
-  YYSYMBOL_optional_public_or_private_alias = 384, /* optional_public_or_private_alias  */
-  YYSYMBOL_single_alias = 385,             /* single_alias  */
-  YYSYMBOL_386_39 = 386,                   /* $@39  */
-  YYSYMBOL_alias_list = 387,               /* alias_list  */
-  YYSYMBOL_alias_declaration = 388,        /* alias_declaration  */
-  YYSYMBOL_389_40 = 389,                   /* $@40  */
-  YYSYMBOL_optional_public_or_private_enum = 390, /* optional_public_or_private_enum  */
-  YYSYMBOL_enum_name = 391,                /* enum_name  */
-  YYSYMBOL_enum_declaration = 392,         /* enum_declaration  */
-  YYSYMBOL_393_41 = 393,                   /* $@41  */
-  YYSYMBOL_394_42 = 394,                   /* $@42  */
-  YYSYMBOL_395_43 = 395,                   /* $@43  */
-  YYSYMBOL_396_44 = 396,                   /* $@44  */
-  YYSYMBOL_optional_structure_parent = 397, /* optional_structure_parent  */
-  YYSYMBOL_optional_sealed = 398,          /* optional_sealed  */
-  YYSYMBOL_structure_name = 399,           /* structure_name  */
-  YYSYMBOL_class_or_struct = 400,          /* class_or_struct  */
-  YYSYMBOL_optional_public_or_private_structure = 401, /* optional_public_or_private_structure  */
-  YYSYMBOL_optional_struct_variable_declaration_list = 402, /* optional_struct_variable_declaration_list  */
-  YYSYMBOL_structure_declaration = 403,    /* structure_declaration  */
-  YYSYMBOL_404_45 = 404,                   /* $@45  */
-  YYSYMBOL_405_46 = 405,                   /* $@46  */
-  YYSYMBOL_variable_name_with_pos_list = 406, /* variable_name_with_pos_list  */
-  YYSYMBOL_basic_type_declaration = 407,   /* basic_type_declaration  */
-  YYSYMBOL_enum_basic_type_declaration = 408, /* enum_basic_type_declaration  */
-  YYSYMBOL_structure_type_declaration = 409, /* structure_type_declaration  */
-  YYSYMBOL_auto_type_declaration = 410,    /* auto_type_declaration  */
-  YYSYMBOL_bitfield_bits = 411,            /* bitfield_bits  */
-  YYSYMBOL_bitfield_alias_bits = 412,      /* bitfield_alias_bits  */
-  YYSYMBOL_bitfield_type_declaration = 413, /* bitfield_type_declaration  */
-  YYSYMBOL_414_47 = 414,                   /* $@47  */
-  YYSYMBOL_415_48 = 415,                   /* $@48  */
-  YYSYMBOL_table_type_pair = 416,          /* table_type_pair  */
-  YYSYMBOL_dim_list = 417,                 /* dim_list  */
-  YYSYMBOL_type_declaration_no_options = 418, /* type_declaration_no_options  */
-  YYSYMBOL_419_49 = 419,                   /* $@49  */
-  YYSYMBOL_420_50 = 420,                   /* $@50  */
-  YYSYMBOL_421_51 = 421,                   /* $@51  */
-  YYSYMBOL_422_52 = 422,                   /* $@52  */
-  YYSYMBOL_423_53 = 423,                   /* $@53  */
-  YYSYMBOL_424_54 = 424,                   /* $@54  */
-  YYSYMBOL_425_55 = 425,                   /* $@55  */
-  YYSYMBOL_426_56 = 426,                   /* $@56  */
-  YYSYMBOL_427_57 = 427,                   /* $@57  */
-  YYSYMBOL_428_58 = 428,                   /* $@58  */
-  YYSYMBOL_429_59 = 429,                   /* $@59  */
-  YYSYMBOL_430_60 = 430,                   /* $@60  */
-  YYSYMBOL_431_61 = 431,                   /* $@61  */
-  YYSYMBOL_432_62 = 432,                   /* $@62  */
-  YYSYMBOL_433_63 = 433,                   /* $@63  */
-  YYSYMBOL_434_64 = 434,                   /* $@64  */
-  YYSYMBOL_435_65 = 435,                   /* $@65  */
-  YYSYMBOL_436_66 = 436,                   /* $@66  */
-  YYSYMBOL_437_67 = 437,                   /* $@67  */
-  YYSYMBOL_438_68 = 438,                   /* $@68  */
-  YYSYMBOL_439_69 = 439,                   /* $@69  */
-  YYSYMBOL_440_70 = 440,                   /* $@70  */
-  YYSYMBOL_441_71 = 441,                   /* $@71  */
-  YYSYMBOL_442_72 = 442,                   /* $@72  */
-  YYSYMBOL_443_73 = 443,                   /* $@73  */
-  YYSYMBOL_444_74 = 444,                   /* $@74  */
-  YYSYMBOL_445_75 = 445,                   /* $@75  */
-  YYSYMBOL_type_declaration = 446,         /* type_declaration  */
-  YYSYMBOL_tuple_alias_declaration = 447,  /* tuple_alias_declaration  */
-  YYSYMBOL_448_76 = 448,                   /* $@76  */
-  YYSYMBOL_449_77 = 449,                   /* $@77  */
-  YYSYMBOL_450_78 = 450,                   /* $@78  */
-  YYSYMBOL_451_79 = 451,                   /* $@79  */
-  YYSYMBOL_variant_alias_declaration = 452, /* variant_alias_declaration  */
-  YYSYMBOL_453_80 = 453,                   /* $@80  */
-  YYSYMBOL_454_81 = 454,                   /* $@81  */
-  YYSYMBOL_455_82 = 455,                   /* $@82  */
-  YYSYMBOL_456_83 = 456,                   /* $@83  */
-  YYSYMBOL_bitfield_alias_declaration = 457, /* bitfield_alias_declaration  */
-  YYSYMBOL_458_84 = 458,                   /* $@84  */
-  YYSYMBOL_459_85 = 459,                   /* $@85  */
-  YYSYMBOL_460_86 = 460,                   /* $@86  */
-  YYSYMBOL_461_87 = 461,                   /* $@87  */
-  YYSYMBOL_make_decl = 462,                /* make_decl  */
-  YYSYMBOL_make_struct_fields = 463,       /* make_struct_fields  */
-  YYSYMBOL_make_struct_single = 464,       /* make_struct_single  */
-  YYSYMBOL_make_struct_dim = 465,          /* make_struct_dim  */
-  YYSYMBOL_optional_block = 466,           /* optional_block  */
-  YYSYMBOL_optional_trailing_semicolon_cur_cur = 467, /* optional_trailing_semicolon_cur_cur  */
-  YYSYMBOL_optional_trailing_semicolon_cur_sqr = 468, /* optional_trailing_semicolon_cur_sqr  */
-  YYSYMBOL_optional_trailing_semicolon_sqr_sqr = 469, /* optional_trailing_semicolon_sqr_sqr  */
-  YYSYMBOL_optional_trailing_delim_sqr_sqr = 470, /* optional_trailing_delim_sqr_sqr  */
-  YYSYMBOL_optional_trailing_delim_cur_sqr = 471, /* optional_trailing_delim_cur_sqr  */
-  YYSYMBOL_use_initializer = 472,          /* use_initializer  */
-  YYSYMBOL_make_struct_decl = 473,         /* make_struct_decl  */
-  YYSYMBOL_474_88 = 474,                   /* $@88  */
-  YYSYMBOL_475_89 = 475,                   /* $@89  */
-  YYSYMBOL_476_90 = 476,                   /* $@90  */
-  YYSYMBOL_477_91 = 477,                   /* $@91  */
-  YYSYMBOL_478_92 = 478,                   /* $@92  */
-  YYSYMBOL_479_93 = 479,                   /* $@93  */
-  YYSYMBOL_480_94 = 480,                   /* $@94  */
-  YYSYMBOL_481_95 = 481,                   /* $@95  */
-  YYSYMBOL_make_tuple = 482,               /* make_tuple  */
-  YYSYMBOL_make_map_tuple = 483,           /* make_map_tuple  */
-  YYSYMBOL_make_tuple_call = 484,          /* make_tuple_call  */
-  YYSYMBOL_485_96 = 485,                   /* $@96  */
-  YYSYMBOL_486_97 = 486,                   /* $@97  */
-  YYSYMBOL_make_dim = 487,                 /* make_dim  */
-  YYSYMBOL_make_dim_decl = 488,            /* make_dim_decl  */
-  YYSYMBOL_489_98 = 489,                   /* $@98  */
-  YYSYMBOL_490_99 = 490,                   /* $@99  */
-  YYSYMBOL_491_100 = 491,                  /* $@100  */
-  YYSYMBOL_492_101 = 492,                  /* $@101  */
-  YYSYMBOL_493_102 = 493,                  /* $@102  */
-  YYSYMBOL_494_103 = 494,                  /* $@103  */
-  YYSYMBOL_495_104 = 495,                  /* $@104  */
-  YYSYMBOL_496_105 = 496,                  /* $@105  */
-  YYSYMBOL_497_106 = 497,                  /* $@106  */
-  YYSYMBOL_498_107 = 498,                  /* $@107  */
-  YYSYMBOL_make_table = 499,               /* make_table  */
-  YYSYMBOL_expr_map_tuple_list = 500,      /* expr_map_tuple_list  */
-  YYSYMBOL_make_table_decl = 501,          /* make_table_decl  */
-  YYSYMBOL_array_comprehension_where = 502, /* array_comprehension_where  */
-  YYSYMBOL_optional_comma = 503,           /* optional_comma  */
-  YYSYMBOL_array_comprehension = 504       /* array_comprehension  */
-};
-typedef enum yysymbol_kind_t yysymbol_kind_t;
+/* Enabling verbose error messages.  */
+#ifdef YYERROR_VERBOSE
+# undef YYERROR_VERBOSE
+# define YYERROR_VERBOSE 1
+#else
+# define YYERROR_VERBOSE 1
+#endif
 
+/* Use api.header.include to #include this header
+   instead of duplicating it here.  */
+#ifndef YY_DAS_YY_DS_PARSER_HPP_INCLUDED
+# define YY_DAS_YY_DS_PARSER_HPP_INCLUDED
+/* Debug traces.  */
+#ifndef DAS_YYDEBUG
+# if defined YYDEBUG
+#if YYDEBUG
+#   define DAS_YYDEBUG 1
+#  else
+#   define DAS_YYDEBUG 0
+#  endif
+# else /* ! defined YYDEBUG */
+#  define DAS_YYDEBUG 0
+# endif /* ! defined YYDEBUG */
+#endif  /* ! defined DAS_YYDEBUG */
+#if DAS_YYDEBUG
+extern int das_yydebug;
+#endif
+/* "%code requires" blocks.  */
+
+    #include "daScript/misc/platform.h"
+    #include "daScript/ast/ast.h"
+    #include "daScript/ast/ast_generate.h"
+    #include "daScript/ast/ast_expressions.h"
+
+    #include "parser_state.h"
+
+#if defined(_MSC_VER) && !defined(__clang__)
+    #if defined(DAS_RELWITHDEBINFO)
+        #pragma optimize( "s", on )
+    #endif
+#endif
+
+    enum {
+        CorM_COPY   = 0,
+        CorM_MOVE   = (1<<0),
+        CorM_CLONE  = (1<<1)
+    };
+
+    using namespace das;
+
+    #include "parser_impl.h"
+
+    LineInfo tokAt ( yyscan_t scanner, const struct DAS_YYLTYPE & li );
+    LineInfo tokRangeAt ( yyscan_t scanner, const struct DAS_YYLTYPE & li, const struct DAS_YYLTYPE & lie );
+
+    struct TypePair {
+        TypeDecl * firstType;
+        TypeDecl * secondType;
+    };
+
+
+/* Token type.  */
+#ifndef DAS_YYTOKENTYPE
+# define DAS_YYTOKENTYPE
+  enum das_yytokentype
+  {
+    LEXER_ERROR = 258,
+    DAS_STRUCT = 259,
+    DAS_CLASS = 260,
+    DAS_LET = 261,
+    DAS_DEF = 262,
+    DAS_WHILE = 263,
+    DAS_IF = 264,
+    DAS_STATIC_IF = 265,
+    DAS_ELSE = 266,
+    DAS_FOR = 267,
+    DAS_CATCH = 268,
+    DAS_TRUE = 269,
+    DAS_FALSE = 270,
+    DAS_NEWT = 271,
+    DAS_TYPEINFO = 272,
+    DAS_TYPE = 273,
+    DAS_IN = 274,
+    DAS_IS = 275,
+    DAS_AS = 276,
+    DAS_ELIF = 277,
+    DAS_STATIC_ELIF = 278,
+    DAS_ARRAY = 279,
+    DAS_RETURN = 280,
+    DAS_NULL = 281,
+    DAS_BREAK = 282,
+    DAS_TRY = 283,
+    DAS_OPTIONS = 284,
+    DAS_TABLE = 285,
+    DAS_EXPECT = 286,
+    DAS_CONST = 287,
+    DAS_REQUIRE = 288,
+    DAS_OPERATOR = 289,
+    DAS_ENUM = 290,
+    DAS_FINALLY = 291,
+    DAS_DELETE = 292,
+    DAS_DEREF = 293,
+    DAS_TYPEDEF = 294,
+    DAS_TYPEDECL = 295,
+    DAS_WITH = 296,
+    DAS_AKA = 297,
+    DAS_ASSUME = 298,
+    DAS_CAST = 299,
+    DAS_OVERRIDE = 300,
+    DAS_ABSTRACT = 301,
+    DAS_UPCAST = 302,
+    DAS_ITERATOR = 303,
+    DAS_VAR = 304,
+    DAS_ADDR = 305,
+    DAS_CONTINUE = 306,
+    DAS_WHERE = 307,
+    DAS_PASS = 308,
+    DAS_REINTERPRET = 309,
+    DAS_MODULE = 310,
+    DAS_PUBLIC = 311,
+    DAS_LABEL = 312,
+    DAS_GOTO = 313,
+    DAS_IMPLICIT = 314,
+    DAS_EXPLICIT = 315,
+    DAS_SHARED = 316,
+    DAS_PRIVATE = 317,
+    DAS_SMART_PTR = 318,
+    DAS_UNSAFE = 319,
+    DAS_INSCOPE = 320,
+    DAS_STATIC = 321,
+    DAS_FIXED_ARRAY = 322,
+    DAS_DEFAULT = 323,
+    DAS_UNINITIALIZED = 324,
+    DAS_TBOOL = 325,
+    DAS_TVOID = 326,
+    DAS_TSTRING = 327,
+    DAS_TAUTO = 328,
+    DAS_TINT = 329,
+    DAS_TINT2 = 330,
+    DAS_TINT3 = 331,
+    DAS_TINT4 = 332,
+    DAS_TUINT = 333,
+    DAS_TBITFIELD = 334,
+    DAS_TUINT2 = 335,
+    DAS_TUINT3 = 336,
+    DAS_TUINT4 = 337,
+    DAS_TFLOAT = 338,
+    DAS_TFLOAT2 = 339,
+    DAS_TFLOAT3 = 340,
+    DAS_TFLOAT4 = 341,
+    DAS_TRANGE = 342,
+    DAS_TURANGE = 343,
+    DAS_TRANGE64 = 344,
+    DAS_TURANGE64 = 345,
+    DAS_TBLOCK = 346,
+    DAS_TINT64 = 347,
+    DAS_TUINT64 = 348,
+    DAS_TDOUBLE = 349,
+    DAS_TFUNCTION = 350,
+    DAS_TLAMBDA = 351,
+    DAS_TINT8 = 352,
+    DAS_TUINT8 = 353,
+    DAS_TINT16 = 354,
+    DAS_TUINT16 = 355,
+    DAS_TTUPLE = 356,
+    DAS_TVARIANT = 357,
+    DAS_GENERATOR = 358,
+    DAS_YIELD = 359,
+    DAS_SEALED = 360,
+    ADDEQU = 361,
+    SUBEQU = 362,
+    DIVEQU = 363,
+    MULEQU = 364,
+    MODEQU = 365,
+    ANDEQU = 366,
+    OREQU = 367,
+    XOREQU = 368,
+    SHL = 369,
+    SHR = 370,
+    ADDADD = 371,
+    SUBSUB = 372,
+    LEEQU = 373,
+    SHLEQU = 374,
+    SHREQU = 375,
+    GREQU = 376,
+    EQUEQU = 377,
+    NOTEQU = 378,
+    RARROW = 379,
+    LARROW = 380,
+    QQ = 381,
+    QDOT = 382,
+    QBRA = 383,
+    LPIPE = 384,
+    LBPIPE = 385,
+    LLPIPE = 386,
+    LAPIPE = 387,
+    LFPIPE = 388,
+    RPIPE = 389,
+    CLONEEQU = 390,
+    ROTL = 391,
+    ROTR = 392,
+    ROTLEQU = 393,
+    ROTREQU = 394,
+    MAPTO = 395,
+    COLCOL = 396,
+    ANDAND = 397,
+    OROR = 398,
+    XORXOR = 399,
+    ANDANDEQU = 400,
+    OROREQU = 401,
+    XORXOREQU = 402,
+    DOTDOT = 403,
+    MTAG_E = 404,
+    MTAG_I = 405,
+    MTAG_V = 406,
+    MTAG_B = 407,
+    MTAG_A = 408,
+    MTAG_T = 409,
+    MTAG_C = 410,
+    MTAG_F = 411,
+    MTAG_DOTDOTDOT = 412,
+    BRABRAB = 413,
+    BRACBRB = 414,
+    CBRCBRB = 415,
+    INTEGER = 416,
+    LONG_INTEGER = 417,
+    UNSIGNED_INTEGER = 418,
+    UNSIGNED_LONG_INTEGER = 419,
+    UNSIGNED_INT8 = 420,
+    FLOAT = 421,
+    DOUBLE = 422,
+    NAME = 423,
+    KEYWORD = 424,
+    TYPE_FUNCTION = 425,
+    BEGIN_STRING = 426,
+    STRING_CHARACTER = 427,
+    STRING_CHARACTER_ESC = 428,
+    END_STRING = 429,
+    BEGIN_STRING_EXPR = 430,
+    END_STRING_EXPR = 431,
+    END_OF_READ = 432,
+    SEMICOLON_CUR_CUR = 433,
+    SEMICOLON_CUR_SQR = 434,
+    SEMICOLON_SQR_SQR = 435,
+    COMMA_SQR_SQR = 436,
+    COMMA_CUR_SQR = 437,
+    UNARY_MINUS = 438,
+    UNARY_PLUS = 439,
+    PRE_INC = 440,
+    PRE_DEC = 441,
+    POST_INC = 442,
+    POST_DEC = 443,
+    DEREF = 444
+  };
+#endif
+
+/* Value type.  */
+#if ! defined DAS_YYSTYPE && ! defined DAS_YYSTYPE_IS_DECLARED
+union DAS_YYSTYPE
+{
+
+    char                            ch;
+    bool                            b;
+    int32_t                         i;
+    uint32_t                        ui;
+    int64_t                         i64;
+    uint64_t                        ui64;
+    double                          d;
+    double                          fd;
+    string *                        s;
+    vector<string> *                pNameList;
+    vector<VariableNameAndPosition> * pNameWithPosList;
+    VariableDeclaration *           pVarDecl;
+    vector<VariableDeclaration*> *  pVarDeclList;
+    TypeDecl *                      pTypeDecl;
+    vector<Expression *> *          pTypeDeclList;
+    Expression *                    pExpression;
+    Type                            type;
+    AnnotationArgument *            aa;
+    AnnotationArgumentList *        aaList;
+    AnnotationDeclaration *         fa;
+    AnnotationList *                faList;
+    MakeStruct *                    pMakeStruct;
+    Enumeration *                   pEnum;
+    Structure *                     pStructure;
+    Function *                      pFuncDecl;
+    CaptureEntry *                  pCapt;
+    vector<CaptureEntry> *          pCaptList;
+    TypePair                        aTypePair;
+
+
+};
+typedef union DAS_YYSTYPE DAS_YYSTYPE;
+# define DAS_YYSTYPE_IS_TRIVIAL 1
+# define DAS_YYSTYPE_IS_DECLARED 1
+#endif
+
+/* Location type.  */
+#if ! defined DAS_YYLTYPE && ! defined DAS_YYLTYPE_IS_DECLARED
+typedef struct DAS_YYLTYPE DAS_YYLTYPE;
+struct DAS_YYLTYPE
+{
+  int first_line;
+  int first_column;
+  int last_line;
+  int last_column;
+};
+# define DAS_YYLTYPE_IS_DECLARED 1
+# define DAS_YYLTYPE_IS_TRIVIAL 1
+#endif
+
+
+
+int das_yyparse (yyscan_t scanner);
+
+#endif /* !YY_DAS_YY_DS_PARSER_HPP_INCLUDED  */
 
 
 
@@ -681,18 +483,6 @@ typedef __INT_LEAST16_TYPE__ yytype_int16;
 typedef int_least16_t yytype_int16;
 #else
 typedef short yytype_int16;
-#endif
-
-/* Work around bug in HP-UX 11.23, which defines these macros
-   incorrectly for preprocessor constants.  This workaround can likely
-   be removed in 2023, as HPE has promised support for HP-UX 11.23
-   (aka HP-UX 11i v2) only through the end of 2022; see Table 2 of
-   <https://h20195.www2.hpe.com/V2/getpdf.aspx/4AA4-7673ENW.pdf>.  */
-#ifdef __hpux
-# undef UINT_LEAST8_MAX
-# undef UINT_LEAST16_MAX
-# define UINT_LEAST8_MAX 255
-# define UINT_LEAST16_MAX 65535
 #endif
 
 #if defined __UINT_LEAST8_MAX__ && __UINT_LEAST8_MAX__ <= __INT_MAX__
@@ -754,7 +544,6 @@ typedef int yytype_uint16;
 
 #define YYSIZEOF(X) YY_CAST (YYPTRDIFF_T, sizeof (X))
 
-
 /* Stored state numbers (used for stacks). */
 typedef yytype_int16 yy_state_t;
 
@@ -772,7 +561,6 @@ typedef int yy_state_fast_t;
 #  define YY_(Msgid) Msgid
 # endif
 #endif
-
 
 #ifndef YY_ATTRIBUTE_PURE
 # if defined __GNUC__ && 2 < __GNUC__ + (96 <= __GNUC_MINOR__)
@@ -792,23 +580,17 @@ typedef int yy_state_fast_t;
 
 /* Suppress unused-variable warnings by "using" E.  */
 #if ! defined lint || defined __GNUC__
-# define YY_USE(E) ((void) (E))
+# define YYUSE(E) ((void) (E))
 #else
-# define YY_USE(E) /* empty */
+# define YYUSE(E) /* empty */
 #endif
 
+#if defined __GNUC__ && ! defined __ICC && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
 /* Suppress an incorrect diagnostic about yylval being uninitialized.  */
-#if defined __GNUC__ && ! defined __ICC && 406 <= __GNUC__ * 100 + __GNUC_MINOR__
-# if __GNUC__ * 100 + __GNUC_MINOR__ < 407
-#  define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                           \
-    _Pragma ("GCC diagnostic push")                                     \
-    _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")
-# else
-#  define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                           \
+# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                            \
     _Pragma ("GCC diagnostic push")                                     \
     _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")              \
     _Pragma ("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")
-# endif
 # define YY_IGNORE_MAYBE_UNINITIALIZED_END      \
     _Pragma ("GCC diagnostic pop")
 #else
@@ -837,7 +619,7 @@ typedef int yy_state_fast_t;
 
 #define YY_ASSERT(E) ((void) (0 && (E)))
 
-#if 1
+#if ! defined yyoverflow || YYERROR_VERBOSE
 
 /* The parser invokes alloca or malloc; define the necessary symbols.  */
 
@@ -902,7 +684,8 @@ void free (void *); /* INFRINGES ON USER NAME SPACE */
 #   endif
 #  endif
 # endif
-#endif /* 1 */
+#endif /* ! defined yyoverflow || YYERROR_VERBOSE */
+
 
 #if (! defined yyoverflow \
      && (! defined __cplusplus \
@@ -981,16 +764,14 @@ union yyalloc
 /* YYNSTATES -- Number of states.  */
 #define YYNSTATES  1631
 
-/* YYMAXUTOK -- Last valid token kind.  */
+#define YYUNDEFTOK  2
 #define YYMAXUTOK   444
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
    as returned by yylex, with out-of-bounds checking.  */
-#define YYTRANSLATE(YYX)                                \
-  (0 <= (YYX) && (YYX) <= YYMAXUTOK                     \
-   ? YY_CAST (yysymbol_kind_t, yytranslate[YYX])        \
-   : YYSYMBOL_YYUNDEF)
+#define YYTRANSLATE(YYX)                                                \
+  (0 <= (YYX) && (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
 
 /* YYTRANSLATE[TOKEN-NUM] -- Symbol number corresponding to TOKEN-NUM
    as returned by yylex.  */
@@ -1044,7 +825,7 @@ static const yytype_uint8 yytranslate[] =
 };
 
 #if DAS_YYDEBUG
-/* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
        0,   534,   534,   535,   540,   541,   542,   543,   544,   545,
@@ -1137,20 +918,13 @@ static const yytype_int16 yyrline[] =
 };
 #endif
 
-/** Accessing symbol of state STATE.  */
-#define YY_ACCESSING_SYMBOL(State) YY_CAST (yysymbol_kind_t, yystos[State])
-
-#if 1
-/* The user-facing name of the symbol whose (internal) number is
-   YYSYMBOL.  No bounds checking.  */
-static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
-
+#if DAS_YYDEBUG || YYERROR_VERBOSE || 1
 /* YYTNAME[SYMBOL-NUM] -- String name of the symbol SYMBOL-NUM.
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "\"end of file\"", "error", "\"invalid token\"", "\"lexer error\"",
-  "\"struct\"", "\"class\"", "\"let\"", "\"def\"", "\"while\"", "\"if\"",
+  "$end", "error", "$undefined", "\"lexer error\"", "\"struct\"",
+  "\"class\"", "\"let\"", "\"def\"", "\"while\"", "\"if\"",
   "\"static_if\"", "\"else\"", "\"for\"", "\"recover\"", "\"true\"",
   "\"false\"", "\"new\"", "\"typeinfo\"", "\"type\"", "\"in\"", "\"is\"",
   "\"as\"", "\"elif\"", "\"static_elif\"", "\"array\"", "\"return\"",
@@ -1271,13 +1045,37 @@ static const char *const yytname[] =
   "expr_map_tuple_list", "make_table_decl", "array_comprehension_where",
   "optional_comma", "array_comprehension", YY_NULLPTR
 };
-
-static const char *
-yysymbol_name (yysymbol_kind_t yysymbol)
-{
-  return yytname[yysymbol];
-}
 #endif
+
+# ifdef YYPRINT
+/* YYTOKNUM[NUM] -- (External) token number corresponding to the
+   (internal) symbol number NUM (which must be that of a token).  */
+static const yytype_int16 yytoknum[] =
+{
+       0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
+     265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
+     275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
+     285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
+     295,   296,   297,   298,   299,   300,   301,   302,   303,   304,
+     305,   306,   307,   308,   309,   310,   311,   312,   313,   314,
+     315,   316,   317,   318,   319,   320,   321,   322,   323,   324,
+     325,   326,   327,   328,   329,   330,   331,   332,   333,   334,
+     335,   336,   337,   338,   339,   340,   341,   342,   343,   344,
+     345,   346,   347,   348,   349,   350,   351,   352,   353,   354,
+     355,   356,   357,   358,   359,   360,   361,   362,   363,   364,
+     365,   366,   367,   368,   369,   370,   371,   372,   373,   374,
+     375,   376,   377,   378,   379,   380,   381,   382,   383,   384,
+     385,   386,   387,   388,   389,   390,   391,   392,   393,   394,
+     395,   396,   397,   398,   399,   400,   401,   402,   403,   404,
+     405,   406,   407,   408,   409,   410,   411,   412,   413,   414,
+     415,   416,   417,   418,   419,   420,   421,   422,   423,   424,
+     425,   426,   427,   428,   429,   430,   431,   432,   123,   125,
+      59,   433,   434,   435,   436,   437,    44,    61,    63,    58,
+     124,    94,    38,    60,    62,    45,    43,    42,    47,    37,
+     438,   439,   126,    33,   440,   441,   442,   443,   444,    46,
+      91,    93,    40,    41,    36,    64,    35
+};
+# endif
 
 #define YYPACT_NINF (-1431)
 
@@ -1289,8 +1087,8 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 #define yytable_value_is_error(Yyn) \
   ((Yyn) == YYTABLE_NINF)
 
-/* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
-   STATE-NUM.  */
+  /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
+     STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
    -1431,    66, -1431, -1431,    38,    41,   242,   -91, -1431,  -101,
@@ -1459,9 +1257,9 @@ static const yytype_int16 yypact[] =
    -1431
 };
 
-/* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
-   Performed when YYTABLE does not specify something else to do.  Zero
-   means the default is an error.  */
+  /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
+     Performed when YYTABLE does not specify something else to do.  Zero
+     means the default is an error.  */
 static const yytype_int16 yydefact[] =
 {
        2,   120,     1,   296,     0,     0,     0,   601,   297,     0,
@@ -1630,7 +1428,7 @@ static const yytype_int16 yydefact[] =
      302
 };
 
-/* YYPGOTO[NTERM-NUM].  */
+  /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int16 yypgoto[] =
 {
    -1431, -1431, -1431, -1431, -1431, -1431,   535,  1151, -1431, -1431,
@@ -1664,10 +1462,10 @@ static const yytype_int16 yypgoto[] =
    -1431, -1431, -1431,  -629, -1431, -1380,  -701, -1431
 };
 
-/* YYDEFGOTO[NTERM-NUM].  */
+  /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int16 yydefgoto[] =
 {
-       0,     1,    16,   143,    52,    17,   164,   170,   696,   505,
+      -1,     1,    16,   143,    52,    17,   164,   170,   696,   505,
      149,   506,    99,    19,    20,    45,    46,    47,    88,    21,
       39,    40,   507,   508,  1201,  1202,   509,  1347,  1438,   510,
      511,   951,   512,   626,   513,   514,   515,   516,  1132,   171,
@@ -1698,9 +1496,9 @@ static const yytype_int16 yydefgoto[] =
      890,  1409,   692,   699,   554,  1550,   938,   555
 };
 
-/* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
-   positive, shift that token.  If negative, reduce the rule whose
-   number is the opposite.  If YYTABLE_NINF, syntax error.  */
+  /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
+     positive, shift that token.  If negative, reduce the rule whose
+     number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int16 yytable[] =
 {
       60,    70,   287,   691,   796,   352,   842,   943,   540,   944,
@@ -4627,8 +4425,8 @@ static const yytype_int16 yycheck[] =
       -1,    -1,    -1,    -1,    -1,    -1,    -1,   168
 };
 
-/* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
-   state STATE-NUM.  */
+  /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
+     symbol of state STATE-NUM.  */
 static const yytype_int16 yystos[] =
 {
        0,   218,     0,     6,    29,    31,    33,    39,    49,    55,
@@ -4797,7 +4595,7 @@ static const yytype_int16 yystos[] =
      180
 };
 
-/* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
+  /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_int16 yyr1[] =
 {
        0,   217,   218,   218,   218,   218,   218,   218,   218,   218,
@@ -4889,7 +4687,7 @@ static const yytype_int16 yyr1[] =
      503,   504,   504,   504,   504,   504,   504
 };
 
-/* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
+  /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_int8 yyr2[] =
 {
        0,     2,     0,     2,     2,     2,     2,     2,     2,     2,
@@ -4982,22 +4780,21 @@ static const yytype_int8 yyr2[] =
 };
 
 
-enum { YYENOMEM = -2 };
-
 #define yyerrok         (yyerrstatus = 0)
-#define yyclearin       (yychar = DAS_YYEMPTY)
+#define yyclearin       (yychar = YYEMPTY)
+#define YYEMPTY         (-2)
+#define YYEOF           0
 
 #define YYACCEPT        goto yyacceptlab
 #define YYABORT         goto yyabortlab
 #define YYERROR         goto yyerrorlab
-#define YYNOMEM         goto yyexhaustedlab
 
 
 #define YYRECOVERING()  (!!yyerrstatus)
 
 #define YYBACKUP(Token, Value)                                    \
   do                                                              \
-    if (yychar == DAS_YYEMPTY)                                        \
+    if (yychar == YYEMPTY)                                        \
       {                                                           \
         yychar = (Token);                                         \
         yylval = (Value);                                         \
@@ -5012,9 +4809,10 @@ enum { YYENOMEM = -2 };
       }                                                           \
   while (0)
 
-/* Backward compatibility with an undocumented macro.
-   Use DAS_YYerror or DAS_YYUNDEF. */
-#define YYERRCODE DAS_YYUNDEF
+/* Error token number */
+#define YYTERROR        1
+#define YYERRCODE       256
+
 
 /* YYLLOC_DEFAULT -- Set CURRENT to span from RHS[1] to RHS[N].
    If N is 0, then set CURRENT to the empty location which ends
@@ -5058,19 +4856,12 @@ do {                                            \
 } while (0)
 
 
-/* YYLOCATION_PRINT -- Print the location on the stream.
+/* YY_LOCATION_PRINT -- Print the location on the stream.
    This macro was not mandated originally: define only if we know
    we won't break user code: when these are the locations we know.  */
 
-# ifndef YYLOCATION_PRINT
-
-#  if defined YY_LOCATION_PRINT
-
-   /* Temporary convenience wrapper in case some people defined the
-      undocumented and private YY_LOCATION_PRINT macros.  */
-#   define YYLOCATION_PRINT(File, Loc)  YY_LOCATION_PRINT(File, *(Loc))
-
-#  elif defined DAS_YYLTYPE_IS_TRIVIAL && DAS_YYLTYPE_IS_TRIVIAL
+#ifndef YY_LOCATION_PRINT
+# if defined DAS_YYLTYPE_IS_TRIVIAL && DAS_YYLTYPE_IS_TRIVIAL
 
 /* Print *YYLOCP on YYO.  Private, do not rely on its existence. */
 
@@ -5098,32 +4889,24 @@ yy_location_print_ (FILE *yyo, YYLTYPE const * const yylocp)
         res += YYFPRINTF (yyo, "-%d", end_col);
     }
   return res;
-}
+ }
 
-#   define YYLOCATION_PRINT  yy_location_print_
+#  define YY_LOCATION_PRINT(File, Loc)          \
+  yy_location_print_ (File, &(Loc))
 
-    /* Temporary convenience wrapper in case some people defined the
-       undocumented and private YY_LOCATION_PRINT macros.  */
-#   define YY_LOCATION_PRINT(File, Loc)  YYLOCATION_PRINT(File, &(Loc))
-
-#  else
-
-#   define YYLOCATION_PRINT(File, Loc) ((void) 0)
-    /* Temporary convenience wrapper in case some people defined the
-       undocumented and private YY_LOCATION_PRINT macros.  */
-#   define YY_LOCATION_PRINT  YYLOCATION_PRINT
-
-#  endif
-# endif /* !defined YYLOCATION_PRINT */
+# else
+#  define YY_LOCATION_PRINT(File, Loc) ((void) 0)
+# endif
+#endif
 
 
-# define YY_SYMBOL_PRINT(Title, Kind, Value, Location)                    \
+# define YY_SYMBOL_PRINT(Title, Type, Value, Location)                    \
 do {                                                                      \
   if (yydebug)                                                            \
     {                                                                     \
       YYFPRINTF (stderr, "%s ", Title);                                   \
       yy_symbol_print (stderr,                                            \
-                  Kind, Value, Location, scanner); \
+                  Type, Value, Location, scanner); \
       YYFPRINTF (stderr, "\n");                                           \
     }                                                                     \
 } while (0)
@@ -5134,17 +4917,20 @@ do {                                                                      \
 `-----------------------------------*/
 
 static void
-yy_symbol_value_print (FILE *yyo,
-                       yysymbol_kind_t yykind, YYSTYPE const * const yyvaluep, YYLTYPE const * const yylocationp, yyscan_t scanner)
+yy_symbol_value_print (FILE *yyo, int yytype, YYSTYPE const * const yyvaluep, YYLTYPE const * const yylocationp, yyscan_t scanner)
 {
   FILE *yyoutput = yyo;
-  YY_USE (yyoutput);
-  YY_USE (yylocationp);
-  YY_USE (scanner);
+  YYUSE (yyoutput);
+  YYUSE (yylocationp);
+  YYUSE (scanner);
   if (!yyvaluep)
     return;
+# ifdef YYPRINT
+  if (yytype < YYNTOKENS)
+    YYPRINT (yyo, yytoknum[yytype], *yyvaluep);
+# endif
   YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
-  YY_USE (yykind);
+  YYUSE (yytype);
   YY_IGNORE_MAYBE_UNINITIALIZED_END
 }
 
@@ -5154,15 +4940,14 @@ yy_symbol_value_print (FILE *yyo,
 `---------------------------*/
 
 static void
-yy_symbol_print (FILE *yyo,
-                 yysymbol_kind_t yykind, YYSTYPE const * const yyvaluep, YYLTYPE const * const yylocationp, yyscan_t scanner)
+yy_symbol_print (FILE *yyo, int yytype, YYSTYPE const * const yyvaluep, YYLTYPE const * const yylocationp, yyscan_t scanner)
 {
   YYFPRINTF (yyo, "%s %s (",
-             yykind < YYNTOKENS ? "token" : "nterm", yysymbol_name (yykind));
+             yytype < YYNTOKENS ? "token" : "nterm", yytname[yytype]);
 
-  YYLOCATION_PRINT (yyo, yylocationp);
+  YY_LOCATION_PRINT (yyo, *yylocationp);
   YYFPRINTF (yyo, ": ");
-  yy_symbol_value_print (yyo, yykind, yyvaluep, yylocationp, scanner);
+  yy_symbol_value_print (yyo, yytype, yyvaluep, yylocationp, scanner);
   YYFPRINTF (yyo, ")");
 }
 
@@ -5195,8 +4980,7 @@ do {                                                            \
 `------------------------------------------------*/
 
 static void
-yy_reduce_print (yy_state_t *yyssp, YYSTYPE *yyvsp, YYLTYPE *yylsp,
-                 int yyrule, yyscan_t scanner)
+yy_reduce_print (yy_state_t *yyssp, YYSTYPE *yyvsp, YYLTYPE *yylsp, int yyrule, yyscan_t scanner)
 {
   int yylno = yyrline[yyrule];
   int yynrhs = yyr2[yyrule];
@@ -5208,9 +4992,9 @@ yy_reduce_print (yy_state_t *yyssp, YYSTYPE *yyvsp, YYLTYPE *yylsp,
     {
       YYFPRINTF (stderr, "   $%d = ", yyi + 1);
       yy_symbol_print (stderr,
-                       YY_ACCESSING_SYMBOL (+yyssp[yyi + 1 - yynrhs]),
-                       &yyvsp[(yyi + 1) - (yynrhs)],
-                       &(yylsp[(yyi + 1) - (yynrhs)]), scanner);
+                       yystos[+yyssp[yyi + 1 - yynrhs]],
+                       &yyvsp[(yyi + 1) - (yynrhs)]
+                       , &(yylsp[(yyi + 1) - (yynrhs)])                       , scanner);
       YYFPRINTF (stderr, "\n");
     }
 }
@@ -5225,8 +5009,8 @@ do {                                    \
    multiple parsers can coexist.  */
 int yydebug;
 #else /* !DAS_YYDEBUG */
-# define YYDPRINTF(Args) ((void) 0)
-# define YY_SYMBOL_PRINT(Title, Kind, Value, Location)
+# define YYDPRINTF(Args)
+# define YY_SYMBOL_PRINT(Title, Type, Value, Location)
 # define YY_STACK_PRINT(Bottom, Top)
 # define YY_REDUCE_PRINT(Rule)
 #endif /* !DAS_YYDEBUG */
@@ -5249,61 +5033,12 @@ int yydebug;
 #endif
 
 
-/* Context of a parse error.  */
-typedef struct
-{
-  yy_state_t *yyssp;
-  yysymbol_kind_t yytoken;
-  YYLTYPE *yylloc;
-} yypcontext_t;
+#if YYERROR_VERBOSE
 
-/* Put in YYARG at most YYARGN of the expected tokens given the
-   current YYCTX, and return the number of tokens stored in YYARG.  If
-   YYARG is null, return the number of expected tokens (guaranteed to
-   be less than YYNTOKENS).  Return YYENOMEM on memory exhaustion.
-   Return 0 if there are more than YYARGN expected tokens, yet fill
-   YYARG up to YYARGN. */
-static int
-yypcontext_expected_tokens (const yypcontext_t *yyctx,
-                            yysymbol_kind_t yyarg[], int yyargn)
-{
-  /* Actual size of YYARG. */
-  int yycount = 0;
-  int yyn = yypact[+*yyctx->yyssp];
-  if (!yypact_value_is_default (yyn))
-    {
-      /* Start YYX at -YYN if negative to avoid negative indexes in
-         YYCHECK.  In other words, skip the first -YYN actions for
-         this state because they are default actions.  */
-      int yyxbegin = yyn < 0 ? -yyn : 0;
-      /* Stay within bounds of both yycheck and yytname.  */
-      int yychecklim = YYLAST - yyn + 1;
-      int yyxend = yychecklim < YYNTOKENS ? yychecklim : YYNTOKENS;
-      int yyx;
-      for (yyx = yyxbegin; yyx < yyxend; ++yyx)
-        if (yycheck[yyx + yyn] == yyx && yyx != YYSYMBOL_YYerror
-            && !yytable_value_is_error (yytable[yyx + yyn]))
-          {
-            if (!yyarg)
-              ++yycount;
-            else if (yycount == yyargn)
-              return 0;
-            else
-              yyarg[yycount++] = YY_CAST (yysymbol_kind_t, yyx);
-          }
-    }
-  if (yyarg && yycount == 0 && 0 < yyargn)
-    yyarg[0] = YYSYMBOL_YYEMPTY;
-  return yycount;
-}
-
-
-
-
-#ifndef yystrlen
-# if defined __GLIBC__ && defined _STRING_H
-#  define yystrlen(S) (YY_CAST (YYPTRDIFF_T, strlen (S)))
-# else
+# ifndef yystrlen
+#  if defined __GLIBC__ && defined _STRING_H
+#   define yystrlen(S) (YY_CAST (YYPTRDIFF_T, strlen (S)))
+#  else
 /* Return the length of YYSTR.  */
 static YYPTRDIFF_T
 yystrlen (const char *yystr)
@@ -5313,13 +5048,13 @@ yystrlen (const char *yystr)
     continue;
   return yylen;
 }
+#  endif
 # endif
-#endif
 
-#ifndef yystpcpy
-# if defined __GLIBC__ && defined _STRING_H && defined _GNU_SOURCE
-#  define yystpcpy stpcpy
-# else
+# ifndef yystpcpy
+#  if defined __GLIBC__ && defined _STRING_H && defined _GNU_SOURCE
+#   define yystpcpy stpcpy
+#  else
 /* Copy YYSRC to YYDEST, returning the address of the terminating '\0' in
    YYDEST.  */
 static char *
@@ -5333,10 +5068,10 @@ yystpcpy (char *yydest, const char *yysrc)
 
   return yyd - 1;
 }
+#  endif
 # endif
-#endif
 
-#ifndef yytnamerr
+# ifndef yytnamerr
 /* Copy to YYRES the contents of YYSTR after stripping away unnecessary
    quotes and backslashes, so that it's suitable for yyerror.  The
    heuristic is that double-quoting is unnecessary unless the string
@@ -5351,6 +5086,7 @@ yytnamerr (char *yyres, const char *yystr)
     {
       YYPTRDIFF_T yyn = 0;
       char const *yyp = yystr;
+
       for (;;)
         switch (*++yyp)
           {
@@ -5384,15 +5120,31 @@ yytnamerr (char *yyres, const char *yystr)
   else
     return yystrlen (yystr);
 }
-#endif
+# endif
 
+/* Copy into *YYMSG, which is of size *YYMSG_ALLOC, an error message
+   about the unexpected token YYTOKEN for the state stack whose top is
+   YYSSP.
 
+   Return 0 if *YYMSG was successfully written.  Return 1 if *YYMSG is
+   not large enough to hold the message.  In that case, also set
+   *YYMSG_ALLOC to the required number of bytes.  Return 2 if the
+   required number of bytes is too large to store.  */
 static int
-yy_syntax_error_arguments (const yypcontext_t *yyctx,
-                           yysymbol_kind_t yyarg[], int yyargn)
+yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
+                yy_state_t *yyssp, int yytoken)
 {
+  enum { YYERROR_VERBOSE_ARGS_MAXIMUM = 5 };
+  /* Internationalized format string. */
+  const char *yyformat = YY_NULLPTR;
+  /* Arguments of yyformat: reported tokens (one for the "unexpected",
+     one per "expected"). */
+  char const *yyarg[YYERROR_VERBOSE_ARGS_MAXIMUM];
   /* Actual size of YYARG. */
   int yycount = 0;
+  /* Cumulated lengths of YYARG.  */
+  YYPTRDIFF_T yysize = 0;
+
   /* There are many possibilities here to consider:
      - If this state is a consistent state with a default action, then
        the only way this function was invoked is if the default action
@@ -5416,54 +5168,52 @@ yy_syntax_error_arguments (const yypcontext_t *yyctx,
        one exception: it will still contain any token that will not be
        accepted due to an error action in a later state.
   */
-  if (yyctx->yytoken != YYSYMBOL_YYEMPTY)
+  if (yytoken != YYEMPTY)
     {
-      int yyn;
-      if (yyarg)
-        yyarg[yycount] = yyctx->yytoken;
-      ++yycount;
-      yyn = yypcontext_expected_tokens (yyctx,
-                                        yyarg ? yyarg + 1 : yyarg, yyargn - 1);
-      if (yyn == YYENOMEM)
-        return YYENOMEM;
-      else
-        yycount += yyn;
+      int yyn = yypact[+*yyssp];
+      YYPTRDIFF_T yysize0 = yytnamerr (YY_NULLPTR, yytname[yytoken]);
+      yysize = yysize0;
+      yyarg[yycount++] = yytname[yytoken];
+      if (!yypact_value_is_default (yyn))
+        {
+          /* Start YYX at -YYN if negative to avoid negative indexes in
+             YYCHECK.  In other words, skip the first -YYN actions for
+             this state because they are default actions.  */
+          int yyxbegin = yyn < 0 ? -yyn : 0;
+          /* Stay within bounds of both yycheck and yytname.  */
+          int yychecklim = YYLAST - yyn + 1;
+          int yyxend = yychecklim < YYNTOKENS ? yychecklim : YYNTOKENS;
+          int yyx;
+
+          for (yyx = yyxbegin; yyx < yyxend; ++yyx)
+            if (yycheck[yyx + yyn] == yyx && yyx != YYTERROR
+                && !yytable_value_is_error (yytable[yyx + yyn]))
+              {
+                if (yycount == YYERROR_VERBOSE_ARGS_MAXIMUM)
+                  {
+                    yycount = 1;
+                    yysize = yysize0;
+                    break;
+                  }
+                yyarg[yycount++] = yytname[yyx];
+                {
+                  YYPTRDIFF_T yysize1
+                    = yysize + yytnamerr (YY_NULLPTR, yytname[yyx]);
+                  if (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM)
+                    yysize = yysize1;
+                  else
+                    return 2;
+                }
+              }
+        }
     }
-  return yycount;
-}
-
-/* Copy into *YYMSG, which is of size *YYMSG_ALLOC, an error message
-   about the unexpected token YYTOKEN for the state stack whose top is
-   YYSSP.
-
-   Return 0 if *YYMSG was successfully written.  Return -1 if *YYMSG is
-   not large enough to hold the message.  In that case, also set
-   *YYMSG_ALLOC to the required number of bytes.  Return YYENOMEM if the
-   required number of bytes is too large to store.  */
-static int
-yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
-                const yypcontext_t *yyctx)
-{
-  enum { YYARGS_MAX = 5 };
-  /* Internationalized format string. */
-  const char *yyformat = YY_NULLPTR;
-  /* Arguments of yyformat: reported tokens (one for the "unexpected",
-     one per "expected"). */
-  yysymbol_kind_t yyarg[YYARGS_MAX];
-  /* Cumulated lengths of YYARG.  */
-  YYPTRDIFF_T yysize = 0;
-
-  /* Actual size of YYARG. */
-  int yycount = yy_syntax_error_arguments (yyctx, yyarg, YYARGS_MAX);
-  if (yycount == YYENOMEM)
-    return YYENOMEM;
 
   switch (yycount)
     {
-#define YYCASE_(N, S)                       \
+# define YYCASE_(N, S)                      \
       case N:                               \
         yyformat = S;                       \
-        break
+      break
     default: /* Avoid compiler warnings. */
       YYCASE_(0, YY_("syntax error"));
       YYCASE_(1, YY_("syntax error, unexpected %s"));
@@ -5471,23 +5221,17 @@ yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
       YYCASE_(3, YY_("syntax error, unexpected %s, expecting %s or %s"));
       YYCASE_(4, YY_("syntax error, unexpected %s, expecting %s or %s or %s"));
       YYCASE_(5, YY_("syntax error, unexpected %s, expecting %s or %s or %s or %s"));
-#undef YYCASE_
+# undef YYCASE_
     }
 
-  /* Compute error message size.  Don't count the "%s"s, but reserve
-     room for the terminator.  */
-  yysize = yystrlen (yyformat) - 2 * yycount + 1;
   {
-    int yyi;
-    for (yyi = 0; yyi < yycount; ++yyi)
-      {
-        YYPTRDIFF_T yysize1
-          = yysize + yytnamerr (YY_NULLPTR, yytname[yyarg[yyi]]);
-        if (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM)
-          yysize = yysize1;
-        else
-          return YYENOMEM;
-      }
+    /* Don't count the "%s"s in the final size, but reserve room for
+       the terminator.  */
+    YYPTRDIFF_T yysize1 = yysize + (yystrlen (yyformat) - 2 * yycount) + 1;
+    if (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM)
+      yysize = yysize1;
+    else
+      return 2;
   }
 
   if (*yymsg_alloc < yysize)
@@ -5496,7 +5240,7 @@ yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
       if (! (yysize <= *yymsg_alloc
              && *yymsg_alloc <= YYSTACK_ALLOC_MAXIMUM))
         *yymsg_alloc = YYSTACK_ALLOC_MAXIMUM;
-      return -1;
+      return 1;
     }
 
   /* Avoid sprintf, as that infringes on the user's name space.
@@ -5508,7 +5252,7 @@ yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
     while ((*yyp = *yyformat) != '\0')
       if (*yyp == '%' && yyformat[1] == 's' && yyi < yycount)
         {
-          yyp += yytnamerr (yyp, yytname[yyarg[yyi++]]);
+          yyp += yytnamerr (yyp, yyarg[yyi++]);
           yyformat += 2;
         }
       else
@@ -5519,543 +5263,542 @@ yysyntax_error (YYPTRDIFF_T *yymsg_alloc, char **yymsg,
   }
   return 0;
 }
-
+#endif /* YYERROR_VERBOSE */
 
 /*-----------------------------------------------.
 | Release the memory associated to this symbol.  |
 `-----------------------------------------------*/
 
 static void
-yydestruct (const char *yymsg,
-            yysymbol_kind_t yykind, YYSTYPE *yyvaluep, YYLTYPE *yylocationp, yyscan_t scanner)
+yydestruct (const char *yymsg, int yytype, YYSTYPE *yyvaluep, YYLTYPE *yylocationp, yyscan_t scanner)
 {
-  YY_USE (yyvaluep);
-  YY_USE (yylocationp);
-  YY_USE (scanner);
+  YYUSE (yyvaluep);
+  YYUSE (yylocationp);
+  YYUSE (scanner);
   if (!yymsg)
     yymsg = "Deleting";
-  YY_SYMBOL_PRINT (yymsg, yykind, yyvaluep, yylocationp);
+  YY_SYMBOL_PRINT (yymsg, yytype, yyvaluep, yylocationp);
 
   YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
-  switch (yykind)
+  switch (yytype)
     {
-    case YYSYMBOL_NAME: /* "name"  */
+    case 168: /* "name"  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_KEYWORD: /* "keyword"  */
+    case 169: /* "keyword"  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_TYPE_FUNCTION: /* "type function"  */
+    case 170: /* "type function"  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_module_name: /* module_name  */
+    case 221: /* module_name  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_character_sequence: /* character_sequence  */
+    case 223: /* character_sequence  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_string_constant: /* string_constant  */
+    case 224: /* string_constant  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_string_builder_body: /* string_builder_body  */
+    case 225: /* string_builder_body  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_string_builder: /* string_builder  */
+    case 226: /* string_builder  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_reader: /* expr_reader  */
+    case 228: /* expr_reader  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_keyword_or_name: /* keyword_or_name  */
+    case 232: /* keyword_or_name  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_require_module_name: /* require_module_name  */
+    case 233: /* require_module_name  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_expression_label: /* expression_label  */
+    case 239: /* expression_label  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_goto: /* expression_goto  */
+    case 240: /* expression_goto  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_else: /* expression_else  */
+    case 242: /* expression_else  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_else_one_liner: /* expression_else_one_liner  */
+    case 244: /* expression_else_one_liner  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_if_one_liner: /* expression_if_one_liner  */
+    case 246: /* expression_if_one_liner  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_if_then_else: /* expression_if_then_else  */
+    case 247: /* expression_if_then_else  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_for_loop: /* expression_for_loop  */
+    case 249: /* expression_for_loop  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_unsafe: /* expression_unsafe  */
+    case 251: /* expression_unsafe  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_while_loop: /* expression_while_loop  */
+    case 252: /* expression_while_loop  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_with: /* expression_with  */
+    case 253: /* expression_with  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_with_alias: /* expression_with_alias  */
+    case 254: /* expression_with_alias  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_annotation_argument_value: /* annotation_argument_value  */
+    case 256: /* annotation_argument_value  */
             { delete ((*yyvaluep).aa); }
         break;
 
-    case YYSYMBOL_annotation_argument_value_list: /* annotation_argument_value_list  */
+    case 257: /* annotation_argument_value_list  */
             { delete ((*yyvaluep).aaList); }
         break;
 
-    case YYSYMBOL_annotation_argument_name: /* annotation_argument_name  */
+    case 258: /* annotation_argument_name  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_annotation_argument: /* annotation_argument  */
+    case 259: /* annotation_argument  */
             { delete ((*yyvaluep).aa); }
         break;
 
-    case YYSYMBOL_annotation_argument_list: /* annotation_argument_list  */
+    case 260: /* annotation_argument_list  */
             { delete ((*yyvaluep).aaList); }
         break;
 
-    case YYSYMBOL_metadata_argument_list: /* metadata_argument_list  */
+    case 261: /* metadata_argument_list  */
             { delete ((*yyvaluep).aaList); }
         break;
 
-    case YYSYMBOL_annotation_declaration_name: /* annotation_declaration_name  */
+    case 262: /* annotation_declaration_name  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_annotation_declaration_basic: /* annotation_declaration_basic  */
+    case 263: /* annotation_declaration_basic  */
             { delete ((*yyvaluep).fa); }
         break;
 
-    case YYSYMBOL_annotation_declaration: /* annotation_declaration  */
+    case 264: /* annotation_declaration  */
             { delete ((*yyvaluep).fa); }
         break;
 
-    case YYSYMBOL_annotation_list: /* annotation_list  */
+    case 265: /* annotation_list  */
             { delete ((*yyvaluep).faList); }
         break;
 
-    case YYSYMBOL_optional_annotation_list: /* optional_annotation_list  */
+    case 266: /* optional_annotation_list  */
             { delete ((*yyvaluep).faList); }
         break;
 
-    case YYSYMBOL_optional_function_argument_list: /* optional_function_argument_list  */
+    case 267: /* optional_function_argument_list  */
             { deleteVariableDeclarationList(((*yyvaluep).pVarDeclList)); }
         break;
 
-    case YYSYMBOL_optional_function_type: /* optional_function_type  */
+    case 268: /* optional_function_type  */
             { delete ((*yyvaluep).pTypeDecl); }
         break;
 
-    case YYSYMBOL_function_name: /* function_name  */
+    case 269: /* function_name  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_function_declaration_header: /* function_declaration_header  */
+    case 272: /* function_declaration_header  */
             { ((*yyvaluep).pFuncDecl)->delRef(); }
         break;
 
-    case YYSYMBOL_function_declaration: /* function_declaration  */
+    case 273: /* function_declaration  */
             { ((*yyvaluep).pFuncDecl)->delRef(); }
         break;
 
-    case YYSYMBOL_expression_block: /* expression_block  */
+    case 275: /* expression_block  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_call_pipe: /* expr_call_pipe  */
+    case 276: /* expr_call_pipe  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_any: /* expression_any  */
+    case 277: /* expression_any  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expressions: /* expressions  */
+    case 278: /* expressions  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_keyword: /* expr_keyword  */
+    case 279: /* expr_keyword  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_optional_expr_list: /* optional_expr_list  */
+    case 280: /* optional_expr_list  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_optional_expr_list_in_braces: /* optional_expr_list_in_braces  */
+    case 281: /* optional_expr_list_in_braces  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_type_declaration_no_options_list: /* type_declaration_no_options_list  */
+    case 282: /* type_declaration_no_options_list  */
             { deleteTypeDeclarationList(((*yyvaluep).pTypeDeclList)); }
         break;
 
-    case YYSYMBOL_expression_keyword: /* expression_keyword  */
+    case 283: /* expression_keyword  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_pipe: /* expr_pipe  */
+    case 288: /* expr_pipe  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_name_in_namespace: /* name_in_namespace  */
+    case 289: /* name_in_namespace  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_expression_delete: /* expression_delete  */
+    case 290: /* expression_delete  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_new_type_declaration: /* new_type_declaration  */
+    case 291: /* new_type_declaration  */
             { delete ((*yyvaluep).pTypeDecl); }
         break;
 
-    case YYSYMBOL_expr_new: /* expr_new  */
+    case 294: /* expr_new  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_break: /* expression_break  */
+    case 295: /* expression_break  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_continue: /* expression_continue  */
+    case 296: /* expression_continue  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_return_no_pipe: /* expression_return_no_pipe  */
+    case 297: /* expression_return_no_pipe  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_return: /* expression_return  */
+    case 298: /* expression_return  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_yield_no_pipe: /* expression_yield_no_pipe  */
+    case 299: /* expression_yield_no_pipe  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_yield: /* expression_yield  */
+    case 300: /* expression_yield  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expression_try_catch: /* expression_try_catch  */
+    case 301: /* expression_try_catch  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_tuple_expansion: /* tuple_expansion  */
+    case 305: /* tuple_expansion  */
             { delete ((*yyvaluep).pNameList); }
         break;
 
-    case YYSYMBOL_tuple_expansion_variable_declaration: /* tuple_expansion_variable_declaration  */
+    case 306: /* tuple_expansion_variable_declaration  */
             { delete ((*yyvaluep).pVarDecl); }
         break;
 
-    case YYSYMBOL_expression_let: /* expression_let  */
+    case 307: /* expression_let  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_cast: /* expr_cast  */
+    case 308: /* expr_cast  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_type_decl: /* expr_type_decl  */
+    case 315: /* expr_type_decl  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_type_info: /* expr_type_info  */
+    case 318: /* expr_type_info  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_list: /* expr_list  */
+    case 319: /* expr_list  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_block_or_simple_block: /* block_or_simple_block  */
+    case 320: /* block_or_simple_block  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_capture_entry: /* capture_entry  */
+    case 322: /* capture_entry  */
             { delete ((*yyvaluep).pCapt); }
         break;
 
-    case YYSYMBOL_capture_list: /* capture_list  */
+    case 323: /* capture_list  */
             { delete ((*yyvaluep).pCaptList); }
         break;
 
-    case YYSYMBOL_optional_capture_list: /* optional_capture_list  */
+    case 324: /* optional_capture_list  */
             { delete ((*yyvaluep).pCaptList); }
         break;
 
-    case YYSYMBOL_expr_block: /* expr_block  */
+    case 325: /* expr_block  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_full_block: /* expr_full_block  */
+    case 326: /* expr_full_block  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_full_block_assumed_piped: /* expr_full_block_assumed_piped  */
+    case 327: /* expr_full_block_assumed_piped  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_numeric_const: /* expr_numeric_const  */
+    case 329: /* expr_numeric_const  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_assign: /* expr_assign  */
+    case 330: /* expr_assign  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_assign_pipe_right: /* expr_assign_pipe_right  */
+    case 331: /* expr_assign_pipe_right  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_assign_pipe: /* expr_assign_pipe  */
+    case 332: /* expr_assign_pipe  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_named_call: /* expr_named_call  */
+    case 333: /* expr_named_call  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_method_call: /* expr_method_call  */
+    case 334: /* expr_method_call  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_func_addr_name: /* func_addr_name  */
+    case 335: /* func_addr_name  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_func_addr_expr: /* func_addr_expr  */
+    case 336: /* func_addr_expr  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_field: /* expr_field  */
+    case 341: /* expr_field  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_call: /* expr_call  */
+    case 344: /* expr_call  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr: /* expr  */
+    case 345: /* expr  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_mtag: /* expr_mtag  */
+    case 352: /* expr_mtag  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_optional_field_annotation: /* optional_field_annotation  */
+    case 353: /* optional_field_annotation  */
             { delete ((*yyvaluep).aaList); }
         break;
 
-    case YYSYMBOL_structure_variable_declaration: /* structure_variable_declaration  */
+    case 358: /* structure_variable_declaration  */
             { delete ((*yyvaluep).pVarDecl); }
         break;
 
-    case YYSYMBOL_struct_variable_declaration_list: /* struct_variable_declaration_list  */
+    case 359: /* struct_variable_declaration_list  */
             { deleteVariableDeclarationList(((*yyvaluep).pVarDeclList)); }
         break;
 
-    case YYSYMBOL_function_argument_declaration: /* function_argument_declaration  */
+    case 363: /* function_argument_declaration  */
             { delete ((*yyvaluep).pVarDecl); }
         break;
 
-    case YYSYMBOL_function_argument_list: /* function_argument_list  */
+    case 364: /* function_argument_list  */
             { deleteVariableDeclarationList(((*yyvaluep).pVarDeclList)); }
         break;
 
-    case YYSYMBOL_tuple_type: /* tuple_type  */
+    case 365: /* tuple_type  */
             { delete ((*yyvaluep).pVarDecl); }
         break;
 
-    case YYSYMBOL_tuple_type_list: /* tuple_type_list  */
+    case 366: /* tuple_type_list  */
             { deleteVariableDeclarationList(((*yyvaluep).pVarDeclList)); }
         break;
 
-    case YYSYMBOL_tuple_alias_type_list: /* tuple_alias_type_list  */
+    case 367: /* tuple_alias_type_list  */
             { deleteVariableDeclarationList(((*yyvaluep).pVarDeclList)); }
         break;
 
-    case YYSYMBOL_variant_type: /* variant_type  */
+    case 368: /* variant_type  */
             { delete ((*yyvaluep).pVarDecl); }
         break;
 
-    case YYSYMBOL_variant_type_list: /* variant_type_list  */
+    case 369: /* variant_type_list  */
             { deleteVariableDeclarationList(((*yyvaluep).pVarDeclList)); }
         break;
 
-    case YYSYMBOL_variant_alias_type_list: /* variant_alias_type_list  */
+    case 370: /* variant_alias_type_list  */
             { deleteVariableDeclarationList(((*yyvaluep).pVarDeclList)); }
         break;
 
-    case YYSYMBOL_variable_declaration: /* variable_declaration  */
+    case 372: /* variable_declaration  */
             { delete ((*yyvaluep).pVarDecl); }
         break;
 
-    case YYSYMBOL_let_variable_name_with_pos_list: /* let_variable_name_with_pos_list  */
+    case 375: /* let_variable_name_with_pos_list  */
             { delete ((*yyvaluep).pNameWithPosList); }
         break;
 
-    case YYSYMBOL_let_variable_declaration: /* let_variable_declaration  */
+    case 376: /* let_variable_declaration  */
             { delete ((*yyvaluep).pVarDecl); }
         break;
 
-    case YYSYMBOL_global_variable_declaration_list: /* global_variable_declaration_list  */
+    case 377: /* global_variable_declaration_list  */
             { deleteVariableDeclarationList(((*yyvaluep).pVarDeclList)); }
         break;
 
-    case YYSYMBOL_enum_list: /* enum_list  */
+    case 383: /* enum_list  */
             { if ( ((*yyvaluep).pEnum)->use_count()==1 ) delete ((*yyvaluep).pEnum); }
         break;
 
-    case YYSYMBOL_enum_name: /* enum_name  */
+    case 391: /* enum_name  */
             { if ( ((*yyvaluep).pEnum)->use_count()==1 ) delete ((*yyvaluep).pEnum); }
         break;
 
-    case YYSYMBOL_optional_structure_parent: /* optional_structure_parent  */
+    case 397: /* optional_structure_parent  */
             { delete ((*yyvaluep).s); }
         break;
 
-    case YYSYMBOL_optional_struct_variable_declaration_list: /* optional_struct_variable_declaration_list  */
+    case 402: /* optional_struct_variable_declaration_list  */
             { deleteVariableDeclarationList(((*yyvaluep).pVarDeclList)); }
         break;
 
-    case YYSYMBOL_variable_name_with_pos_list: /* variable_name_with_pos_list  */
+    case 406: /* variable_name_with_pos_list  */
             { delete ((*yyvaluep).pNameWithPosList); }
         break;
 
-    case YYSYMBOL_structure_type_declaration: /* structure_type_declaration  */
+    case 409: /* structure_type_declaration  */
             { delete ((*yyvaluep).pTypeDecl); }
         break;
 
-    case YYSYMBOL_auto_type_declaration: /* auto_type_declaration  */
+    case 410: /* auto_type_declaration  */
             { delete ((*yyvaluep).pTypeDecl); }
         break;
 
-    case YYSYMBOL_bitfield_bits: /* bitfield_bits  */
+    case 411: /* bitfield_bits  */
             { delete ((*yyvaluep).pNameList); }
         break;
 
-    case YYSYMBOL_bitfield_alias_bits: /* bitfield_alias_bits  */
+    case 412: /* bitfield_alias_bits  */
             { delete ((*yyvaluep).pNameList); }
         break;
 
-    case YYSYMBOL_bitfield_type_declaration: /* bitfield_type_declaration  */
+    case 413: /* bitfield_type_declaration  */
             { delete ((*yyvaluep).pTypeDecl); }
         break;
 
-    case YYSYMBOL_table_type_pair: /* table_type_pair  */
+    case 416: /* table_type_pair  */
             { delete ((*yyvaluep).aTypePair).firstType; delete ((*yyvaluep).aTypePair).secondType; }
         break;
 
-    case YYSYMBOL_dim_list: /* dim_list  */
+    case 417: /* dim_list  */
             { delete ((*yyvaluep).pTypeDecl); }
         break;
 
-    case YYSYMBOL_type_declaration_no_options: /* type_declaration_no_options  */
+    case 418: /* type_declaration_no_options  */
             { delete ((*yyvaluep).pTypeDecl); }
         break;
 
-    case YYSYMBOL_type_declaration: /* type_declaration  */
+    case 446: /* type_declaration  */
             { delete ((*yyvaluep).pTypeDecl); }
         break;
 
-    case YYSYMBOL_make_decl: /* make_decl  */
+    case 462: /* make_decl  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_make_struct_fields: /* make_struct_fields  */
+    case 463: /* make_struct_fields  */
             { delete ((*yyvaluep).pMakeStruct); }
         break;
 
-    case YYSYMBOL_make_struct_single: /* make_struct_single  */
+    case 464: /* make_struct_single  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_make_struct_dim: /* make_struct_dim  */
+    case 465: /* make_struct_dim  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_optional_block: /* optional_block  */
+    case 466: /* optional_block  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_make_struct_decl: /* make_struct_decl  */
+    case 473: /* make_struct_decl  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_make_tuple: /* make_tuple  */
+    case 482: /* make_tuple  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_make_map_tuple: /* make_map_tuple  */
+    case 483: /* make_map_tuple  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_make_tuple_call: /* make_tuple_call  */
+    case 484: /* make_tuple_call  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_make_dim: /* make_dim  */
+    case 487: /* make_dim  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_make_dim_decl: /* make_dim_decl  */
+    case 488: /* make_dim_decl  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_make_table: /* make_table  */
+    case 499: /* make_table  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_expr_map_tuple_list: /* expr_map_tuple_list  */
+    case 500: /* expr_map_tuple_list  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_make_table_decl: /* make_table_decl  */
+    case 501: /* make_table_decl  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_array_comprehension_where: /* array_comprehension_where  */
+    case 502: /* array_comprehension_where  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
-    case YYSYMBOL_array_comprehension: /* array_comprehension  */
+    case 504: /* array_comprehension  */
             { delete ((*yyvaluep).pExpression); }
         break;
 
@@ -6068,8 +5811,6 @@ yydestruct (const char *yymsg,
 
 
 
-
-
 /*----------.
 | yyparse.  |
 `----------*/
@@ -6077,7 +5818,7 @@ yydestruct (const char *yymsg,
 int
 yyparse (yyscan_t scanner)
 {
-/* Lookahead token kind.  */
+/* The lookahead symbol.  */
 int yychar;
 
 
@@ -6096,50 +5837,55 @@ static YYLTYPE yyloc_default
 YYLTYPE yylloc = yyloc_default;
 
     /* Number of syntax errors so far.  */
-    int yynerrs = 0;
+    int yynerrs;
 
-    yy_state_fast_t yystate = 0;
+    yy_state_fast_t yystate;
     /* Number of tokens to shift before error messages enabled.  */
-    int yyerrstatus = 0;
+    int yyerrstatus;
 
-    /* Refer to the stacks through separate pointers, to allow yyoverflow
+    /* The stacks and their tools:
+       'yyss': related to states.
+       'yyvs': related to semantic values.
+       'yyls': related to locations.
+
+       Refer to the stacks through separate pointers, to allow yyoverflow
        to reallocate them elsewhere.  */
 
-    /* Their size.  */
-    YYPTRDIFF_T yystacksize = YYINITDEPTH;
-
-    /* The state stack: array, bottom, top.  */
+    /* The state stack.  */
     yy_state_t yyssa[YYINITDEPTH];
-    yy_state_t *yyss = yyssa;
-    yy_state_t *yyssp = yyss;
+    yy_state_t *yyss;
+    yy_state_t *yyssp;
 
-    /* The semantic value stack: array, bottom, top.  */
+    /* The semantic value stack.  */
     YYSTYPE yyvsa[YYINITDEPTH];
-    YYSTYPE *yyvs = yyvsa;
-    YYSTYPE *yyvsp = yyvs;
+    YYSTYPE *yyvs;
+    YYSTYPE *yyvsp;
 
-    /* The location stack: array, bottom, top.  */
+    /* The location stack.  */
     YYLTYPE yylsa[YYINITDEPTH];
-    YYLTYPE *yyls = yylsa;
-    YYLTYPE *yylsp = yyls;
+    YYLTYPE *yyls;
+    YYLTYPE *yylsp;
+
+    /* The locations where the error started and ended.  */
+    YYLTYPE yyerror_range[3];
+
+    YYPTRDIFF_T yystacksize;
 
   int yyn;
-  /* The return value of yyparse.  */
   int yyresult;
-  /* Lookahead symbol kind.  */
-  yysymbol_kind_t yytoken = YYSYMBOL_YYEMPTY;
+  /* Lookahead token as an internal (translated) token number.  */
+  int yytoken = 0;
   /* The variables used to return semantic value and location from the
      action routines.  */
   YYSTYPE yyval;
   YYLTYPE yyloc;
 
-  /* The locations where the error started and ended.  */
-  YYLTYPE yyerror_range[3];
-
+#if YYERROR_VERBOSE
   /* Buffer for error messages, and its allocated size.  */
   char yymsgbuf[128];
   char *yymsg = yymsgbuf;
   YYPTRDIFF_T yymsg_alloc = sizeof yymsgbuf;
+#endif
 
 #define YYPOPSTACK(N)   (yyvsp -= (N), yyssp -= (N), yylsp -= (N))
 
@@ -6147,10 +5893,17 @@ YYLTYPE yylloc = yyloc_default;
      Keep to zero when no symbol should be popped.  */
   int yylen = 0;
 
+  yyssp = yyss = yyssa;
+  yyvsp = yyvs = yyvsa;
+  yylsp = yyls = yylsa;
+  yystacksize = YYINITDEPTH;
+
   YYDPRINTF ((stderr, "Starting parse\n"));
 
-  yychar = DAS_YYEMPTY; /* Cause a token to be read.  */
-
+  yystate = 0;
+  yyerrstatus = 0;
+  yynerrs = 0;
+  yychar = YYEMPTY; /* Cause a token to be read.  */
   yylsp[0] = yylloc;
   goto yysetstate;
 
@@ -6173,11 +5926,10 @@ yysetstate:
   YY_IGNORE_USELESS_CAST_BEGIN
   *yyssp = YY_CAST (yy_state_t, yystate);
   YY_IGNORE_USELESS_CAST_END
-  YY_STACK_PRINT (yyss, yyssp);
 
   if (yyss + yystacksize - 1 <= yyssp)
 #if !defined yyoverflow && !defined YYSTACK_RELOCATE
-    YYNOMEM;
+    goto yyexhaustedlab;
 #else
     {
       /* Get the current used size of the three stacks, in elements.  */
@@ -6208,7 +5960,7 @@ yysetstate:
 # else /* defined YYSTACK_RELOCATE */
       /* Extend the stack our own way.  */
       if (YYMAXDEPTH <= yystacksize)
-        YYNOMEM;
+        goto yyexhaustedlab;
       yystacksize *= 2;
       if (YYMAXDEPTH < yystacksize)
         yystacksize = YYMAXDEPTH;
@@ -6219,11 +5971,11 @@ yysetstate:
           YY_CAST (union yyalloc *,
                    YYSTACK_ALLOC (YY_CAST (YYSIZE_T, YYSTACK_BYTES (yystacksize))));
         if (! yyptr)
-          YYNOMEM;
+          goto yyexhaustedlab;
         YYSTACK_RELOCATE (yyss_alloc, yyss);
         YYSTACK_RELOCATE (yyvs_alloc, yyvs);
         YYSTACK_RELOCATE (yyls_alloc, yyls);
-#  undef YYSTACK_RELOCATE
+# undef YYSTACK_RELOCATE
         if (yyss1 != yyssa)
           YYSTACK_FREE (yyss1);
       }
@@ -6242,7 +5994,6 @@ yysetstate:
         YYABORT;
     }
 #endif /* !defined yyoverflow && !defined YYSTACK_RELOCATE */
-
 
   if (yystate == YYFINAL)
     YYACCEPT;
@@ -6264,29 +6015,17 @@ yybackup:
 
   /* Not known => get a lookahead token if don't already have one.  */
 
-  /* YYCHAR is either empty, or end-of-input, or a valid lookahead.  */
-  if (yychar == DAS_YYEMPTY)
+  /* YYCHAR is either YYEMPTY or YYEOF or a valid lookahead symbol.  */
+  if (yychar == YYEMPTY)
     {
-      YYDPRINTF ((stderr, "Reading a token\n"));
+      YYDPRINTF ((stderr, "Reading a token: "));
       yychar = yylex (&yylval, &yylloc, scanner);
     }
 
-  if (yychar <= DAS_YYEOF)
+  if (yychar <= YYEOF)
     {
-      yychar = DAS_YYEOF;
-      yytoken = YYSYMBOL_YYEOF;
+      yychar = yytoken = YYEOF;
       YYDPRINTF ((stderr, "Now at end of input.\n"));
-    }
-  else if (yychar == DAS_YYerror)
-    {
-      /* The scanner already issued an error message, process directly
-         to error recovery.  But do not keep the error token as
-         lookahead, it is too special and may lead us to an endless
-         loop in error recovery. */
-      yychar = DAS_YYUNDEF;
-      yytoken = YYSYMBOL_YYerror;
-      yyerror_range[1] = yylloc;
-      goto yyerrlab1;
     }
   else
     {
@@ -6322,7 +6061,7 @@ yybackup:
   *++yylsp = yylloc;
 
   /* Discard the shifted token.  */
-  yychar = DAS_YYEMPTY;
+  yychar = YYEMPTY;
   goto yynewstate;
 
 
@@ -6359,7 +6098,7 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 3: /* program: program module_declaration  */
+  case 3:
                                    {
             if ( yyextra->das_has_type_declarations ) {
                 das_yyerror(scanner,"module name has to be first declaration",tokAt(scanner,(yylsp[0])), CompilationError::syntax_error);
@@ -6367,65 +6106,65 @@ yyreduce:
         }
     break;
 
-  case 4: /* program: program structure_declaration  */
+  case 4:
                                                 { yyextra->das_has_type_declarations = true; }
     break;
 
-  case 5: /* program: program enum_declaration  */
+  case 5:
                                                 { yyextra->das_has_type_declarations = true; }
     break;
 
-  case 6: /* program: program global_let  */
+  case 6:
                                                 { yyextra->das_has_type_declarations = true; }
     break;
 
-  case 7: /* program: program global_function_declaration  */
+  case 7:
                                                 { yyextra->das_has_type_declarations = true; }
     break;
 
-  case 11: /* program: program alias_declaration  */
+  case 11:
                                                 { yyextra->das_has_type_declarations = true; }
     break;
 
-  case 12: /* program: program variant_alias_declaration  */
+  case 12:
                                                 { yyextra->das_has_type_declarations = true; }
     break;
 
-  case 13: /* program: program tuple_alias_declaration  */
+  case 13:
                                                 { yyextra->das_has_type_declarations = true; }
     break;
 
-  case 14: /* program: program bitfield_alias_declaration  */
+  case 14:
                                                 { yyextra->das_has_type_declarations = true; }
     break;
 
-  case 17: /* top_level_reader_macro: expr_reader "end of expression"  */
+  case 17:
                              {
         delete (yyvsp[-1].pExpression);    // we do nothing, we don't even attemp to 'visit'
     }
     break;
 
-  case 18: /* optional_public_or_private_module: %empty  */
+  case 18:
                         { (yyval.b) = yyextra->g_Program->policies.default_module_public; }
     break;
 
-  case 19: /* optional_public_or_private_module: "public"  */
+  case 19:
                         { (yyval.b) = true; }
     break;
 
-  case 20: /* optional_public_or_private_module: "private"  */
+  case 20:
                         { (yyval.b) = false; }
     break;
 
-  case 21: /* module_name: '$'  */
+  case 21:
                     { (yyval.s) = new string("$"); }
     break;
 
-  case 22: /* module_name: "name"  */
+  case 22:
                     { (yyval.s) = (yyvsp[0].s); }
     break;
 
-  case 23: /* module_declaration: "module" module_name optional_shared optional_public_or_private_module  */
+  case 23:
                                                                                                       {
         yyextra->g_Program->thisModuleName = *(yyvsp[-2].s);
         yyextra->g_Program->thisModule->isPublic = (yyvsp[0].b);
@@ -6443,27 +6182,27 @@ yyreduce:
     }
     break;
 
-  case 24: /* character_sequence: STRING_CHARACTER  */
+  case 24:
                                                             { (yyval.s) = new string(); *(yyval.s) += (yyvsp[0].ch); }
     break;
 
-  case 25: /* character_sequence: STRING_CHARACTER_ESC  */
+  case 25:
                                                             { (yyval.s) = new string(); *(yyval.s) += "\\\\"; }
     break;
 
-  case 26: /* character_sequence: character_sequence STRING_CHARACTER  */
+  case 26:
                                                             { (yyval.s) = (yyvsp[-1].s); *(yyvsp[-1].s) += (yyvsp[0].ch); }
     break;
 
-  case 27: /* character_sequence: character_sequence STRING_CHARACTER_ESC  */
+  case 27:
                                                             { (yyval.s) = (yyvsp[-1].s); *(yyvsp[-1].s) += "\\\\"; }
     break;
 
-  case 28: /* string_constant: "start of the string" character_sequence "end of the string"  */
+  case 28:
                                                            { (yyval.s) = (yyvsp[-1].s); }
     break;
 
-  case 29: /* string_builder_body: %empty  */
+  case 29:
         {
         (yyval.pExpression) = new ExprStringBuilder();
         (yyval.pExpression)->at = LineInfo(yyextra->g_FileAccessStack.back(),
@@ -6471,7 +6210,7 @@ yyreduce:
     }
     break;
 
-  case 30: /* string_builder_body: string_builder_body character_sequence  */
+  case 30:
                                                            {
         bool err;
         auto esconst = unescapeString(*(yyvsp[0].s),&err);
@@ -6483,7 +6222,7 @@ yyreduce:
     }
     break;
 
-  case 31: /* string_builder_body: string_builder_body "{" expr "}"  */
+  case 31:
                                                                                 {
         auto se = ExpressionPtr((yyvsp[-1].pExpression));
         static_cast<ExprStringBuilder *>((yyvsp[-3].pExpression))->elements.push_back(se);
@@ -6491,7 +6230,7 @@ yyreduce:
     }
     break;
 
-  case 32: /* string_builder: "start of the string" string_builder_body "end of the string"  */
+  case 32:
                                                                    {
         auto strb = static_cast<ExprStringBuilder *>((yyvsp[-1].pExpression));
         if ( strb->elements.size()==0 ) {
@@ -6507,7 +6246,7 @@ yyreduce:
     }
     break;
 
-  case 33: /* reader_character_sequence: STRING_CHARACTER  */
+  case 33:
                                {
         if ( !yyextra->g_ReaderMacro->accept(yyextra->g_Program.get(), yyextra->g_Program->thisModule.get(), yyextra->g_ReaderExpr, (yyvsp[0].ch), tokAt(scanner,(yylsp[0]))) ) {
             das_yyend_reader(scanner);
@@ -6515,7 +6254,7 @@ yyreduce:
     }
     break;
 
-  case 34: /* reader_character_sequence: reader_character_sequence STRING_CHARACTER  */
+  case 34:
                                                                 {
         if ( !yyextra->g_ReaderMacro->accept(yyextra->g_Program.get(), yyextra->g_Program->thisModule.get(), yyextra->g_ReaderExpr, (yyvsp[0].ch), tokAt(scanner,(yylsp[0]))) ) {
             das_yyend_reader(scanner);
@@ -6523,7 +6262,7 @@ yyreduce:
     }
     break;
 
-  case 35: /* $@1: %empty  */
+  case 35:
                                         {
         auto macros = yyextra->g_Program->getReaderMacro(*(yyvsp[0].s));
         if ( macros.size()==0 ) {
@@ -6548,7 +6287,7 @@ yyreduce:
     }
     break;
 
-  case 36: /* expr_reader: '%' name_in_namespace $@1 reader_character_sequence  */
+  case 36:
                                      {
         yyextra->g_ReaderExpr->at = tokRangeAt(scanner,(yylsp[-3]),(yylsp[0]));
         (yyval.pExpression) = yyextra->g_ReaderExpr;
@@ -6567,7 +6306,7 @@ yyreduce:
     }
     break;
 
-  case 37: /* options_declaration: "options" annotation_argument_list  */
+  case 37:
                                                    {
         for ( auto & opt : *(yyvsp[0].aaList) ) {
             if ( opt.name=="indenting" && opt.type==Type::tInt ) {
@@ -6597,32 +6336,32 @@ yyreduce:
     }
     break;
 
-  case 39: /* keyword_or_name: "name"  */
+  case 39:
                             { (yyval.s) = (yyvsp[0].s); }
     break;
 
-  case 40: /* keyword_or_name: "keyword"  */
+  case 40:
                             { (yyval.s) = (yyvsp[0].s); }
     break;
 
-  case 41: /* keyword_or_name: "type function"  */
+  case 41:
                             { (yyval.s) = (yyvsp[0].s); }
     break;
 
-  case 42: /* require_module_name: keyword_or_name  */
+  case 42:
                               {
         (yyval.s) = (yyvsp[0].s);
     }
     break;
 
-  case 43: /* require_module_name: '%' require_module_name  */
+  case 43:
                                      {
         *(yyvsp[0].s) = "%" + *(yyvsp[0].s);
         (yyval.s) = (yyvsp[0].s);
     }
     break;
 
-  case 44: /* require_module_name: require_module_name '.' keyword_or_name  */
+  case 44:
                                                            {
         *(yyvsp[-2].s) += ".";
         *(yyvsp[-2].s) += *(yyvsp[0].s);
@@ -6631,7 +6370,7 @@ yyreduce:
     }
     break;
 
-  case 45: /* require_module_name: require_module_name '/' keyword_or_name  */
+  case 45:
                                                            {
         *(yyvsp[-2].s) += "/";
         *(yyvsp[-2].s) += *(yyvsp[0].s);
@@ -6640,73 +6379,73 @@ yyreduce:
     }
     break;
 
-  case 46: /* require_module: require_module_name is_public_module  */
+  case 46:
                                                          {
         ast_requireModule(scanner,(yyvsp[-1].s),nullptr,(yyvsp[0].b),tokAt(scanner,(yylsp[-1])));
     }
     break;
 
-  case 47: /* require_module: require_module_name "as" "name" is_public_module  */
+  case 47:
                                                                               {
         ast_requireModule(scanner,(yyvsp[-3].s),(yyvsp[-1].s),(yyvsp[0].b),tokAt(scanner,(yylsp[-3])));
     }
     break;
 
-  case 48: /* is_public_module: %empty  */
+  case 48:
                     { (yyval.b) = false; }
     break;
 
-  case 49: /* is_public_module: "public"  */
+  case 49:
                     { (yyval.b) = true; }
     break;
 
-  case 53: /* expect_error: "integer constant"  */
+  case 53:
                    {
         yyextra->g_Program->expectErrors[CompilationError((yyvsp[0].i))] ++;
     }
     break;
 
-  case 54: /* expect_error: "integer constant" ':' "integer constant"  */
+  case 54:
                                       {
         yyextra->g_Program->expectErrors[CompilationError((yyvsp[-2].i))] += (yyvsp[0].i);
     }
     break;
 
-  case 55: /* expression_label: "label" "integer constant" ':'  */
+  case 55:
                                           {
         (yyval.pExpression) = new ExprLabel(tokAt(scanner,(yylsp[-2])),(yyvsp[-1].i));
     }
     break;
 
-  case 56: /* expression_goto: "goto" "label" "integer constant"  */
+  case 56:
                                                 {
         (yyval.pExpression) = new ExprGoto(tokAt(scanner,(yylsp[-2])),(yyvsp[0].i));
     }
     break;
 
-  case 57: /* expression_goto: "goto" expr  */
+  case 57:
                                {
         (yyval.pExpression) = new ExprGoto(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[0].pExpression)));
     }
     break;
 
-  case 58: /* elif_or_static_elif: "elif"  */
+  case 58:
                           { (yyval.b) = false; }
     break;
 
-  case 59: /* elif_or_static_elif: "static_elif"  */
+  case 59:
                           { (yyval.b) = true; }
     break;
 
-  case 60: /* expression_else: %empty  */
+  case 60:
                                                            { (yyval.pExpression) = nullptr; }
     break;
 
-  case 61: /* expression_else: "else" expression_block  */
+  case 61:
                                                            { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 62: /* expression_else: elif_or_static_elif expr expression_block expression_else  */
+  case 62:
                                                                                           {
         auto eite = new ExprIfThenElse(tokAt(scanner,(yylsp[-3])),ExpressionPtr((yyvsp[-2].pExpression)),
             ExpressionPtr((yyvsp[-1].pExpression)),ExpressionPtr((yyvsp[0].pExpression)));
@@ -6715,49 +6454,49 @@ yyreduce:
     }
     break;
 
-  case 63: /* if_or_static_if: "if"  */
+  case 63:
                         { (yyval.b) = false; }
     break;
 
-  case 64: /* if_or_static_if: "static_if"  */
+  case 64:
                         { (yyval.b) = true; }
     break;
 
-  case 65: /* expression_else_one_liner: %empty  */
+  case 65:
         { (yyval.pExpression) = nullptr; }
     break;
 
-  case 66: /* $@2: %empty  */
+  case 66:
                       { yyextra->das_need_oxford_comma = true; }
     break;
 
-  case 67: /* expression_else_one_liner: "else" $@2 expression_if_one_liner  */
+  case 67:
                                                                                                  {
             (yyval.pExpression) = (yyvsp[0].pExpression);
     }
     break;
 
-  case 68: /* expression_if_one_liner: expr  */
+  case 68:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 69: /* expression_if_one_liner: expression_return_no_pipe  */
+  case 69:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 70: /* expression_if_one_liner: expression_yield_no_pipe  */
+  case 70:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 71: /* expression_if_one_liner: expression_break  */
+  case 71:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 72: /* expression_if_one_liner: expression_continue  */
+  case 72:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 73: /* expression_if_then_else: if_or_static_if expr expression_block expression_else  */
+  case 73:
                                                                                       {
         auto eite = new ExprIfThenElse(tokAt(scanner,(yylsp[-3])),ExpressionPtr((yyvsp[-2].pExpression)),
             ExpressionPtr((yyvsp[-1].pExpression)),ExpressionPtr((yyvsp[0].pExpression)));
@@ -6766,27 +6505,27 @@ yyreduce:
     }
     break;
 
-  case 74: /* $@3: %empty  */
+  case 74:
                                                      { yyextra->das_need_oxford_comma = true; }
     break;
 
-  case 75: /* expression_if_then_else: expression_if_one_liner "if" $@3 expr expression_else_one_liner "end of expression"  */
+  case 75:
                                                                                                                                                    {
         (yyval.pExpression) = new ExprIfThenElse(tokAt(scanner,(yylsp[-4])),ExpressionPtr((yyvsp[-2].pExpression)),ExpressionPtr(ast_wrapInBlock((yyvsp[-5].pExpression))),(yyvsp[-1].pExpression) ? ExpressionPtr(ast_wrapInBlock((yyvsp[-1].pExpression))) : nullptr);
     }
     break;
 
-  case 76: /* $@4: %empty  */
+  case 76:
                      { yyextra->das_need_oxford_comma=false; }
     break;
 
-  case 77: /* expression_for_loop: "for" $@4 variable_name_with_pos_list "in" expr_list expression_block  */
+  case 77:
                                                                                                                                                  {
         (yyval.pExpression) = ast_forLoop(scanner,(yyvsp[-3].pNameWithPosList),(yyvsp[-1].pExpression),(yyvsp[0].pExpression),tokAt(scanner,(yylsp[-5])),tokAt(scanner,(yylsp[0])));
     }
     break;
 
-  case 78: /* expression_unsafe: "unsafe" expression_block  */
+  case 78:
                                                  {
         auto pUnsafe = new ExprUnsafe(tokAt(scanner,(yylsp[-1])));
         pUnsafe->body = ExpressionPtr((yyvsp[0].pExpression));
@@ -6794,7 +6533,7 @@ yyreduce:
     }
     break;
 
-  case 79: /* expression_while_loop: "while" expr expression_block  */
+  case 79:
                                                                {
         auto pWhile = new ExprWhile(tokAt(scanner,(yylsp[-2])));
         pWhile->cond = ExpressionPtr((yyvsp[-1].pExpression));
@@ -6804,7 +6543,7 @@ yyreduce:
     }
     break;
 
-  case 80: /* expression_with: "with" expr expression_block  */
+  case 80:
                                                          {
         auto pWith = new ExprWith(tokAt(scanner,(yylsp[-2])));
         pWith->with = ExpressionPtr((yyvsp[-1].pExpression));
@@ -6813,42 +6552,42 @@ yyreduce:
     }
     break;
 
-  case 81: /* $@5: %empty  */
+  case 81:
                                         { yyextra->das_need_oxford_comma=true; }
     break;
 
-  case 82: /* expression_with_alias: "assume" "name" '=' $@5 expr  */
+  case 82:
                                                                                                {
         (yyval.pExpression) = new ExprAssume(tokAt(scanner,(yylsp[-4])), *(yyvsp[-3].s), (yyvsp[0].pExpression) );
         delete (yyvsp[-3].s);
     }
     break;
 
-  case 83: /* annotation_argument_value: string_constant  */
+  case 83:
                                  { (yyval.aa) = new AnnotationArgument("",*(yyvsp[0].s)); delete (yyvsp[0].s); }
     break;
 
-  case 84: /* annotation_argument_value: "name"  */
+  case 84:
                                  { (yyval.aa) = new AnnotationArgument("",*(yyvsp[0].s)); delete (yyvsp[0].s); }
     break;
 
-  case 85: /* annotation_argument_value: "integer constant"  */
+  case 85:
                                  { (yyval.aa) = new AnnotationArgument("",(yyvsp[0].i)); }
     break;
 
-  case 86: /* annotation_argument_value: "floating point constant"  */
+  case 86:
                                  { (yyval.aa) = new AnnotationArgument("",float((yyvsp[0].fd))); }
     break;
 
-  case 87: /* annotation_argument_value: "true"  */
+  case 87:
                                  { (yyval.aa) = new AnnotationArgument("",true); }
     break;
 
-  case 88: /* annotation_argument_value: "false"  */
+  case 88:
                                  { (yyval.aa) = new AnnotationArgument("",false); }
     break;
 
-  case 89: /* annotation_argument_value_list: annotation_argument_value  */
+  case 89:
                                        {
         (yyval.aaList) = new AnnotationArgumentList();
         (yyval.aaList)->push_back(*(yyvsp[0].aa));
@@ -6856,7 +6595,7 @@ yyreduce:
     }
     break;
 
-  case 90: /* annotation_argument_value_list: annotation_argument_value_list ',' annotation_argument_value  */
+  case 90:
                                                                                 {
             (yyval.aaList) = (yyvsp[-2].aaList);
             (yyval.aaList)->push_back(*(yyvsp[0].aa));
@@ -6864,89 +6603,89 @@ yyreduce:
     }
     break;
 
-  case 91: /* annotation_argument_name: "name"  */
+  case 91:
                     { (yyval.s) = (yyvsp[0].s); }
     break;
 
-  case 92: /* annotation_argument_name: "type"  */
+  case 92:
                     { (yyval.s) = new string("type"); }
     break;
 
-  case 93: /* annotation_argument_name: "in"  */
+  case 93:
                     { (yyval.s) = new string("in"); }
     break;
 
-  case 94: /* annotation_argument: annotation_argument_name '=' string_constant  */
+  case 94:
                                                                     { (yyval.aa) = new AnnotationArgument(*(yyvsp[-2].s),*(yyvsp[0].s),tokAt(scanner,(yylsp[-2]))); delete (yyvsp[0].s); delete (yyvsp[-2].s); }
     break;
 
-  case 95: /* annotation_argument: annotation_argument_name '=' "name"  */
+  case 95:
                                                                     { (yyval.aa) = new AnnotationArgument(*(yyvsp[-2].s),*(yyvsp[0].s),tokAt(scanner,(yylsp[-2]))); delete (yyvsp[0].s); delete (yyvsp[-2].s); }
     break;
 
-  case 96: /* annotation_argument: annotation_argument_name '=' "integer constant"  */
+  case 96:
                                                                     { (yyval.aa) = new AnnotationArgument(*(yyvsp[-2].s),(yyvsp[0].i),tokAt(scanner,(yylsp[-2]))); delete (yyvsp[-2].s); }
     break;
 
-  case 97: /* annotation_argument: annotation_argument_name '=' "floating point constant"  */
+  case 97:
                                                                     { (yyval.aa) = new AnnotationArgument(*(yyvsp[-2].s),float((yyvsp[0].fd)),tokAt(scanner,(yylsp[-2]))); delete (yyvsp[-2].s); }
     break;
 
-  case 98: /* annotation_argument: annotation_argument_name '=' "true"  */
+  case 98:
                                                                     { (yyval.aa) = new AnnotationArgument(*(yyvsp[-2].s),true,tokAt(scanner,(yylsp[-2]))); delete (yyvsp[-2].s); }
     break;
 
-  case 99: /* annotation_argument: annotation_argument_name '=' "false"  */
+  case 99:
                                                                     { (yyval.aa) = new AnnotationArgument(*(yyvsp[-2].s),false,tokAt(scanner,(yylsp[-2]))); delete (yyvsp[-2].s); }
     break;
 
-  case 100: /* annotation_argument: annotation_argument_name  */
+  case 100:
                                                                     { (yyval.aa) = new AnnotationArgument(*(yyvsp[0].s),true,tokAt(scanner,(yylsp[0]))); delete (yyvsp[0].s); }
     break;
 
-  case 101: /* annotation_argument: annotation_argument_name '=' '(' annotation_argument_value_list ')'  */
+  case 101:
                                                                                           {
         { (yyval.aa) = new AnnotationArgument(*(yyvsp[-4].s),(yyvsp[-1].aaList),tokAt(scanner,(yylsp[-4]))); delete (yyvsp[-4].s); }
     }
     break;
 
-  case 102: /* annotation_argument_list: annotation_argument  */
+  case 102:
                                   {
         (yyval.aaList) = ast_annotationArgumentListEntry(scanner,new AnnotationArgumentList(),(yyvsp[0].aa));
     }
     break;
 
-  case 103: /* annotation_argument_list: annotation_argument_list ',' annotation_argument  */
+  case 103:
                                                                     {
         (yyval.aaList) = ast_annotationArgumentListEntry(scanner,(yyvsp[-2].aaList),(yyvsp[0].aa));
     }
     break;
 
-  case 104: /* metadata_argument_list: '@' annotation_argument  */
+  case 104:
                                       {
         (yyval.aaList) = ast_annotationArgumentListEntry(scanner,new AnnotationArgumentList(),(yyvsp[0].aa));
     }
     break;
 
-  case 105: /* metadata_argument_list: metadata_argument_list '@' annotation_argument  */
+  case 105:
                                                                   {
         (yyval.aaList) = ast_annotationArgumentListEntry(scanner,(yyvsp[-2].aaList),(yyvsp[0].aa));
     }
     break;
 
-  case 106: /* annotation_declaration_name: name_in_namespace  */
+  case 106:
                                     { (yyval.s) = (yyvsp[0].s); }
     break;
 
-  case 107: /* annotation_declaration_name: "require"  */
+  case 107:
                                     { (yyval.s) = new string("require"); }
     break;
 
-  case 108: /* annotation_declaration_name: "private"  */
+  case 108:
                                     { (yyval.s) = new string("private"); }
     break;
 
-  case 109: /* annotation_declaration_basic: annotation_declaration_name  */
+  case 109:
                                           {
         (yyval.fa) = new AnnotationDeclaration();
         (yyval.fa)->at = tokAt(scanner,(yylsp[0]));
@@ -6962,7 +6701,7 @@ yyreduce:
     }
     break;
 
-  case 110: /* annotation_declaration_basic: annotation_declaration_name '(' annotation_argument_list ')'  */
+  case 110:
                                                                                  {
         (yyval.fa) = new AnnotationDeclaration();
         (yyval.fa)->at = tokAt(scanner,(yylsp[-3]));
@@ -6980,13 +6719,13 @@ yyreduce:
     }
     break;
 
-  case 111: /* annotation_declaration: annotation_declaration_basic  */
+  case 111:
                                           {
         (yyval.fa) = (yyvsp[0].fa);
     }
     break;
 
-  case 112: /* annotation_declaration: '!' annotation_declaration  */
+  case 112:
                                               {
         if ( !(yyvsp[0].fa)->annotation->rtti_isFunctionAnnotation() || !((FunctionAnnotation *)((yyvsp[0].fa)->annotation.get()))->isSpecialized() ) {
             das_yyerror(scanner,"can only run logical operations on contracts", tokAt(scanner, (yylsp[0])),
@@ -6997,7 +6736,7 @@ yyreduce:
     }
     break;
 
-  case 113: /* annotation_declaration: annotation_declaration "&&" annotation_declaration  */
+  case 113:
                                                                               {
         if ( !(yyvsp[-2].fa)->annotation->rtti_isFunctionAnnotation() || !((FunctionAnnotation *)((yyvsp[-2].fa)->annotation.get()))->isSpecialized() ) {
             das_yyerror(scanner,"can only run logical operations on contracts", tokAt(scanner, (yylsp[-2])),
@@ -7011,7 +6750,7 @@ yyreduce:
     }
     break;
 
-  case 114: /* annotation_declaration: annotation_declaration "||" annotation_declaration  */
+  case 114:
                                                                             {
         if ( !(yyvsp[-2].fa)->annotation || !(yyvsp[-2].fa)->annotation->rtti_isFunctionAnnotation() || !((FunctionAnnotation *)((yyvsp[-2].fa)->annotation.get()))->isSpecialized() ) {
             das_yyerror(scanner,"can only run logical operations on contracts", tokAt(scanner, (yylsp[-2])),
@@ -7025,7 +6764,7 @@ yyreduce:
     }
     break;
 
-  case 115: /* annotation_declaration: annotation_declaration "^^" annotation_declaration  */
+  case 115:
                                                                               {
         if ( !(yyvsp[-2].fa)->annotation->rtti_isFunctionAnnotation() || !((FunctionAnnotation *)((yyvsp[-2].fa)->annotation.get()))->isSpecialized() ) {
             das_yyerror(scanner,"can only run logical operations on contracts", tokAt(scanner, (yylsp[-2])),
@@ -7039,410 +6778,410 @@ yyreduce:
     }
     break;
 
-  case 116: /* annotation_declaration: '(' annotation_declaration ')'  */
+  case 116:
                                             {
         (yyval.fa) = (yyvsp[-1].fa);
     }
     break;
 
-  case 117: /* annotation_declaration: "|>" annotation_declaration  */
+  case 117:
                                           {
         (yyval.fa) = (yyvsp[0].fa);
         (yyvsp[0].fa)->inherited = true;
     }
     break;
 
-  case 118: /* annotation_list: annotation_declaration  */
+  case 118:
                                     {
             (yyval.faList) = new AnnotationList();
             (yyval.faList)->push_back(AnnotationDeclarationPtr((yyvsp[0].fa)));
     }
     break;
 
-  case 119: /* annotation_list: annotation_list ',' annotation_declaration  */
+  case 119:
                                                               {
         (yyval.faList) = (yyvsp[-2].faList);
         (yyval.faList)->push_back(AnnotationDeclarationPtr((yyvsp[0].fa)));
     }
     break;
 
-  case 120: /* optional_annotation_list: %empty  */
+  case 120:
                                         { (yyval.faList) = nullptr; }
     break;
 
-  case 121: /* optional_annotation_list: '[' annotation_list ']'  */
+  case 121:
                                         { (yyval.faList) = (yyvsp[-1].faList); }
     break;
 
-  case 122: /* optional_function_argument_list: %empty  */
+  case 122:
                                                 { (yyval.pVarDeclList) = nullptr; }
     break;
 
-  case 123: /* optional_function_argument_list: '(' ')'  */
+  case 123:
                                                 { (yyval.pVarDeclList) = nullptr; }
     break;
 
-  case 124: /* optional_function_argument_list: '(' function_argument_list ')'  */
+  case 124:
                                                 { (yyval.pVarDeclList) = (yyvsp[-1].pVarDeclList); }
     break;
 
-  case 125: /* optional_function_type: %empty  */
+  case 125:
         {
         (yyval.pTypeDecl) = new TypeDecl(Type::autoinfer);
     }
     break;
 
-  case 126: /* optional_function_type: ':' type_declaration  */
+  case 126:
                                         {
         (yyval.pTypeDecl) = (yyvsp[0].pTypeDecl);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[0]));
     }
     break;
 
-  case 127: /* function_name: "name"  */
+  case 127:
                           {
         das_checkName(scanner,*(yyvsp[0].s),tokAt(scanner,(yylsp[0])));
         (yyval.s) = (yyvsp[0].s);
     }
     break;
 
-  case 128: /* function_name: "operator" '!'  */
+  case 128:
                              { (yyval.s) = new string("!"); }
     break;
 
-  case 129: /* function_name: "operator" '~'  */
+  case 129:
                              { (yyval.s) = new string("~"); }
     break;
 
-  case 130: /* function_name: "operator" "+="  */
+  case 130:
                              { (yyval.s) = new string("+="); }
     break;
 
-  case 131: /* function_name: "operator" "-="  */
+  case 131:
                              { (yyval.s) = new string("-="); }
     break;
 
-  case 132: /* function_name: "operator" "*="  */
+  case 132:
                              { (yyval.s) = new string("*="); }
     break;
 
-  case 133: /* function_name: "operator" "/="  */
+  case 133:
                              { (yyval.s) = new string("/="); }
     break;
 
-  case 134: /* function_name: "operator" "%="  */
+  case 134:
                              { (yyval.s) = new string("%="); }
     break;
 
-  case 135: /* function_name: "operator" "&="  */
+  case 135:
                              { (yyval.s) = new string("&="); }
     break;
 
-  case 136: /* function_name: "operator" "|="  */
+  case 136:
                              { (yyval.s) = new string("|="); }
     break;
 
-  case 137: /* function_name: "operator" "^="  */
+  case 137:
                              { (yyval.s) = new string("^="); }
     break;
 
-  case 138: /* function_name: "operator" "&&="  */
+  case 138:
                                 { (yyval.s) = new string("&&="); }
     break;
 
-  case 139: /* function_name: "operator" "||="  */
+  case 139:
                                 { (yyval.s) = new string("||="); }
     break;
 
-  case 140: /* function_name: "operator" "^^="  */
+  case 140:
                                 { (yyval.s) = new string("^^="); }
     break;
 
-  case 141: /* function_name: "operator" "&&"  */
+  case 141:
                              { (yyval.s) = new string("&&"); }
     break;
 
-  case 142: /* function_name: "operator" "||"  */
+  case 142:
                              { (yyval.s) = new string("||"); }
     break;
 
-  case 143: /* function_name: "operator" "^^"  */
+  case 143:
                              { (yyval.s) = new string("^^"); }
     break;
 
-  case 144: /* function_name: "operator" '+'  */
+  case 144:
                              { (yyval.s) = new string("+"); }
     break;
 
-  case 145: /* function_name: "operator" '-'  */
+  case 145:
                              { (yyval.s) = new string("-"); }
     break;
 
-  case 146: /* function_name: "operator" '*'  */
+  case 146:
                              { (yyval.s) = new string("*"); }
     break;
 
-  case 147: /* function_name: "operator" '/'  */
+  case 147:
                              { (yyval.s) = new string("/"); }
     break;
 
-  case 148: /* function_name: "operator" '%'  */
+  case 148:
                              { (yyval.s) = new string("%"); }
     break;
 
-  case 149: /* function_name: "operator" '<'  */
+  case 149:
                              { (yyval.s) = new string("<"); }
     break;
 
-  case 150: /* function_name: "operator" '>'  */
+  case 150:
                              { (yyval.s) = new string(">"); }
     break;
 
-  case 151: /* function_name: "operator" ".."  */
+  case 151:
                              { (yyval.s) = new string("interval"); }
     break;
 
-  case 152: /* function_name: "operator" "=="  */
+  case 152:
                              { (yyval.s) = new string("=="); }
     break;
 
-  case 153: /* function_name: "operator" "!="  */
+  case 153:
                              { (yyval.s) = new string("!="); }
     break;
 
-  case 154: /* function_name: "operator" "<="  */
+  case 154:
                              { (yyval.s) = new string("<="); }
     break;
 
-  case 155: /* function_name: "operator" ">="  */
+  case 155:
                              { (yyval.s) = new string(">="); }
     break;
 
-  case 156: /* function_name: "operator" '&'  */
+  case 156:
                              { (yyval.s) = new string("&"); }
     break;
 
-  case 157: /* function_name: "operator" '|'  */
+  case 157:
                              { (yyval.s) = new string("|"); }
     break;
 
-  case 158: /* function_name: "operator" '^'  */
+  case 158:
                              { (yyval.s) = new string("^"); }
     break;
 
-  case 159: /* function_name: "++" "operator"  */
+  case 159:
                              { (yyval.s) = new string("++"); }
     break;
 
-  case 160: /* function_name: "--" "operator"  */
+  case 160:
                              { (yyval.s) = new string("--"); }
     break;
 
-  case 161: /* function_name: "operator" "++"  */
+  case 161:
                              { (yyval.s) = new string("+++"); }
     break;
 
-  case 162: /* function_name: "operator" "--"  */
+  case 162:
                              { (yyval.s) = new string("---"); }
     break;
 
-  case 163: /* function_name: "operator" "<<"  */
+  case 163:
                              { (yyval.s) = new string("<<"); }
     break;
 
-  case 164: /* function_name: "operator" ">>"  */
+  case 164:
                              { (yyval.s) = new string(">>"); }
     break;
 
-  case 165: /* function_name: "operator" "<<="  */
+  case 165:
                              { (yyval.s) = new string("<<="); }
     break;
 
-  case 166: /* function_name: "operator" ">>="  */
+  case 166:
                              { (yyval.s) = new string(">>="); }
     break;
 
-  case 167: /* function_name: "operator" "<<<"  */
+  case 167:
                              { (yyval.s) = new string("<<<"); }
     break;
 
-  case 168: /* function_name: "operator" ">>>"  */
+  case 168:
                              { (yyval.s) = new string(">>>"); }
     break;
 
-  case 169: /* function_name: "operator" "<<<="  */
+  case 169:
                              { (yyval.s) = new string("<<<="); }
     break;
 
-  case 170: /* function_name: "operator" ">>>="  */
+  case 170:
                              { (yyval.s) = new string(">>>="); }
     break;
 
-  case 171: /* function_name: "operator" '[' ']'  */
+  case 171:
                              { (yyval.s) = new string("[]"); }
     break;
 
-  case 172: /* function_name: "operator" "?[" ']'  */
+  case 172:
                                 { (yyval.s) = new string("?[]"); }
     break;
 
-  case 173: /* function_name: "operator" '.'  */
+  case 173:
                              { (yyval.s) = new string("."); }
     break;
 
-  case 174: /* function_name: "operator" "?."  */
+  case 174:
                              { (yyval.s) = new string("?."); }
     break;
 
-  case 175: /* function_name: "operator" '.' "name"  */
+  case 175:
                                        { (yyval.s) = new string(".`"+*(yyvsp[0].s)); delete (yyvsp[0].s); }
     break;
 
-  case 176: /* function_name: "operator" '.' "name" ":="  */
+  case 176:
                                              { (yyval.s) = new string(".`"+*(yyvsp[-1].s)+"`clone"); delete (yyvsp[-1].s); }
     break;
 
-  case 177: /* function_name: "operator" "?." "name"  */
+  case 177:
                                        { (yyval.s) = new string("?.`"+*(yyvsp[0].s)); delete (yyvsp[0].s);}
     break;
 
-  case 178: /* function_name: "operator" ":="  */
+  case 178:
                                 { (yyval.s) = new string("clone"); }
     break;
 
-  case 179: /* function_name: "operator" "delete"  */
+  case 179:
                                 { (yyval.s) = new string("finalize"); }
     break;
 
-  case 180: /* function_name: "operator" "??"  */
+  case 180:
                            { (yyval.s) = new string("??"); }
     break;
 
-  case 181: /* function_name: "operator" "is"  */
+  case 181:
                             { (yyval.s) = new string("`is"); }
     break;
 
-  case 182: /* function_name: "operator" "as"  */
+  case 182:
                             { (yyval.s) = new string("`as"); }
     break;
 
-  case 183: /* function_name: "operator" "is" "name"  */
+  case 183:
                                        { (yyval.s) = (yyvsp[0].s); *(yyvsp[0].s) = "`is`" + *(yyvsp[0].s); }
     break;
 
-  case 184: /* function_name: "operator" "as" "name"  */
+  case 184:
                                        { (yyval.s) = (yyvsp[0].s); *(yyvsp[0].s) = "`as`" + *(yyvsp[0].s); }
     break;
 
-  case 185: /* function_name: "operator" '?' "as"  */
+  case 185:
                                 { (yyval.s) = new string("?as"); }
     break;
 
-  case 186: /* function_name: "operator" '?' "as" "name"  */
+  case 186:
                                            { (yyval.s) = (yyvsp[0].s); *(yyvsp[0].s) = "?as`" + *(yyvsp[0].s); }
     break;
 
-  case 187: /* function_name: "bool"  */
+  case 187:
                      { (yyval.s) = new string("bool"); }
     break;
 
-  case 188: /* function_name: "string"  */
+  case 188:
                      { (yyval.s) = new string("string"); }
     break;
 
-  case 189: /* function_name: "int"  */
+  case 189:
                      { (yyval.s) = new string("int"); }
     break;
 
-  case 190: /* function_name: "int2"  */
+  case 190:
                      { (yyval.s) = new string("int2"); }
     break;
 
-  case 191: /* function_name: "int3"  */
+  case 191:
                      { (yyval.s) = new string("int3"); }
     break;
 
-  case 192: /* function_name: "int4"  */
+  case 192:
                      { (yyval.s) = new string("int4"); }
     break;
 
-  case 193: /* function_name: "uint"  */
+  case 193:
                      { (yyval.s) = new string("uint"); }
     break;
 
-  case 194: /* function_name: "uint2"  */
+  case 194:
                      { (yyval.s) = new string("uint2"); }
     break;
 
-  case 195: /* function_name: "uint3"  */
+  case 195:
                      { (yyval.s) = new string("uint3"); }
     break;
 
-  case 196: /* function_name: "uint4"  */
+  case 196:
                      { (yyval.s) = new string("uint4"); }
     break;
 
-  case 197: /* function_name: "float"  */
+  case 197:
                      { (yyval.s) = new string("float"); }
     break;
 
-  case 198: /* function_name: "float2"  */
+  case 198:
                      { (yyval.s) = new string("float2"); }
     break;
 
-  case 199: /* function_name: "float3"  */
+  case 199:
                      { (yyval.s) = new string("float3"); }
     break;
 
-  case 200: /* function_name: "float4"  */
+  case 200:
                      { (yyval.s) = new string("float4"); }
     break;
 
-  case 201: /* function_name: "range"  */
+  case 201:
                      { (yyval.s) = new string("range"); }
     break;
 
-  case 202: /* function_name: "urange"  */
+  case 202:
                      { (yyval.s) = new string("urange"); }
     break;
 
-  case 203: /* function_name: "range64"  */
+  case 203:
                      { (yyval.s) = new string("range64"); }
     break;
 
-  case 204: /* function_name: "urange64"  */
+  case 204:
                      { (yyval.s) = new string("urange64"); }
     break;
 
-  case 205: /* function_name: "int64"  */
+  case 205:
                      { (yyval.s) = new string("int64"); }
     break;
 
-  case 206: /* function_name: "uint64"  */
+  case 206:
                      { (yyval.s) = new string("uint64"); }
     break;
 
-  case 207: /* function_name: "double"  */
+  case 207:
                      { (yyval.s) = new string("double"); }
     break;
 
-  case 208: /* function_name: "int8"  */
+  case 208:
                      { (yyval.s) = new string("int8"); }
     break;
 
-  case 209: /* function_name: "uint8"  */
+  case 209:
                      { (yyval.s) = new string("uint8"); }
     break;
 
-  case 210: /* function_name: "int16"  */
+  case 210:
                      { (yyval.s) = new string("int16"); }
     break;
 
-  case 211: /* function_name: "uint16"  */
+  case 211:
                      { (yyval.s) = new string("uint16"); }
     break;
 
-  case 212: /* global_function_declaration: optional_annotation_list "def" function_declaration  */
+  case 212:
                                                                                 {
         (yyvsp[0].pFuncDecl)->atDecl = tokRangeAt(scanner,(yylsp[-1]),(yylsp[0]));
         assignDefaultArguments((yyvsp[0].pFuncDecl));
@@ -7460,25 +7199,25 @@ yyreduce:
     }
     break;
 
-  case 213: /* optional_public_or_private_function: %empty  */
+  case 213:
                         { (yyval.b) = yyextra->g_thisStructure ? !yyextra->g_thisStructure->privateStructure : yyextra->g_Program->thisModule->isPublic; }
     break;
 
-  case 214: /* optional_public_or_private_function: "private"  */
+  case 214:
                         { (yyval.b) = false; }
     break;
 
-  case 215: /* optional_public_or_private_function: "public"  */
+  case 215:
                         { (yyval.b) = true; }
     break;
 
-  case 216: /* function_declaration_header: function_name optional_function_argument_list optional_function_type  */
+  case 216:
                                                                                                 {
         (yyval.pFuncDecl) = ast_functionDeclarationHeader(scanner,(yyvsp[-2].s),(yyvsp[-1].pVarDeclList),(yyvsp[0].pTypeDecl),tokAt(scanner,(yylsp[-2])));
     }
     break;
 
-  case 217: /* $@6: %empty  */
+  case 217:
                                                      {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto tak = tokAt(scanner,(yylsp[0]));
@@ -7487,7 +7226,7 @@ yyreduce:
     }
     break;
 
-  case 218: /* function_declaration: optional_public_or_private_function $@6 function_declaration_header expression_block  */
+  case 218:
                                                                 {
         (yyvsp[-1].pFuncDecl)->body = ExpressionPtr((yyvsp[0].pExpression));
         (yyvsp[-1].pFuncDecl)->privateFunction = !(yyvsp[-3].b);
@@ -7499,14 +7238,14 @@ yyreduce:
     }
     break;
 
-  case 219: /* expression_block: "begin of code block" expressions "end of code block"  */
+  case 219:
                                                    {
         (yyval.pExpression) = (yyvsp[-1].pExpression);
         (yyval.pExpression)->at = tokRangeAt(scanner,(yylsp[-2]),(yylsp[0]));
     }
     break;
 
-  case 220: /* expression_block: "begin of code block" expressions "end of code block" "finally" "begin of code block" expressions "end of code block"  */
+  case 220:
                                                                                           {
         auto pB = (ExprBlock *) (yyvsp[-5].pExpression);
         auto pF = (ExprBlock *) (yyvsp[-1].pExpression);
@@ -7517,7 +7256,7 @@ yyreduce:
     }
     break;
 
-  case 221: /* expr_call_pipe: expr expr_full_block_assumed_piped  */
+  case 221:
                                                       {
         if ( (yyvsp[-1].pExpression)->rtti_isCallLikeExpr() ) {
             ((ExprLooksLikeCall *)(yyvsp[-1].pExpression))->arguments.push_back(ExpressionPtr((yyvsp[0].pExpression)));
@@ -7529,7 +7268,7 @@ yyreduce:
     }
     break;
 
-  case 222: /* expr_call_pipe: expression_keyword expr_full_block_assumed_piped  */
+  case 222:
                                                                     {
         if ( (yyvsp[-1].pExpression)->rtti_isCallLikeExpr() ) {
             ((ExprLooksLikeCall *)(yyvsp[-1].pExpression))->arguments.push_back(ExpressionPtr((yyvsp[0].pExpression)));
@@ -7541,91 +7280,91 @@ yyreduce:
     }
     break;
 
-  case 223: /* expression_any: "end of expression"  */
+  case 223:
                                             { (yyval.pExpression) = nullptr; }
     break;
 
-  case 224: /* expression_any: expr_pipe  */
+  case 224:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 225: /* expression_any: expr_keyword  */
+  case 225:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 226: /* expression_any: expr_assign_pipe  */
+  case 226:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 227: /* expression_any: expr_assign "end of expression"  */
+  case 227:
                                             { (yyval.pExpression) = (yyvsp[-1].pExpression); }
     break;
 
-  case 228: /* expression_any: expression_delete "end of expression"  */
+  case 228:
                                             { (yyval.pExpression) = (yyvsp[-1].pExpression); }
     break;
 
-  case 229: /* expression_any: expression_let  */
+  case 229:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 230: /* expression_any: expression_while_loop  */
+  case 230:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 231: /* expression_any: expression_unsafe  */
+  case 231:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 232: /* expression_any: expression_with  */
+  case 232:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 233: /* expression_any: expression_with_alias  */
+  case 233:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 234: /* expression_any: expression_for_loop  */
+  case 234:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 235: /* expression_any: expression_break "end of expression"  */
+  case 235:
                                             { (yyval.pExpression) = (yyvsp[-1].pExpression); }
     break;
 
-  case 236: /* expression_any: expression_continue "end of expression"  */
+  case 236:
                                             { (yyval.pExpression) = (yyvsp[-1].pExpression); }
     break;
 
-  case 237: /* expression_any: expression_return  */
+  case 237:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 238: /* expression_any: expression_yield  */
+  case 238:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 239: /* expression_any: expression_if_then_else  */
+  case 239:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 240: /* expression_any: expression_try_catch  */
+  case 240:
                                             { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 241: /* expression_any: expression_label "end of expression"  */
+  case 241:
                                             { (yyval.pExpression) = (yyvsp[-1].pExpression); }
     break;
 
-  case 242: /* expression_any: expression_goto "end of expression"  */
+  case 242:
                                             { (yyval.pExpression) = (yyvsp[-1].pExpression); }
     break;
 
-  case 243: /* expression_any: "pass" "end of expression"  */
+  case 243:
                                             { (yyval.pExpression) = nullptr; }
     break;
 
-  case 244: /* expressions: %empty  */
+  case 244:
         {
         (yyval.pExpression) = new ExprBlock();
         (yyval.pExpression)->at = LineInfo(yyextra->g_FileAccessStack.back(),
@@ -7633,7 +7372,7 @@ yyreduce:
     }
     break;
 
-  case 245: /* expressions: expressions expression_any  */
+  case 245:
                                                         {
         (yyval.pExpression) = (yyvsp[-1].pExpression);
         if ( (yyvsp[0].pExpression) ) {
@@ -7642,13 +7381,13 @@ yyreduce:
     }
     break;
 
-  case 246: /* expressions: expressions error  */
+  case 246:
                                  {
         delete (yyvsp[-1].pExpression); (yyval.pExpression) = nullptr; YYABORT;
     }
     break;
 
-  case 247: /* expr_keyword: "keyword" expr expression_block  */
+  case 247:
                                                            {
         auto pCall = yyextra->g_Program->makeCall(tokAt(scanner,(yylsp[-2])),*(yyvsp[-2].s));
         pCall->arguments.push_back(ExpressionPtr((yyvsp[-1].pExpression)));
@@ -7660,45 +7399,45 @@ yyreduce:
     }
     break;
 
-  case 248: /* optional_expr_list: %empty  */
+  case 248:
         { (yyval.pExpression) = nullptr; }
     break;
 
-  case 249: /* optional_expr_list: expr_list  */
+  case 249:
                              { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 250: /* optional_expr_list_in_braces: %empty  */
+  case 250:
         { (yyval.pExpression) = nullptr; }
     break;
 
-  case 251: /* optional_expr_list_in_braces: '(' optional_expr_list ')'  */
+  case 251:
                                               { (yyval.pExpression) = (yyvsp[-1].pExpression); }
     break;
 
-  case 252: /* type_declaration_no_options_list: type_declaration  */
+  case 252:
                                {
         (yyval.pTypeDeclList) = new vector<Expression *>();
         (yyval.pTypeDeclList)->push_back(new ExprTypeDecl(tokAt(scanner,(yylsp[0])),(yyvsp[0].pTypeDecl)));
     }
     break;
 
-  case 253: /* type_declaration_no_options_list: type_declaration_no_options_list "end of expression" type_declaration  */
+  case 253:
                                                                            {
         (yyval.pTypeDeclList) = (yyvsp[-2].pTypeDeclList);
         (yyval.pTypeDeclList)->push_back(new ExprTypeDecl(tokAt(scanner,(yylsp[0])),(yyvsp[0].pTypeDecl)));
     }
     break;
 
-  case 254: /* $@7: %empty  */
+  case 254:
                          { yyextra->das_arrow_depth ++; }
     break;
 
-  case 255: /* $@8: %empty  */
+  case 255:
                                                                                                       { yyextra->das_arrow_depth --; }
     break;
 
-  case 256: /* expression_keyword: "keyword" '<' $@7 type_declaration_no_options_list '>' $@8 expr  */
+  case 256:
                                                                                                                                                      {
         auto pCall = yyextra->g_Program->makeCall(tokAt(scanner,(yylsp[-6])),tokAt(scanner,(yylsp[0])),*(yyvsp[-6].s));
         pCall->arguments = typesAndSequenceToList((yyvsp[-3].pTypeDeclList),(yyvsp[0].pExpression));
@@ -7707,15 +7446,15 @@ yyreduce:
     }
     break;
 
-  case 257: /* $@9: %empty  */
+  case 257:
                                { yyextra->das_arrow_depth ++; }
     break;
 
-  case 258: /* $@10: %empty  */
+  case 258:
                                                                                                             { yyextra->das_arrow_depth --; }
     break;
 
-  case 259: /* expression_keyword: "type function" '<' $@9 type_declaration_no_options_list '>' $@10 optional_expr_list_in_braces  */
+  case 259:
                                                                                                                                                                                    {
         auto pCall = yyextra->g_Program->makeCall(tokAt(scanner,(yylsp[-6])),tokAt(scanner,(yylsp[0])),*(yyvsp[-6].s));
         pCall->arguments = typesAndSequenceToList((yyvsp[-3].pTypeDeclList),(yyvsp[0].pExpression));
@@ -7724,7 +7463,7 @@ yyreduce:
     }
     break;
 
-  case 260: /* expr_pipe: expr_assign " <|" expr_block  */
+  case 260:
                                                         {
         Expression * pipeCall = (yyvsp[-2].pExpression)->tail();
         if ( pipeCall->rtti_isCallLikeExpr() ) {
@@ -7761,35 +7500,35 @@ yyreduce:
     }
     break;
 
-  case 261: /* expr_pipe: "@ <|" expr_block  */
+  case 261:
                                {
         (yyval.pExpression) = (yyvsp[0].pExpression);
     }
     break;
 
-  case 262: /* expr_pipe: "@@ <|" expr_block  */
+  case 262:
                                {
         (yyval.pExpression) = (yyvsp[0].pExpression);
     }
     break;
 
-  case 263: /* expr_pipe: "$ <|" expr_block  */
+  case 263:
                                {
         (yyval.pExpression) = (yyvsp[0].pExpression);
     }
     break;
 
-  case 264: /* expr_pipe: expr_call_pipe  */
+  case 264:
                              {
         (yyval.pExpression) = (yyvsp[0].pExpression);
     }
     break;
 
-  case 265: /* name_in_namespace: "name"  */
+  case 265:
                                                { (yyval.s) = (yyvsp[0].s); }
     break;
 
-  case 266: /* name_in_namespace: "name" "::" "name"  */
+  case 266:
                                                {
             auto ita = yyextra->das_module_alias.find(*(yyvsp[-2].s));
             if ( ita == yyextra->das_module_alias.end() ) {
@@ -7803,17 +7542,17 @@ yyreduce:
         }
     break;
 
-  case 267: /* name_in_namespace: "::" "name"  */
+  case 267:
                                                { *(yyvsp[0].s) = "::" + *(yyvsp[0].s); (yyval.s) = (yyvsp[0].s); }
     break;
 
-  case 268: /* expression_delete: "delete" expr  */
+  case 268:
                                       {
         (yyval.pExpression) = new ExprDelete(tokAt(scanner,(yylsp[-1])), ExpressionPtr((yyvsp[0].pExpression)));
     }
     break;
 
-  case 269: /* expression_delete: "delete" "explicit" expr  */
+  case 269:
                                                    {
         auto delExpr = new ExprDelete(tokAt(scanner,(yylsp[-2])), ExpressionPtr((yyvsp[0].pExpression)));
         delExpr->native = true;
@@ -7821,47 +7560,47 @@ yyreduce:
     }
     break;
 
-  case 270: /* $@11: %empty  */
+  case 270:
            { yyextra->das_arrow_depth ++; }
     break;
 
-  case 271: /* $@12: %empty  */
+  case 271:
                                                                            { yyextra->das_arrow_depth --; }
     break;
 
-  case 272: /* new_type_declaration: '<' $@11 type_declaration '>' $@12  */
+  case 272:
                                                                                                             {
         (yyval.pTypeDecl) = (yyvsp[-2].pTypeDecl);
     }
     break;
 
-  case 273: /* new_type_declaration: structure_type_declaration  */
+  case 273:
                                                {
         (yyval.pTypeDecl) = (yyvsp[0].pTypeDecl);
     }
     break;
 
-  case 274: /* expr_new: "new" new_type_declaration  */
+  case 274:
                                                        {
         (yyval.pExpression) = new ExprNew(tokAt(scanner,(yylsp[-1])),TypeDeclPtr((yyvsp[0].pTypeDecl)),false);
     }
     break;
 
-  case 275: /* expr_new: "new" new_type_declaration '(' use_initializer ')'  */
+  case 275:
                                                                                      {
         (yyval.pExpression) = new ExprNew(tokAt(scanner,(yylsp[-4])),TypeDeclPtr((yyvsp[-3].pTypeDecl)),true);
         ((ExprNew *)(yyval.pExpression))->initializer = (yyvsp[-1].b);
     }
     break;
 
-  case 276: /* expr_new: "new" new_type_declaration '(' expr_list ')'  */
+  case 276:
                                                                                     {
         auto pNew = new ExprNew(tokAt(scanner,(yylsp[-4])),TypeDeclPtr((yyvsp[-3].pTypeDecl)),true);
         (yyval.pExpression) = parseFunctionArguments(pNew,(yyvsp[-1].pExpression));
     }
     break;
 
-  case 277: /* expr_new: "new" new_type_declaration '(' use_initializer make_struct_single ')'  */
+  case 277:
                                                                                                             {
         ((ExprMakeStruct *)(yyvsp[-1].pExpression))->at = tokAt(scanner,(yylsp[-4]));
         ((ExprMakeStruct *)(yyvsp[-1].pExpression))->makeType = (yyvsp[-4].pTypeDecl);
@@ -7871,33 +7610,33 @@ yyreduce:
     }
     break;
 
-  case 278: /* expr_new: "new" make_decl  */
+  case 278:
                                     {
         (yyval.pExpression) = new ExprAscend(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[0].pExpression)));
     }
     break;
 
-  case 279: /* expression_break: "break"  */
+  case 279:
                        { (yyval.pExpression) = new ExprBreak(tokAt(scanner,(yylsp[0]))); }
     break;
 
-  case 280: /* expression_continue: "continue"  */
+  case 280:
                           { (yyval.pExpression) = new ExprContinue(tokAt(scanner,(yylsp[0]))); }
     break;
 
-  case 281: /* expression_return_no_pipe: "return"  */
+  case 281:
                         {
         (yyval.pExpression) = new ExprReturn(tokAt(scanner,(yylsp[0])),nullptr);
     }
     break;
 
-  case 282: /* expression_return_no_pipe: "return" expr_list  */
+  case 282:
                                            {
         (yyval.pExpression) = new ExprReturn(tokAt(scanner,(yylsp[-1])),sequenceToTuple((yyvsp[0].pExpression)));
     }
     break;
 
-  case 283: /* expression_return_no_pipe: "return" "<-" expr_list  */
+  case 283:
                                                   {
         auto pRet = new ExprReturn(tokAt(scanner,(yylsp[-2])),sequenceToTuple((yyvsp[0].pExpression)));
         pRet->moveSemantics = true;
@@ -7905,19 +7644,19 @@ yyreduce:
     }
     break;
 
-  case 284: /* expression_return: expression_return_no_pipe "end of expression"  */
+  case 284:
                                               {
         (yyval.pExpression) = (yyvsp[-1].pExpression);
     }
     break;
 
-  case 285: /* expression_return: "return" expr_pipe  */
+  case 285:
                                            {
         (yyval.pExpression) = new ExprReturn(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[0].pExpression)));
     }
     break;
 
-  case 286: /* expression_return: "return" "<-" expr_pipe  */
+  case 286:
                                                   {
         auto pRet = new ExprReturn(tokAt(scanner,(yylsp[-2])),ExpressionPtr((yyvsp[0].pExpression)));
         pRet->moveSemantics = true;
@@ -7925,13 +7664,13 @@ yyreduce:
     }
     break;
 
-  case 287: /* expression_yield_no_pipe: "yield" expr  */
+  case 287:
                                      {
         (yyval.pExpression) = new ExprYield(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[0].pExpression)));
     }
     break;
 
-  case 288: /* expression_yield_no_pipe: "yield" "<-" expr  */
+  case 288:
                                             {
         auto pRet = new ExprYield(tokAt(scanner,(yylsp[-2])),ExpressionPtr((yyvsp[0].pExpression)));
         pRet->moveSemantics = true;
@@ -7939,19 +7678,19 @@ yyreduce:
     }
     break;
 
-  case 289: /* expression_yield: expression_yield_no_pipe "end of expression"  */
+  case 289:
                                              {
         (yyval.pExpression) = (yyvsp[-1].pExpression);
     }
     break;
 
-  case 290: /* expression_yield: "yield" expr_pipe  */
+  case 290:
                                           {
         (yyval.pExpression) = new ExprYield(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[0].pExpression)));
     }
     break;
 
-  case 291: /* expression_yield: "yield" "<-" expr_pipe  */
+  case 291:
                                                  {
         auto pRet = new ExprYield(tokAt(scanner,(yylsp[-2])),ExpressionPtr((yyvsp[0].pExpression)));
         pRet->moveSemantics = true;
@@ -7959,41 +7698,41 @@ yyreduce:
     }
     break;
 
-  case 292: /* expression_try_catch: "try" expression_block "recover" expression_block  */
+  case 292:
                                                                                        {
         (yyval.pExpression) = new ExprTryCatch(tokAt(scanner,(yylsp[-3])),ExpressionPtr((yyvsp[-2].pExpression)),ExpressionPtr((yyvsp[0].pExpression)));
     }
     break;
 
-  case 293: /* kwd_let_var_or_nothing: "let"  */
+  case 293:
                  { (yyval.b) = true; }
     break;
 
-  case 294: /* kwd_let_var_or_nothing: "var"  */
+  case 294:
                  { (yyval.b) = false; }
     break;
 
-  case 295: /* kwd_let_var_or_nothing: %empty  */
+  case 295:
                     { (yyval.b) = true; }
     break;
 
-  case 296: /* kwd_let: "let"  */
+  case 296:
                  { (yyval.b) = true; }
     break;
 
-  case 297: /* kwd_let: "var"  */
+  case 297:
                  { (yyval.b) = false; }
     break;
 
-  case 298: /* optional_in_scope: "inscope"  */
+  case 298:
                     { (yyval.b) = true; }
     break;
 
-  case 299: /* optional_in_scope: %empty  */
+  case 299:
                      { (yyval.b) = false; }
     break;
 
-  case 300: /* tuple_expansion: "name"  */
+  case 300:
                     {
         (yyval.pNameList) = new vector<string>();
         (yyval.pNameList)->push_back(*(yyvsp[0].s));
@@ -8001,7 +7740,7 @@ yyreduce:
     }
     break;
 
-  case 301: /* tuple_expansion: tuple_expansion ',' "name"  */
+  case 301:
                                              {
         (yyvsp[-2].pNameList)->push_back(*(yyvsp[0].s));
         delete (yyvsp[0].s);
@@ -8009,7 +7748,7 @@ yyreduce:
     }
     break;
 
-  case 302: /* tuple_expansion_variable_declaration: "[[" tuple_expansion ']' ']' ':' type_declaration_no_options copy_or_move_or_clone expr "end of expression"  */
+  case 302:
                                                                                                                                   {
         (yyval.pVarDecl) = new VariableDeclaration((yyvsp[-7].pNameList),tokAt(scanner,(yylsp[-7])),(yyvsp[-3].pTypeDecl),(yyvsp[-1].pExpression));
         (yyval.pVarDecl)->init_via_move  = ((yyvsp[-2].i) & CorM_MOVE) !=0;
@@ -8018,7 +7757,7 @@ yyreduce:
     }
     break;
 
-  case 303: /* tuple_expansion_variable_declaration: '(' tuple_expansion ')' ':' type_declaration_no_options copy_or_move_or_clone expr "end of expression"  */
+  case 303:
                                                                                                                           {
         (yyval.pVarDecl) = new VariableDeclaration((yyvsp[-6].pNameList),tokAt(scanner,(yylsp[-6])),(yyvsp[-3].pTypeDecl),(yyvsp[-1].pExpression));
         (yyval.pVarDecl)->init_via_move  = ((yyvsp[-2].i) & CorM_MOVE) !=0;
@@ -8027,7 +7766,7 @@ yyreduce:
     }
     break;
 
-  case 304: /* tuple_expansion_variable_declaration: "[[" tuple_expansion ']' ']' optional_ref copy_or_move_or_clone expr "end of expression"  */
+  case 304:
                                                                                                           {
         auto typeDecl = new TypeDecl(Type::autoinfer);
         typeDecl->at = tokAt(scanner,(yylsp[-6]));
@@ -8039,7 +7778,7 @@ yyreduce:
     }
     break;
 
-  case 305: /* tuple_expansion_variable_declaration: '(' tuple_expansion ')' optional_ref copy_or_move_or_clone expr "end of expression"  */
+  case 305:
                                                                                                   {
         auto typeDecl = new TypeDecl(Type::autoinfer);
         typeDecl->at = tokAt(scanner,(yylsp[-5]));
@@ -8051,41 +7790,41 @@ yyreduce:
     }
     break;
 
-  case 306: /* expression_let: kwd_let optional_in_scope let_variable_declaration  */
+  case 306:
                                                                  {
         (yyval.pExpression) = ast_Let(scanner,(yyvsp[-2].b),(yyvsp[-1].b),(yyvsp[0].pVarDecl),tokAt(scanner,(yylsp[-2])),tokAt(scanner,(yylsp[0])));
     }
     break;
 
-  case 307: /* expression_let: kwd_let optional_in_scope tuple_expansion_variable_declaration  */
+  case 307:
                                                                              {
         (yyval.pExpression) = ast_Let(scanner,(yyvsp[-2].b),(yyvsp[-1].b),(yyvsp[0].pVarDecl),tokAt(scanner,(yylsp[-2])),tokAt(scanner,(yylsp[0])));
     }
     break;
 
-  case 308: /* $@13: %empty  */
+  case 308:
                           { yyextra->das_arrow_depth ++; }
     break;
 
-  case 309: /* $@14: %empty  */
+  case 309:
                                                                                                  { yyextra->das_arrow_depth --; }
     break;
 
-  case 310: /* expr_cast: "cast" '<' $@13 type_declaration_no_options '>' $@14 expr  */
+  case 310:
                                                                                                                                                 {
         (yyval.pExpression) = new ExprCast(tokAt(scanner,(yylsp[-6])),ExpressionPtr((yyvsp[0].pExpression)),TypeDeclPtr((yyvsp[-3].pTypeDecl)));
     }
     break;
 
-  case 311: /* $@15: %empty  */
+  case 311:
                             { yyextra->das_arrow_depth ++; }
     break;
 
-  case 312: /* $@16: %empty  */
+  case 312:
                                                                                                    { yyextra->das_arrow_depth --; }
     break;
 
-  case 313: /* expr_cast: "upcast" '<' $@15 type_declaration_no_options '>' $@16 expr  */
+  case 313:
                                                                                                                                                   {
         auto pCast = new ExprCast(tokAt(scanner,(yylsp[-6])),ExpressionPtr((yyvsp[0].pExpression)),TypeDeclPtr((yyvsp[-3].pTypeDecl)));
         pCast->upcast = true;
@@ -8093,15 +7832,15 @@ yyreduce:
     }
     break;
 
-  case 314: /* $@17: %empty  */
+  case 314:
                                  { yyextra->das_arrow_depth ++; }
     break;
 
-  case 315: /* $@18: %empty  */
+  case 315:
                                                                                                         { yyextra->das_arrow_depth --; }
     break;
 
-  case 316: /* expr_cast: "reinterpret" '<' $@17 type_declaration_no_options '>' $@18 expr  */
+  case 316:
                                                                                                                                                        {
         auto pCast = new ExprCast(tokAt(scanner,(yylsp[-6])),ExpressionPtr((yyvsp[0].pExpression)),TypeDeclPtr((yyvsp[-3].pTypeDecl)));
         pCast->reinterpret = true;
@@ -8109,21 +7848,21 @@ yyreduce:
     }
     break;
 
-  case 317: /* $@19: %empty  */
+  case 317:
                          { yyextra->das_arrow_depth ++; }
     break;
 
-  case 318: /* $@20: %empty  */
+  case 318:
                                                                                      { yyextra->das_arrow_depth --; }
     break;
 
-  case 319: /* expr_type_decl: "type" '<' $@19 type_declaration '>' $@20  */
+  case 319:
                                                                                                                       {
         (yyval.pExpression) = new ExprTypeDecl(tokAt(scanner,(yylsp[-5])),TypeDeclPtr((yyvsp[-2].pTypeDecl)));
     }
     break;
 
-  case 320: /* expr_type_info: "typeinfo" '(' name_in_namespace expr ')'  */
+  case 320:
                                                                          {
             if ( (yyvsp[-1].pExpression)->rtti_isTypeDecl() ) {
                 auto ptd = (ExprTypeDecl *)(yyvsp[-1].pExpression);
@@ -8136,7 +7875,7 @@ yyreduce:
     }
     break;
 
-  case 321: /* expr_type_info: "typeinfo" '(' name_in_namespace '<' "name" '>' expr ')'  */
+  case 321:
                                                                                                 {
             if ( (yyvsp[-1].pExpression)->rtti_isTypeDecl() ) {
                 auto ptd = (ExprTypeDecl *)(yyvsp[-1].pExpression);
@@ -8150,7 +7889,7 @@ yyreduce:
     }
     break;
 
-  case 322: /* expr_type_info: "typeinfo" '(' name_in_namespace '<' "name" "end of expression" "name" '>' expr ')'  */
+  case 322:
                                                                                                                      {
             if ( (yyvsp[-1].pExpression)->rtti_isTypeDecl() ) {
                 auto ptd = (ExprTypeDecl *)(yyvsp[-1].pExpression);
@@ -8165,23 +7904,23 @@ yyreduce:
     }
     break;
 
-  case 323: /* expr_list: expr  */
+  case 323:
                       {
         (yyval.pExpression) = (yyvsp[0].pExpression);
     }
     break;
 
-  case 324: /* expr_list: expr_list ',' expr  */
+  case 324:
                                             {
             (yyval.pExpression) = new ExprSequence(tokAt(scanner,(yylsp[-2])),ExpressionPtr((yyvsp[-2].pExpression)),ExpressionPtr((yyvsp[0].pExpression)));
     }
     break;
 
-  case 325: /* block_or_simple_block: expression_block  */
+  case 325:
                                     { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 326: /* block_or_simple_block: "=>" expr  */
+  case 326:
                                         {
             auto retE = make_smart<ExprReturn>(tokAt(scanner,(yylsp[-1])), ExpressionPtr((yyvsp[0].pExpression)));
             auto blkE = new ExprBlock();
@@ -8191,7 +7930,7 @@ yyreduce:
     }
     break;
 
-  case 327: /* block_or_simple_block: "=>" "<-" expr  */
+  case 327:
                                                {
             auto retE = make_smart<ExprReturn>(tokAt(scanner,(yylsp[-2])), ExpressionPtr((yyvsp[0].pExpression)));
             retE->moveSemantics = true;
@@ -8202,35 +7941,35 @@ yyreduce:
     }
     break;
 
-  case 328: /* block_or_lambda: '$'  */
+  case 328:
                 { (yyval.i) = 0;   /* block */  }
     break;
 
-  case 329: /* block_or_lambda: '@'  */
+  case 329:
                 { (yyval.i) = 1;   /* lambda */ }
     break;
 
-  case 330: /* block_or_lambda: '@' '@'  */
+  case 330:
                 { (yyval.i) = 2;   /* local function */ }
     break;
 
-  case 331: /* capture_entry: '&' "name"  */
+  case 331:
                                { (yyval.pCapt) = new CaptureEntry(*(yyvsp[0].s),CaptureMode::capture_by_reference); delete (yyvsp[0].s); }
     break;
 
-  case 332: /* capture_entry: '=' "name"  */
+  case 332:
                                { (yyval.pCapt) = new CaptureEntry(*(yyvsp[0].s),CaptureMode::capture_by_copy); delete (yyvsp[0].s); }
     break;
 
-  case 333: /* capture_entry: "<-" "name"  */
+  case 333:
                                { (yyval.pCapt) = new CaptureEntry(*(yyvsp[0].s),CaptureMode::capture_by_move); delete (yyvsp[0].s); }
     break;
 
-  case 334: /* capture_entry: ":=" "name"  */
+  case 334:
                                { (yyval.pCapt) = new CaptureEntry(*(yyvsp[0].s),CaptureMode::capture_by_clone); delete (yyvsp[0].s); }
     break;
 
-  case 335: /* capture_list: capture_entry  */
+  case 335:
                          {
         (yyval.pCaptList) = new vector<CaptureEntry>();
         (yyval.pCaptList)->push_back(*(yyvsp[0].pCapt));
@@ -8238,7 +7977,7 @@ yyreduce:
     }
     break;
 
-  case 336: /* capture_list: capture_list ',' capture_entry  */
+  case 336:
                                                {
         (yyvsp[-2].pCaptList)->push_back(*(yyvsp[0].pCapt));
         delete (yyvsp[0].pCapt);
@@ -8246,15 +7985,15 @@ yyreduce:
     }
     break;
 
-  case 337: /* optional_capture_list: %empty  */
+  case 337:
         { (yyval.pCaptList) = nullptr; }
     break;
 
-  case 338: /* optional_capture_list: "[[" capture_list ']' ']'  */
+  case 338:
                                          { (yyval.pCaptList) = (yyvsp[-2].pCaptList); }
     break;
 
-  case 339: /* expr_block: expression_block  */
+  case 339:
                                             {
         ExprBlock * closure = (ExprBlock *) (yyvsp[0].pExpression);
         (yyval.pExpression) = new ExprMakeBlock(tokAt(scanner,(yylsp[0])),ExpressionPtr((yyvsp[0].pExpression)));
@@ -8262,217 +8001,217 @@ yyreduce:
     }
     break;
 
-  case 340: /* expr_block: block_or_lambda optional_annotation_list optional_capture_list optional_function_argument_list optional_function_type block_or_simple_block  */
+  case 340:
                                                                                             {
         (yyval.pExpression) = ast_makeBlock(scanner,(yyvsp[-5].i),(yyvsp[-4].faList),(yyvsp[-3].pCaptList),(yyvsp[-2].pVarDeclList),(yyvsp[-1].pTypeDecl),(yyvsp[0].pExpression),tokAt(scanner,(yylsp[0])),tokAt(scanner,(yylsp[-4])));
     }
     break;
 
-  case 341: /* expr_full_block: block_or_lambda optional_annotation_list optional_capture_list optional_function_argument_list optional_function_type block_or_simple_block  */
+  case 341:
                                                                                             {
         (yyval.pExpression) = ast_makeBlock(scanner,(yyvsp[-5].i),(yyvsp[-4].faList),(yyvsp[-3].pCaptList),(yyvsp[-2].pVarDeclList),(yyvsp[-1].pTypeDecl),(yyvsp[0].pExpression),tokAt(scanner,(yylsp[0])),tokAt(scanner,(yylsp[-4])));
     }
     break;
 
-  case 342: /* $@21: %empty  */
+  case 342:
                              {  yyextra->das_need_oxford_comma = false; }
     break;
 
-  case 343: /* expr_full_block_assumed_piped: block_or_lambda $@21 optional_annotation_list optional_capture_list optional_function_argument_list optional_function_type expression_block  */
+  case 343:
                                                                                        {
         (yyval.pExpression) = ast_makeBlock(scanner,(yyvsp[-6].i),(yyvsp[-4].faList),(yyvsp[-3].pCaptList),(yyvsp[-2].pVarDeclList),(yyvsp[-1].pTypeDecl),(yyvsp[0].pExpression),tokAt(scanner,(yylsp[0])),tokAt(scanner,(yylsp[-4])));
     }
     break;
 
-  case 344: /* expr_numeric_const: "integer constant"  */
+  case 344:
                                               { (yyval.pExpression) = new ExprConstInt(tokAt(scanner,(yylsp[0])),(int32_t)(yyvsp[0].i)); }
     break;
 
-  case 345: /* expr_numeric_const: "unsigned integer constant"  */
+  case 345:
                                               { (yyval.pExpression) = new ExprConstUInt(tokAt(scanner,(yylsp[0])),(uint32_t)(yyvsp[0].ui)); }
     break;
 
-  case 346: /* expr_numeric_const: "long integer constant"  */
+  case 346:
                                               { (yyval.pExpression) = new ExprConstInt64(tokAt(scanner,(yylsp[0])),(int64_t)(yyvsp[0].i64)); }
     break;
 
-  case 347: /* expr_numeric_const: "unsigned long integer constant"  */
+  case 347:
                                               { (yyval.pExpression) = new ExprConstUInt64(tokAt(scanner,(yylsp[0])),(uint64_t)(yyvsp[0].ui64)); }
     break;
 
-  case 348: /* expr_numeric_const: "unsigned int8 constant"  */
+  case 348:
                                               { (yyval.pExpression) = new ExprConstUInt8(tokAt(scanner,(yylsp[0])),(uint8_t)(yyvsp[0].ui)); }
     break;
 
-  case 349: /* expr_numeric_const: "floating point constant"  */
+  case 349:
                                               { (yyval.pExpression) = new ExprConstFloat(tokAt(scanner,(yylsp[0])),(float)(yyvsp[0].fd)); }
     break;
 
-  case 350: /* expr_numeric_const: "double constant"  */
+  case 350:
                                               { (yyval.pExpression) = new ExprConstDouble(tokAt(scanner,(yylsp[0])),(double)(yyvsp[0].d)); }
     break;
 
-  case 351: /* expr_assign: expr  */
+  case 351:
                                              { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 352: /* expr_assign: expr '=' expr  */
+  case 352:
                                              { (yyval.pExpression) = new ExprCopy(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[-2].pExpression)),ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 353: /* expr_assign: expr "<-" expr  */
+  case 353:
                                              { (yyval.pExpression) = new ExprMove(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 354: /* expr_assign: expr ":=" expr  */
+  case 354:
                                              { (yyval.pExpression) = new ExprClone(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 355: /* expr_assign: expr "&=" expr  */
+  case 355:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"&=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 356: /* expr_assign: expr "|=" expr  */
+  case 356:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"|=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 357: /* expr_assign: expr "^=" expr  */
+  case 357:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"^=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 358: /* expr_assign: expr "&&=" expr  */
+  case 358:
                                                 { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"&&=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 359: /* expr_assign: expr "||=" expr  */
+  case 359:
                                                 { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"||=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 360: /* expr_assign: expr "^^=" expr  */
+  case 360:
                                                 { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"^^=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 361: /* expr_assign: expr "+=" expr  */
+  case 361:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"+=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 362: /* expr_assign: expr "-=" expr  */
+  case 362:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"-=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 363: /* expr_assign: expr "*=" expr  */
+  case 363:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"*=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 364: /* expr_assign: expr "/=" expr  */
+  case 364:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"/=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 365: /* expr_assign: expr "%=" expr  */
+  case 365:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"%=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 366: /* expr_assign: expr "<<=" expr  */
+  case 366:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"<<=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 367: /* expr_assign: expr ">>=" expr  */
+  case 367:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),">>=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 368: /* expr_assign: expr "<<<=" expr  */
+  case 368:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"<<<=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 369: /* expr_assign: expr ">>>=" expr  */
+  case 369:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),">>>=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 370: /* expr_assign_pipe_right: "@ <|" expr_block  */
+  case 370:
                                    { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 371: /* expr_assign_pipe_right: "@@ <|" expr_block  */
+  case 371:
                                    { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 372: /* expr_assign_pipe_right: "$ <|" expr_block  */
+  case 372:
                                    { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 373: /* expr_assign_pipe_right: expr_call_pipe  */
+  case 373:
                                    { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 374: /* expr_assign_pipe: expr '=' expr_assign_pipe_right  */
+  case 374:
                                                                   { (yyval.pExpression) = new ExprCopy(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[-2].pExpression)),ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 375: /* expr_assign_pipe: expr "<-" expr_assign_pipe_right  */
+  case 375:
                                                                   { (yyval.pExpression) = new ExprMove(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[-2].pExpression)),ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 376: /* expr_assign_pipe: expr "&=" expr_assign_pipe_right  */
+  case 376:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"&=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 377: /* expr_assign_pipe: expr "|=" expr_assign_pipe_right  */
+  case 377:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"|=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 378: /* expr_assign_pipe: expr "^=" expr_assign_pipe_right  */
+  case 378:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"^=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 379: /* expr_assign_pipe: expr "&&=" expr_assign_pipe_right  */
+  case 379:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"&&=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 380: /* expr_assign_pipe: expr "||=" expr_assign_pipe_right  */
+  case 380:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"||=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 381: /* expr_assign_pipe: expr "^^=" expr_assign_pipe_right  */
+  case 381:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"^^=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 382: /* expr_assign_pipe: expr "+=" expr_assign_pipe_right  */
+  case 382:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"+=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 383: /* expr_assign_pipe: expr "-=" expr_assign_pipe_right  */
+  case 383:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"-=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 384: /* expr_assign_pipe: expr "*=" expr_assign_pipe_right  */
+  case 384:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"*=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 385: /* expr_assign_pipe: expr "/=" expr_assign_pipe_right  */
+  case 385:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"/=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 386: /* expr_assign_pipe: expr "%=" expr_assign_pipe_right  */
+  case 386:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"%=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 387: /* expr_assign_pipe: expr "<<=" expr_assign_pipe_right  */
+  case 387:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"<<=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 388: /* expr_assign_pipe: expr ">>=" expr_assign_pipe_right  */
+  case 388:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),">>=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 389: /* expr_assign_pipe: expr "<<<=" expr_assign_pipe_right  */
+  case 389:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"<<<=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 390: /* expr_assign_pipe: expr ">>>=" expr_assign_pipe_right  */
+  case 390:
                                                                   { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),">>>=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 391: /* expr_named_call: name_in_namespace '(' '[' make_struct_fields ']' ')'  */
+  case 391:
                                                                          {
         auto nc = new ExprNamedCall(tokAt(scanner,(yylsp[-5])),*(yyvsp[-5].s));
         nc->arguments = *(yyvsp[-2].pMakeStruct);
@@ -8482,7 +8221,7 @@ yyreduce:
     }
     break;
 
-  case 392: /* expr_named_call: name_in_namespace '(' expr_list ',' '[' make_struct_fields ']' ')'  */
+  case 392:
                                                                                                   {
         auto nc = new ExprNamedCall(tokAt(scanner,(yylsp[-7])),*(yyvsp[-7].s));
         nc->nonNamedArguments = sequenceToList((yyvsp[-5].pExpression));
@@ -8493,7 +8232,7 @@ yyreduce:
     }
     break;
 
-  case 393: /* expr_method_call: expr "->" "name" '(' ')'  */
+  case 393:
                                                          {
         auto pInvoke = makeInvokeMethod(tokAt(scanner,(yylsp[-3])), (yyvsp[-4].pExpression), *(yyvsp[-2].s));
         delete (yyvsp[-2].s);
@@ -8501,7 +8240,7 @@ yyreduce:
     }
     break;
 
-  case 394: /* expr_method_call: expr "->" "name" '(' expr_list ')'  */
+  case 394:
                                                                               {
         auto pInvoke = makeInvokeMethod(tokAt(scanner,(yylsp[-4])), (yyvsp[-5].pExpression), *(yyvsp[-3].s));
         auto callArgs = sequenceToList((yyvsp[-1].pExpression));
@@ -8511,35 +8250,35 @@ yyreduce:
     }
     break;
 
-  case 395: /* func_addr_name: name_in_namespace  */
+  case 395:
                                     {
         (yyval.pExpression) = new ExprAddr(tokAt(scanner,(yylsp[0])),*(yyvsp[0].s));
         delete (yyvsp[0].s);
     }
     break;
 
-  case 396: /* func_addr_name: "$i" '(' expr ')'  */
+  case 396:
                                           {
         auto expr = new ExprAddr(tokAt(scanner,(yylsp[-3])),"``MACRO``TAG``ADDR``");
         (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression), expr, "i");
     }
     break;
 
-  case 397: /* func_addr_expr: '@' '@' func_addr_name  */
+  case 397:
                                           {
         (yyval.pExpression) = (yyvsp[0].pExpression);
     }
     break;
 
-  case 398: /* $@22: %empty  */
+  case 398:
                     { yyextra->das_arrow_depth ++; }
     break;
 
-  case 399: /* $@23: %empty  */
+  case 399:
                                                                                                 { yyextra->das_arrow_depth --; }
     break;
 
-  case 400: /* func_addr_expr: '@' '@' '<' $@22 type_declaration_no_options '>' $@23 func_addr_name  */
+  case 400:
                                                                                                                                                        {
         auto expr = (ExprAddr *) ((yyvsp[0].pExpression)->rtti_isAddr() ? (yyvsp[0].pExpression) : (((ExprTag *) (yyvsp[0].pExpression))->value.get()));
         expr->funcType = TypeDeclPtr((yyvsp[-3].pTypeDecl));
@@ -8547,15 +8286,15 @@ yyreduce:
     }
     break;
 
-  case 401: /* $@24: %empty  */
+  case 401:
                     { yyextra->das_arrow_depth ++; }
     break;
 
-  case 402: /* $@25: %empty  */
+  case 402:
                                                                                                                               { yyextra->das_arrow_depth --; }
     break;
 
-  case 403: /* func_addr_expr: '@' '@' '<' $@24 optional_function_argument_list optional_function_type '>' $@25 func_addr_name  */
+  case 403:
                                                                                                                                                                                      {
         auto expr = (ExprAddr *) ((yyvsp[0].pExpression)->rtti_isAddr() ? (yyvsp[0].pExpression) : (((ExprTag *) (yyvsp[0].pExpression))->value.get()));
         expr->funcType = make_smart<TypeDecl>(Type::tFunction);
@@ -8568,21 +8307,21 @@ yyreduce:
     }
     break;
 
-  case 404: /* expr_field: expr '.' "name"  */
+  case 404:
                                               {
         (yyval.pExpression) = new ExprField(tokAt(scanner,(yylsp[-1])), tokAt(scanner,(yylsp[0])), ExpressionPtr((yyvsp[-2].pExpression)), *(yyvsp[0].s));
         delete (yyvsp[0].s);
     }
     break;
 
-  case 405: /* expr_field: expr '.' '.' "name"  */
+  case 405:
                                                   {
         (yyval.pExpression) = new ExprField(tokAt(scanner,(yylsp[-1])), tokAt(scanner,(yylsp[0])), ExpressionPtr((yyvsp[-3].pExpression)), *(yyvsp[0].s), true);
         delete (yyvsp[0].s);
     }
     break;
 
-  case 406: /* expr_field: expr '.' "name" '(' ')'  */
+  case 406:
                                                       {
         auto pInvoke = makeInvokeMethod(tokAt(scanner,(yylsp[-3])), (yyvsp[-4].pExpression), *(yyvsp[-2].s));
         delete (yyvsp[-2].s);
@@ -8590,7 +8329,7 @@ yyreduce:
     }
     break;
 
-  case 407: /* expr_field: expr '.' "name" '(' expr_list ')'  */
+  case 407:
                                                                            {
         auto pInvoke = makeInvokeMethod(tokAt(scanner,(yylsp[-4])), (yyvsp[-5].pExpression), *(yyvsp[-3].s));
         auto callArgs = sequenceToList((yyvsp[-1].pExpression));
@@ -8600,29 +8339,29 @@ yyreduce:
     }
     break;
 
-  case 408: /* $@26: %empty  */
+  case 408:
                                { yyextra->das_suppress_errors=true; }
     break;
 
-  case 409: /* $@27: %empty  */
+  case 409:
                                                                             { yyextra->das_suppress_errors=false; }
     break;
 
-  case 410: /* expr_field: expr '.' $@26 error $@27  */
+  case 410:
                                                                                                                     {
         (yyval.pExpression) = new ExprField(tokAt(scanner,(yylsp[-3])), tokAt(scanner,(yylsp[-3])), ExpressionPtr((yyvsp[-4].pExpression)), "");
         yyerrok;
     }
     break;
 
-  case 411: /* expr_call: name_in_namespace '(' ')'  */
+  case 411:
                                                {
             (yyval.pExpression) = yyextra->g_Program->makeCall(tokAt(scanner,(yylsp[-2])),tokAt(scanner,(yylsp[0])),*(yyvsp[-2].s));
             delete (yyvsp[-2].s);
     }
     break;
 
-  case 412: /* expr_call: name_in_namespace '(' make_struct_single ')'  */
+  case 412:
                                                                {
             ((ExprMakeStruct *)(yyvsp[-1].pExpression))->at = tokAt(scanner,(yylsp[-3]));
             ((ExprMakeStruct *)(yyvsp[-1].pExpression))->makeType = new TypeDecl(Type::alias);
@@ -8634,166 +8373,166 @@ yyreduce:
     }
     break;
 
-  case 413: /* expr_call: name_in_namespace '(' expr_list ')'  */
+  case 413:
                                                                     {
             (yyval.pExpression) = parseFunctionArguments(yyextra->g_Program->makeCall(tokAt(scanner,(yylsp[-3])),tokAt(scanner,(yylsp[0])),*(yyvsp[-3].s)),(yyvsp[-1].pExpression));
             delete (yyvsp[-3].s);
     }
     break;
 
-  case 414: /* expr_call: basic_type_declaration '(' ')'  */
+  case 414:
                                                     {
         (yyval.pExpression) = yyextra->g_Program->makeCall(tokAt(scanner,(yylsp[-2])),tokAt(scanner,(yylsp[0])),das_to_string((yyvsp[-2].type)));
     }
     break;
 
-  case 415: /* expr_call: basic_type_declaration '(' expr_list ')'  */
+  case 415:
                                                                          {
         (yyval.pExpression) = parseFunctionArguments(yyextra->g_Program->makeCall(tokAt(scanner,(yylsp[-3])),tokAt(scanner,(yylsp[0])),das_to_string((yyvsp[-3].type))),(yyvsp[-1].pExpression));
     }
     break;
 
-  case 416: /* expr: "null"  */
+  case 416:
                                               { (yyval.pExpression) = new ExprConstPtr(tokAt(scanner,(yylsp[0])),nullptr); }
     break;
 
-  case 417: /* expr: name_in_namespace  */
+  case 417:
                                               { (yyval.pExpression) = new ExprVar(tokAt(scanner,(yylsp[0])),*(yyvsp[0].s)); delete (yyvsp[0].s); }
     break;
 
-  case 418: /* expr: expr_numeric_const  */
+  case 418:
                                               { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 419: /* expr: expr_reader  */
+  case 419:
                                               { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 420: /* expr: string_builder  */
+  case 420:
                                               { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 421: /* expr: make_decl  */
+  case 421:
                                               { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 422: /* expr: "true"  */
+  case 422:
                                               { (yyval.pExpression) = new ExprConstBool(tokAt(scanner,(yylsp[0])),true); }
     break;
 
-  case 423: /* expr: "false"  */
+  case 423:
                                               { (yyval.pExpression) = new ExprConstBool(tokAt(scanner,(yylsp[0])),false); }
     break;
 
-  case 424: /* expr: expr_field  */
+  case 424:
                                               { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 425: /* expr: expr_mtag  */
+  case 425:
                                               { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 426: /* expr: '!' expr  */
+  case 426:
                                               { (yyval.pExpression) = new ExprOp1(tokAt(scanner,(yylsp[-1])),"!",ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 427: /* expr: '~' expr  */
+  case 427:
                                               { (yyval.pExpression) = new ExprOp1(tokAt(scanner,(yylsp[-1])),"~",ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 428: /* expr: '+' expr  */
+  case 428:
                                                   { (yyval.pExpression) = new ExprOp1(tokAt(scanner,(yylsp[-1])),"+",ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 429: /* expr: '-' expr  */
+  case 429:
                                                   { (yyval.pExpression) = new ExprOp1(tokAt(scanner,(yylsp[-1])),"-",ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 430: /* expr: expr "<<" expr  */
+  case 430:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"<<", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 431: /* expr: expr ">>" expr  */
+  case 431:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),">>", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 432: /* expr: expr "<<<" expr  */
+  case 432:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"<<<", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 433: /* expr: expr ">>>" expr  */
+  case 433:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),">>>", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 434: /* expr: expr '+' expr  */
+  case 434:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"+", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 435: /* expr: expr '-' expr  */
+  case 435:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"-", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 436: /* expr: expr '*' expr  */
+  case 436:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"*", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 437: /* expr: expr '/' expr  */
+  case 437:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"/", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 438: /* expr: expr '%' expr  */
+  case 438:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"%", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 439: /* expr: expr '<' expr  */
+  case 439:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"<", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 440: /* expr: expr '>' expr  */
+  case 440:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),">", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 441: /* expr: expr "==" expr  */
+  case 441:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"==", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 442: /* expr: expr "!=" expr  */
+  case 442:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"!=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 443: /* expr: expr "<=" expr  */
+  case 443:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"<=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 444: /* expr: expr ">=" expr  */
+  case 444:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),">=", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 445: /* expr: expr '&' expr  */
+  case 445:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"&", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 446: /* expr: expr '|' expr  */
+  case 446:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"|", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 447: /* expr: expr '^' expr  */
+  case 447:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"^", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 448: /* expr: expr "&&" expr  */
+  case 448:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"&&", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 449: /* expr: expr "||" expr  */
+  case 449:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"||", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 450: /* expr: expr "^^" expr  */
+  case 450:
                                              { (yyval.pExpression) = new ExprOp2(tokAt(scanner,(yylsp[-1])),"^^", ExpressionPtr((yyvsp[-2].pExpression)), ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 451: /* expr: expr ".." expr  */
+  case 451:
                                              {
         auto itv = yyextra->g_Program->makeCall(tokAt(scanner,(yylsp[-1])),"interval");
         itv->arguments.push_back(ExpressionPtr((yyvsp[-2].pExpression)));
@@ -8802,23 +8541,23 @@ yyreduce:
     }
     break;
 
-  case 452: /* expr: "++" expr  */
+  case 452:
                                                  { (yyval.pExpression) = new ExprOp1(tokAt(scanner,(yylsp[-1])),"++", ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 453: /* expr: "--" expr  */
+  case 453:
                                                  { (yyval.pExpression) = new ExprOp1(tokAt(scanner,(yylsp[-1])),"--", ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 454: /* expr: expr "++"  */
+  case 454:
                                                  { (yyval.pExpression) = new ExprOp1(tokAt(scanner,(yylsp[0])),"+++", ExpressionPtr((yyvsp[-1].pExpression))); }
     break;
 
-  case 455: /* expr: expr "--"  */
+  case 455:
                                                  { (yyval.pExpression) = new ExprOp1(tokAt(scanner,(yylsp[0])),"---", ExpressionPtr((yyvsp[-1].pExpression))); }
     break;
 
-  case 456: /* expr: '(' expr_list optional_comma ')'  */
+  case 456:
                                                          {
             if ( (yyvsp[-2].pExpression)->rtti_isSequence() ) {
                 auto mkt = new ExprMakeTuple(tokAt(scanner,(yylsp[-2])));
@@ -8834,87 +8573,87 @@ yyreduce:
         }
     break;
 
-  case 457: /* expr: expr '[' expr ']'  */
+  case 457:
                                                  { (yyval.pExpression) = new ExprAt(tokAt(scanner,(yylsp[-2])), ExpressionPtr((yyvsp[-3].pExpression)), ExpressionPtr((yyvsp[-1].pExpression))); }
     break;
 
-  case 458: /* expr: expr '.' '[' expr ']'  */
+  case 458:
                                                      { (yyval.pExpression) = new ExprAt(tokAt(scanner,(yylsp[-2])), ExpressionPtr((yyvsp[-4].pExpression)), ExpressionPtr((yyvsp[-1].pExpression)), true); }
     break;
 
-  case 459: /* expr: expr "?[" expr ']'  */
+  case 459:
                                                  { (yyval.pExpression) = new ExprSafeAt(tokAt(scanner,(yylsp[-2])), ExpressionPtr((yyvsp[-3].pExpression)), ExpressionPtr((yyvsp[-1].pExpression))); }
     break;
 
-  case 460: /* expr: expr '.' "?[" expr ']'  */
+  case 460:
                                                      { (yyval.pExpression) = new ExprSafeAt(tokAt(scanner,(yylsp[-2])), ExpressionPtr((yyvsp[-4].pExpression)), ExpressionPtr((yyvsp[-1].pExpression)), true); }
     break;
 
-  case 461: /* expr: expr "?." "name"  */
+  case 461:
                                                  { (yyval.pExpression) = new ExprSafeField(tokAt(scanner,(yylsp[-1])), tokAt(scanner,(yylsp[0])), ExpressionPtr((yyvsp[-2].pExpression)), *(yyvsp[0].s)); delete (yyvsp[0].s); }
     break;
 
-  case 462: /* expr: expr '.' "?." "name"  */
+  case 462:
                                                      { (yyval.pExpression) = new ExprSafeField(tokAt(scanner,(yylsp[-1])), tokAt(scanner,(yylsp[0])), ExpressionPtr((yyvsp[-3].pExpression)), *(yyvsp[0].s), true); delete (yyvsp[0].s); }
     break;
 
-  case 463: /* expr: func_addr_expr  */
+  case 463:
                                                  { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 464: /* expr: expr_call  */
+  case 464:
                         { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 465: /* expr: '*' expr  */
+  case 465:
                                                    { (yyval.pExpression) = new ExprPtr2Ref(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 466: /* expr: "deref" '(' expr ')'  */
+  case 466:
                                                    { (yyval.pExpression) = new ExprPtr2Ref(tokAt(scanner,(yylsp[-3])),ExpressionPtr((yyvsp[-1].pExpression))); }
     break;
 
-  case 467: /* expr: "addr" '(' expr ')'  */
+  case 467:
                                                    { (yyval.pExpression) = new ExprRef2Ptr(tokAt(scanner,(yylsp[-3])),ExpressionPtr((yyvsp[-1].pExpression))); }
     break;
 
-  case 468: /* expr: "generator" '<' type_declaration_no_options '>' optional_capture_list '(' ')'  */
+  case 468:
                                                                                                               {
         (yyval.pExpression) = ast_makeGenerator(scanner,(yyvsp[-4].pTypeDecl),(yyvsp[-2].pCaptList),nullptr,tokAt(scanner,(yylsp[-6])));
     }
     break;
 
-  case 469: /* expr: "generator" '<' type_declaration_no_options '>' optional_capture_list '(' expr ')'  */
+  case 469:
                                                                                                                             {
         (yyval.pExpression) = ast_makeGenerator(scanner,(yyvsp[-5].pTypeDecl),(yyvsp[-3].pCaptList),(yyvsp[-1].pExpression),tokAt(scanner,(yylsp[-7])));
     }
     break;
 
-  case 470: /* expr: expr "??" expr  */
+  case 470:
                                                    { (yyval.pExpression) = new ExprNullCoalescing(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[-2].pExpression)),ExpressionPtr((yyvsp[0].pExpression))); }
     break;
 
-  case 471: /* expr: expr '?' expr ':' expr  */
+  case 471:
                                                           {
             (yyval.pExpression) = new ExprOp3(tokAt(scanner,(yylsp[-3])),"?",ExpressionPtr((yyvsp[-4].pExpression)),ExpressionPtr((yyvsp[-2].pExpression)),ExpressionPtr((yyvsp[0].pExpression)));
         }
     break;
 
-  case 472: /* $@28: %empty  */
+  case 472:
                                                { yyextra->das_arrow_depth ++; }
     break;
 
-  case 473: /* $@29: %empty  */
+  case 473:
                                                                                                                       { yyextra->das_arrow_depth --; }
     break;
 
-  case 474: /* expr: expr "is" "type" '<' $@28 type_declaration_no_options '>' $@29  */
+  case 474:
                                                                                                                                                        {
         (yyval.pExpression) = new ExprIs(tokAt(scanner,(yylsp[-6])),ExpressionPtr((yyvsp[-7].pExpression)),TypeDeclPtr((yyvsp[-2].pTypeDecl)));
     }
     break;
 
-  case 475: /* expr: expr "is" basic_type_declaration  */
+  case 475:
                                                                {
         auto vdecl = new TypeDecl((yyvsp[0].type));
         vdecl->at = tokAt(scanner,(yylsp[0]));
@@ -8922,29 +8661,29 @@ yyreduce:
     }
     break;
 
-  case 476: /* expr: expr "is" "name"  */
+  case 476:
                                               {
         (yyval.pExpression) = new ExprIsVariant(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[-2].pExpression)),*(yyvsp[0].s));
         delete (yyvsp[0].s);
     }
     break;
 
-  case 477: /* expr: expr "as" "name"  */
+  case 477:
                                               {
         (yyval.pExpression) = new ExprAsVariant(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[-2].pExpression)),*(yyvsp[0].s));
         delete (yyvsp[0].s);
     }
     break;
 
-  case 478: /* $@30: %empty  */
+  case 478:
                                                { yyextra->das_arrow_depth ++; }
     break;
 
-  case 479: /* $@31: %empty  */
+  case 479:
                                                                                                            { yyextra->das_arrow_depth --; }
     break;
 
-  case 480: /* expr: expr "as" "type" '<' $@30 type_declaration '>' $@31  */
+  case 480:
                                                                                                                                             {
         auto vname = (yyvsp[-2].pTypeDecl)->describe();
         (yyval.pExpression) = new ExprAsVariant(tokAt(scanner,(yylsp[-6])),ExpressionPtr((yyvsp[-7].pExpression)),vname);
@@ -8952,28 +8691,28 @@ yyreduce:
     }
     break;
 
-  case 481: /* expr: expr "as" basic_type_declaration  */
+  case 481:
                                                                {
         (yyval.pExpression) = new ExprAsVariant(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[-2].pExpression)),das_to_string((yyvsp[0].type)));
     }
     break;
 
-  case 482: /* expr: expr '?' "as" "name"  */
+  case 482:
                                                   {
         (yyval.pExpression) = new ExprSafeAsVariant(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[-3].pExpression)),*(yyvsp[0].s));
         delete (yyvsp[0].s);
     }
     break;
 
-  case 483: /* $@32: %empty  */
+  case 483:
                                                    { yyextra->das_arrow_depth ++; }
     break;
 
-  case 484: /* $@33: %empty  */
+  case 484:
                                                                                                                { yyextra->das_arrow_depth --; }
     break;
 
-  case 485: /* expr: expr '?' "as" "type" '<' $@32 type_declaration '>' $@33  */
+  case 485:
                                                                                                                                                 {
         auto vname = (yyvsp[-2].pTypeDecl)->describe();
         (yyval.pExpression) = new ExprSafeAsVariant(tokAt(scanner,(yylsp[-6])),ExpressionPtr((yyvsp[-8].pExpression)),vname);
@@ -8981,60 +8720,60 @@ yyreduce:
     }
     break;
 
-  case 486: /* expr: expr '?' "as" basic_type_declaration  */
+  case 486:
                                                                    {
         (yyval.pExpression) = new ExprSafeAsVariant(tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[-3].pExpression)),das_to_string((yyvsp[0].type)));
     }
     break;
 
-  case 487: /* expr: expr_type_info  */
+  case 487:
                                                 { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 488: /* expr: expr_type_decl  */
+  case 488:
                                                 { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 489: /* expr: expr_cast  */
+  case 489:
                                                 { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 490: /* expr: expr_new  */
+  case 490:
                                                 { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 491: /* expr: expr_method_call  */
+  case 491:
                                                 { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 492: /* expr: expr_named_call  */
+  case 492:
                                                 { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 493: /* expr: expr_full_block  */
+  case 493:
                                                 { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 494: /* expr: expr "<|" expr  */
+  case 494:
                                                 { (yyval.pExpression) = ast_lpipe(scanner,(yyvsp[-2].pExpression),(yyvsp[0].pExpression),tokAt(scanner,(yylsp[-1]))); }
     break;
 
-  case 495: /* expr: expr "|>" expr  */
+  case 495:
                                                 { (yyval.pExpression) = ast_rpipe(scanner,(yyvsp[-2].pExpression),(yyvsp[0].pExpression),tokAt(scanner,(yylsp[-1]))); }
     break;
 
-  case 496: /* expr: expr "|>" basic_type_declaration  */
+  case 496:
                                                           {
         auto fncall = yyextra->g_Program->makeCall(tokAt(scanner,(yylsp[0])),tokAt(scanner,(yylsp[0])),das_to_string((yyvsp[0].type)));
         (yyval.pExpression) = ast_rpipe(scanner,(yyvsp[-2].pExpression),fncall,tokAt(scanner,(yylsp[-1])));
     }
     break;
 
-  case 497: /* expr: name_in_namespace "name"  */
+  case 497:
                                                 { (yyval.pExpression) = ast_NameName(scanner,(yyvsp[-1].s),(yyvsp[0].s),tokAt(scanner,(yylsp[-1])),tokAt(scanner,(yylsp[0]))); }
     break;
 
-  case 498: /* expr: "unsafe" '(' expr ')'  */
+  case 498:
                                          {
         (yyvsp[-1].pExpression)->alwaysSafe = true;
         (yyvsp[-1].pExpression)->userSaidItsSafe = true;
@@ -9042,157 +8781,157 @@ yyreduce:
     }
     break;
 
-  case 499: /* expr: expression_keyword  */
+  case 499:
                                 { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 500: /* expr_mtag: "$$" '(' expr ')'  */
+  case 500:
                                                      { (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression),"e"); }
     break;
 
-  case 501: /* expr_mtag: "$i" '(' expr ')'  */
+  case 501:
                                                      { (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression),"i"); }
     break;
 
-  case 502: /* expr_mtag: "$v" '(' expr ')'  */
+  case 502:
                                                      { (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression),"v"); }
     break;
 
-  case 503: /* expr_mtag: "$b" '(' expr ')'  */
+  case 503:
                                                      { (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression),"b"); }
     break;
 
-  case 504: /* expr_mtag: "$a" '(' expr ')'  */
+  case 504:
                                                      { (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression),"a"); }
     break;
 
-  case 505: /* expr_mtag: "..."  */
+  case 505:
                                                      { (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[0])),nullptr,"..."); }
     break;
 
-  case 506: /* expr_mtag: "$c" '(' expr ')' '(' ')'  */
+  case 506:
                                                             {
             auto ccall = yyextra->g_Program->makeCall(tokAt(scanner,(yylsp[-5])),tokAt(scanner,(yylsp[0])),"``MACRO``TAG``CALL``");
             (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-5])),(yyvsp[-3].pExpression),ccall,"c");
         }
     break;
 
-  case 507: /* expr_mtag: "$c" '(' expr ')' '(' expr_list ')'  */
+  case 507:
                                                                                 {
             auto ccall = parseFunctionArguments(yyextra->g_Program->makeCall(tokAt(scanner,(yylsp[-6])),tokAt(scanner,(yylsp[0])),"``MACRO``TAG``CALL``"),(yyvsp[-1].pExpression));
             (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-6])),(yyvsp[-4].pExpression),ccall,"c");
         }
     break;
 
-  case 508: /* expr_mtag: expr '.' "$f" '(' expr ')'  */
+  case 508:
                                                                 {
         auto cfield = new ExprField(tokAt(scanner,(yylsp[-4])), tokAt(scanner,(yylsp[-1])), ExpressionPtr((yyvsp[-5].pExpression)), "``MACRO``TAG``FIELD``");
         (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression),cfield,"f");
     }
     break;
 
-  case 509: /* expr_mtag: expr "?." "$f" '(' expr ')'  */
+  case 509:
                                                                  {
         auto cfield = new ExprSafeField(tokAt(scanner,(yylsp[-4])), tokAt(scanner,(yylsp[-1])), ExpressionPtr((yyvsp[-5].pExpression)), "``MACRO``TAG``FIELD``");
         (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression),cfield,"f");
     }
     break;
 
-  case 510: /* expr_mtag: expr '.' '.' "$f" '(' expr ')'  */
+  case 510:
                                                                     {
         auto cfield = new ExprField(tokAt(scanner,(yylsp[-4])), tokAt(scanner,(yylsp[-1])), ExpressionPtr((yyvsp[-6].pExpression)), "``MACRO``TAG``FIELD``", true);
         (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression),cfield,"f");
     }
     break;
 
-  case 511: /* expr_mtag: expr '.' "?." "$f" '(' expr ')'  */
+  case 511:
                                                                      {
         auto cfield = new ExprSafeField(tokAt(scanner,(yylsp[-4])), tokAt(scanner,(yylsp[-1])), ExpressionPtr((yyvsp[-6].pExpression)), "``MACRO``TAG``FIELD``", true);
         (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression),cfield,"f");
     }
     break;
 
-  case 512: /* expr_mtag: expr "as" "$f" '(' expr ')'  */
+  case 512:
                                                                    {
         auto cfield = new ExprAsVariant(tokAt(scanner,(yylsp[-4])),ExpressionPtr((yyvsp[-5].pExpression)),"``MACRO``TAG``FIELD``");
         (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression),cfield,"f");
     }
     break;
 
-  case 513: /* expr_mtag: expr '?' "as" "$f" '(' expr ')'  */
+  case 513:
                                                                        {
         auto cfield = new ExprSafeAsVariant(tokAt(scanner,(yylsp[-4])),ExpressionPtr((yyvsp[-6].pExpression)),"``MACRO``TAG``FIELD``");
         (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression),cfield,"f");
     }
     break;
 
-  case 514: /* expr_mtag: expr "is" "$f" '(' expr ')'  */
+  case 514:
                                                                    {
         auto cfield = new ExprIsVariant(tokAt(scanner,(yylsp[-4])),ExpressionPtr((yyvsp[-5].pExpression)),"``MACRO``TAG``FIELD``");
         (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression),cfield,"f");
     }
     break;
 
-  case 515: /* expr_mtag: '@' '@' "$c" '(' expr ')'  */
+  case 515:
                                                          {
         auto ccall = new ExprAddr(tokAt(scanner,(yylsp[-4])),"``MACRO``TAG``ADDR``");
         (yyval.pExpression) = new ExprTag(tokAt(scanner,(yylsp[-3])),(yyvsp[-1].pExpression),ccall,"c");
     }
     break;
 
-  case 516: /* optional_field_annotation: %empty  */
+  case 516:
                                                         { (yyval.aaList) = nullptr; }
     break;
 
-  case 517: /* optional_field_annotation: "[[" annotation_argument_list ']' ']'  */
+  case 517:
                                                         { (yyval.aaList) = (yyvsp[-2].aaList); /*this one is gone when BRABRA is disabled*/ }
     break;
 
-  case 518: /* optional_field_annotation: metadata_argument_list  */
+  case 518:
                                                         { (yyval.aaList) = (yyvsp[0].aaList); }
     break;
 
-  case 519: /* optional_override: %empty  */
+  case 519:
                       { (yyval.i) = OVERRIDE_NONE; }
     break;
 
-  case 520: /* optional_override: "override"  */
+  case 520:
                       { (yyval.i) = OVERRIDE_OVERRIDE; }
     break;
 
-  case 521: /* optional_override: "sealed"  */
+  case 521:
                       { (yyval.i) = OVERRIDE_SEALED; }
     break;
 
-  case 522: /* optional_constant: %empty  */
+  case 522:
                         { (yyval.b) = false; }
     break;
 
-  case 523: /* optional_constant: "const"  */
+  case 523:
                         { (yyval.b) = true; }
     break;
 
-  case 524: /* optional_public_or_private_member_variable: %empty  */
+  case 524:
                         { (yyval.b) = false; }
     break;
 
-  case 525: /* optional_public_or_private_member_variable: "public"  */
+  case 525:
                         { (yyval.b) = false; }
     break;
 
-  case 526: /* optional_public_or_private_member_variable: "private"  */
+  case 526:
                         { (yyval.b) = true; }
     break;
 
-  case 527: /* optional_static_member_variable: %empty  */
+  case 527:
                         { (yyval.b) = false; }
     break;
 
-  case 528: /* optional_static_member_variable: "static"  */
+  case 528:
                         { (yyval.b) = true; }
     break;
 
-  case 529: /* structure_variable_declaration: optional_field_annotation optional_static_member_variable optional_override optional_public_or_private_member_variable variable_declaration  */
+  case 529:
                                                                                                                                                                                       {
         (yyvsp[0].pVarDecl)->override = (yyvsp[-2].i) == OVERRIDE_OVERRIDE;
         (yyvsp[0].pVarDecl)->sealed = (yyvsp[-2].i) == OVERRIDE_SEALED;
@@ -9203,13 +8942,13 @@ yyreduce:
     }
     break;
 
-  case 530: /* struct_variable_declaration_list: %empty  */
+  case 530:
         {
         (yyval.pVarDeclList) = new vector<VariableDeclaration*>();
     }
     break;
 
-  case 531: /* $@34: %empty  */
+  case 531:
                                                {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto tak = tokAt(scanner,(yylsp[0]));
@@ -9218,7 +8957,7 @@ yyreduce:
     }
     break;
 
-  case 532: /* struct_variable_declaration_list: struct_variable_declaration_list $@34 structure_variable_declaration "end of expression"  */
+  case 532:
                                                {
         (yyval.pVarDeclList) = (yyvsp[-3].pVarDeclList);
         if ( (yyvsp[-1].pVarDecl) ) (yyvsp[-3].pVarDeclList)->push_back((yyvsp[-1].pVarDecl));
@@ -9234,7 +8973,7 @@ yyreduce:
     }
     break;
 
-  case 533: /* $@35: %empty  */
+  case 533:
                                                                                                                      {
                 yyextra->das_force_oxford_comma=true;
                 if ( !yyextra->g_CommentReaders.empty() ) {
@@ -9244,7 +8983,7 @@ yyreduce:
             }
     break;
 
-  case 534: /* struct_variable_declaration_list: struct_variable_declaration_list optional_annotation_list "def" optional_public_or_private_member_variable "abstract" optional_constant $@35 function_declaration_header "end of expression"  */
+  case 534:
                                                     {
                 if ( !yyextra->g_CommentReaders.empty() ) {
                     auto tak = tokAt(scanner,(yylsp[-1]));
@@ -9254,7 +8993,7 @@ yyreduce:
             }
     break;
 
-  case 535: /* $@36: %empty  */
+  case 535:
                                                                                                                                                                          {
                 if ( !yyextra->g_CommentReaders.empty() ) {
                     auto tak = tokAt(scanner,(yylsp[0]));
@@ -9263,7 +9002,7 @@ yyreduce:
             }
     break;
 
-  case 536: /* struct_variable_declaration_list: struct_variable_declaration_list optional_annotation_list "def" optional_public_or_private_member_variable optional_static_member_variable optional_override optional_constant $@36 function_declaration_header expression_block  */
+  case 536:
                                                                         {
                 if ( !yyextra->g_CommentReaders.empty() ) {
                     auto tak = tokAt(scanner,(yylsp[0]));
@@ -9273,7 +9012,7 @@ yyreduce:
             }
     break;
 
-  case 537: /* struct_variable_declaration_list: struct_variable_declaration_list '[' annotation_list ']' "end of expression"  */
+  case 537:
                                                                                  {
         das_yyerror(scanner,"structure field or class method annotation expected to remain on the same line with the field or the class",
             tokAt(scanner,(yylsp[-2])), CompilationError::syntax_error);
@@ -9282,7 +9021,7 @@ yyreduce:
     }
     break;
 
-  case 538: /* function_argument_declaration: optional_field_annotation kwd_let_var_or_nothing variable_declaration  */
+  case 538:
                                                                                                   {
             (yyval.pVarDecl) = (yyvsp[0].pVarDecl);
             if ( (yyvsp[-1].b) ) {
@@ -9294,7 +9033,7 @@ yyreduce:
         }
     break;
 
-  case 539: /* function_argument_declaration: "$a" '(' expr ')'  */
+  case 539:
                                      {
             auto na = new vector<VariableNameAndPosition>();
             na->push_back(VariableNameAndPosition{"``MACRO``TAG``","",tokAt(scanner,(yylsp[-1]))});
@@ -9304,21 +9043,21 @@ yyreduce:
         }
     break;
 
-  case 540: /* function_argument_list: function_argument_declaration  */
+  case 540:
                                                                                  { (yyval.pVarDeclList) = new vector<VariableDeclaration*>(); (yyval.pVarDeclList)->push_back((yyvsp[0].pVarDecl)); }
     break;
 
-  case 541: /* function_argument_list: function_argument_list "end of expression" function_argument_declaration  */
+  case 541:
                                                                                  { (yyval.pVarDeclList) = (yyvsp[-2].pVarDeclList); (yyvsp[-2].pVarDeclList)->push_back((yyvsp[0].pVarDecl)); }
     break;
 
-  case 542: /* tuple_type: type_declaration  */
+  case 542:
                                     {
         (yyval.pVarDecl) = new VariableDeclaration(nullptr,(yyvsp[0].pTypeDecl),nullptr);
     }
     break;
 
-  case 543: /* tuple_type: "name" ':' type_declaration  */
+  case 543:
                                                    {
         auto na = new vector<VariableNameAndPosition>();
         na->push_back(VariableNameAndPosition{*(yyvsp[-2].s),"",tokAt(scanner,(yylsp[-2]))});
@@ -9327,27 +9066,27 @@ yyreduce:
     }
     break;
 
-  case 544: /* tuple_type_list: tuple_type  */
+  case 544:
                                                        { (yyval.pVarDeclList) = new vector<VariableDeclaration*>(); (yyval.pVarDeclList)->push_back((yyvsp[0].pVarDecl)); }
     break;
 
-  case 545: /* tuple_type_list: tuple_type_list "end of expression" tuple_type  */
+  case 545:
                                                        { (yyval.pVarDeclList) = (yyvsp[-2].pVarDeclList); (yyvsp[-2].pVarDeclList)->push_back((yyvsp[0].pVarDecl)); }
     break;
 
-  case 546: /* tuple_alias_type_list: %empty  */
+  case 546:
         {
         (yyval.pVarDeclList) = new vector<VariableDeclaration*>();
     }
     break;
 
-  case 547: /* tuple_alias_type_list: tuple_alias_type_list "end of expression"  */
+  case 547:
                                       {
         (yyval.pVarDeclList) = (yyvsp[-1].pVarDeclList);
     }
     break;
 
-  case 548: /* tuple_alias_type_list: tuple_alias_type_list tuple_type "end of expression"  */
+  case 548:
                                                          {
         (yyval.pVarDeclList) = (yyvsp[-2].pVarDeclList); (yyvsp[-2].pVarDeclList)->push_back((yyvsp[-1].pVarDecl));
         /*
@@ -9363,7 +9102,7 @@ yyreduce:
     }
     break;
 
-  case 549: /* variant_type: "name" ':' type_declaration  */
+  case 549:
                                                    {
         auto na = new vector<VariableNameAndPosition>();
         na->push_back(VariableNameAndPosition{*(yyvsp[-2].s),"",tokAt(scanner,(yylsp[-2]))});
@@ -9372,27 +9111,27 @@ yyreduce:
     }
     break;
 
-  case 550: /* variant_type_list: variant_type  */
+  case 550:
                                                          { (yyval.pVarDeclList) = new vector<VariableDeclaration*>(); (yyval.pVarDeclList)->push_back((yyvsp[0].pVarDecl)); }
     break;
 
-  case 551: /* variant_type_list: variant_type_list "end of expression" variant_type  */
+  case 551:
                                                          { (yyval.pVarDeclList) = (yyvsp[-2].pVarDeclList); (yyvsp[-2].pVarDeclList)->push_back((yyvsp[0].pVarDecl)); }
     break;
 
-  case 552: /* variant_alias_type_list: %empty  */
+  case 552:
         {
         (yyval.pVarDeclList) = new vector<VariableDeclaration*>();
     }
     break;
 
-  case 553: /* variant_alias_type_list: variant_alias_type_list "end of expression"  */
+  case 553:
                                         {
         (yyval.pVarDeclList) = (yyvsp[-1].pVarDeclList);
     }
     break;
 
-  case 554: /* variant_alias_type_list: variant_alias_type_list variant_type "end of expression"  */
+  case 554:
                                                              {
         (yyval.pVarDeclList) = (yyvsp[-2].pVarDeclList); (yyvsp[-2].pVarDeclList)->push_back((yyvsp[-1].pVarDecl));
         if ( !yyextra->g_CommentReaders.empty() ) {
@@ -9406,15 +9145,15 @@ yyreduce:
     }
     break;
 
-  case 555: /* copy_or_move: '='  */
+  case 555:
                     { (yyval.b) = false; }
     break;
 
-  case 556: /* copy_or_move: "<-"  */
+  case 556:
                     { (yyval.b) = true; }
     break;
 
-  case 557: /* variable_declaration: variable_name_with_pos_list  */
+  case 557:
                                           {
         auto autoT = new TypeDecl(Type::autoinfer);
         autoT->at = tokAt(scanner,(yylsp[0]));
@@ -9423,7 +9162,7 @@ yyreduce:
     }
     break;
 
-  case 558: /* variable_declaration: variable_name_with_pos_list '&'  */
+  case 558:
                                               {
         auto autoT = new TypeDecl(Type::autoinfer);
         autoT->at = tokAt(scanner,(yylsp[-1]));
@@ -9432,20 +9171,20 @@ yyreduce:
     }
     break;
 
-  case 559: /* variable_declaration: variable_name_with_pos_list ':' type_declaration  */
+  case 559:
                                                                           {
         (yyval.pVarDecl) = new VariableDeclaration((yyvsp[-2].pNameWithPosList),(yyvsp[0].pTypeDecl),nullptr);
     }
     break;
 
-  case 560: /* variable_declaration: variable_name_with_pos_list ':' type_declaration copy_or_move expr  */
+  case 560:
                                                                                                       {
         (yyval.pVarDecl) = new VariableDeclaration((yyvsp[-4].pNameWithPosList),(yyvsp[-2].pTypeDecl),(yyvsp[0].pExpression));
         (yyval.pVarDecl)->init_via_move = (yyvsp[-1].b);
     }
     break;
 
-  case 561: /* variable_declaration: variable_name_with_pos_list copy_or_move expr  */
+  case 561:
                                                                        {
         auto typeDecl = new TypeDecl(Type::autoinfer);
         typeDecl->at = tokAt(scanner,(yylsp[-2]));
@@ -9454,7 +9193,7 @@ yyreduce:
     }
     break;
 
-  case 562: /* variable_declaration: variable_name_with_pos_list copy_or_move expr_pipe  */
+  case 562:
                                                                             {
         auto typeDecl = new TypeDecl(Type::autoinfer);
         typeDecl->at = tokAt(scanner,(yylsp[-2]));
@@ -9463,27 +9202,27 @@ yyreduce:
     }
     break;
 
-  case 563: /* copy_or_move_or_clone: '='  */
+  case 563:
                     { (yyval.i) = CorM_COPY; }
     break;
 
-  case 564: /* copy_or_move_or_clone: "<-"  */
+  case 564:
                     { (yyval.i) = CorM_MOVE; }
     break;
 
-  case 565: /* copy_or_move_or_clone: ":="  */
+  case 565:
                     { (yyval.i) = CorM_CLONE; }
     break;
 
-  case 566: /* optional_ref: %empty  */
+  case 566:
             { (yyval.b) = false; }
     break;
 
-  case 567: /* optional_ref: '&'  */
+  case 567:
             { (yyval.b) = true; }
     break;
 
-  case 568: /* let_variable_name_with_pos_list: "name"  */
+  case 568:
                     {
         das_checkName(scanner,*(yyvsp[0].s),tokAt(scanner,(yylsp[0])));
         auto pSL = new vector<VariableNameAndPosition>();
@@ -9493,7 +9232,7 @@ yyreduce:
     }
     break;
 
-  case 569: /* let_variable_name_with_pos_list: "$i" '(' expr ')'  */
+  case 569:
                                      {
         auto pSL = new vector<VariableNameAndPosition>();
         pSL->push_back(VariableNameAndPosition{"``MACRO``TAG``","",tokAt(scanner,(yylsp[-1])),ExpressionPtr((yyvsp[-1].pExpression))});
@@ -9501,7 +9240,7 @@ yyreduce:
     }
     break;
 
-  case 570: /* let_variable_name_with_pos_list: "name" "aka" "name"  */
+  case 570:
                                          {
         das_checkName(scanner,*(yyvsp[-2].s),tokAt(scanner,(yylsp[-2])));
         das_checkName(scanner,*(yyvsp[0].s),tokAt(scanner,(yylsp[0])));
@@ -9513,7 +9252,7 @@ yyreduce:
     }
     break;
 
-  case 571: /* let_variable_name_with_pos_list: let_variable_name_with_pos_list ',' "name"  */
+  case 571:
                                                              {
         das_checkName(scanner,*(yyvsp[0].s),tokAt(scanner,(yylsp[0])));
         (yyvsp[-2].pNameWithPosList)->push_back(VariableNameAndPosition{*(yyvsp[0].s),"",tokAt(scanner,(yylsp[0]))});
@@ -9522,7 +9261,7 @@ yyreduce:
     }
     break;
 
-  case 572: /* let_variable_name_with_pos_list: let_variable_name_with_pos_list ',' "name" "aka" "name"  */
+  case 572:
                                                                                    {
         das_checkName(scanner,*(yyvsp[-2].s),tokAt(scanner,(yylsp[-2])));
         das_checkName(scanner,*(yyvsp[0].s),tokAt(scanner,(yylsp[0])));
@@ -9533,13 +9272,13 @@ yyreduce:
     }
     break;
 
-  case 573: /* let_variable_declaration: let_variable_name_with_pos_list ':' type_declaration_no_options "end of expression"  */
+  case 573:
                                                                                             {
         (yyval.pVarDecl) = new VariableDeclaration((yyvsp[-3].pNameWithPosList),(yyvsp[-1].pTypeDecl),nullptr);
     }
     break;
 
-  case 574: /* let_variable_declaration: let_variable_name_with_pos_list ':' type_declaration_no_options copy_or_move_or_clone expr "end of expression"  */
+  case 574:
                                                                                                                                   {
         (yyval.pVarDecl) = new VariableDeclaration((yyvsp[-5].pNameWithPosList),(yyvsp[-3].pTypeDecl),(yyvsp[-1].pExpression));
         (yyval.pVarDecl)->init_via_move  = ((yyvsp[-2].i) & CorM_MOVE) !=0;
@@ -9547,7 +9286,7 @@ yyreduce:
     }
     break;
 
-  case 575: /* let_variable_declaration: let_variable_name_with_pos_list ':' type_declaration_no_options copy_or_move_or_clone expr_pipe  */
+  case 575:
                                                                                                                                    {
         (yyval.pVarDecl) = new VariableDeclaration((yyvsp[-4].pNameWithPosList),(yyvsp[-2].pTypeDecl),(yyvsp[0].pExpression));
         (yyval.pVarDecl)->init_via_move  = ((yyvsp[-1].i) & CorM_MOVE) !=0;
@@ -9555,7 +9294,7 @@ yyreduce:
     }
     break;
 
-  case 576: /* let_variable_declaration: let_variable_name_with_pos_list optional_ref copy_or_move_or_clone expr "end of expression"  */
+  case 576:
                                                                                                           {
         auto typeDecl = new TypeDecl(Type::autoinfer);
         typeDecl->at = tokAt(scanner,(yylsp[-4]));
@@ -9566,7 +9305,7 @@ yyreduce:
     }
     break;
 
-  case 577: /* let_variable_declaration: let_variable_name_with_pos_list optional_ref copy_or_move_or_clone expr_pipe  */
+  case 577:
                                                                                                            {
         auto typeDecl = new TypeDecl(Type::autoinfer);
         typeDecl->at = tokAt(scanner,(yylsp[-3]));
@@ -9577,13 +9316,13 @@ yyreduce:
     }
     break;
 
-  case 578: /* global_variable_declaration_list: %empty  */
+  case 578:
         {
         (yyval.pVarDeclList) = new vector<VariableDeclaration*>();
     }
     break;
 
-  case 579: /* $@37: %empty  */
+  case 579:
                                                {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto tak = tokAt(scanner,(yylsp[0]));
@@ -9592,7 +9331,7 @@ yyreduce:
     }
     break;
 
-  case 580: /* global_variable_declaration_list: global_variable_declaration_list $@37 optional_field_annotation let_variable_declaration  */
+  case 580:
                                                                       {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto tak = tokAt(scanner,(yylsp[0]));
@@ -9607,33 +9346,33 @@ yyreduce:
     }
     break;
 
-  case 581: /* optional_shared: %empty  */
+  case 581:
                      { (yyval.b) = false; }
     break;
 
-  case 582: /* optional_shared: "shared"  */
+  case 582:
                      { (yyval.b) = true; }
     break;
 
-  case 583: /* optional_public_or_private_variable: %empty  */
+  case 583:
                      { (yyval.b) = yyextra->g_Program->thisModule->isPublic; }
     break;
 
-  case 584: /* optional_public_or_private_variable: "private"  */
+  case 584:
                      { (yyval.b) = false; }
     break;
 
-  case 585: /* optional_public_or_private_variable: "public"  */
+  case 585:
                      { (yyval.b) = true; }
     break;
 
-  case 586: /* global_let: kwd_let optional_shared optional_public_or_private_variable "begin of code block" global_variable_declaration_list "end of code block"  */
+  case 586:
                                                                                                                                        {
         ast_globalLetList(scanner,(yyvsp[-5].b),(yyvsp[-4].b),(yyvsp[-3].b),(yyvsp[-1].pVarDeclList));
     }
     break;
 
-  case 587: /* $@38: %empty  */
+  case 587:
                                                                                         {
         yyextra->das_force_oxford_comma=true;
         if ( !yyextra->g_CommentReaders.empty() ) {
@@ -9643,7 +9382,7 @@ yyreduce:
     }
     break;
 
-  case 588: /* global_let: kwd_let optional_shared optional_public_or_private_variable $@38 optional_field_annotation let_variable_declaration  */
+  case 588:
                                                                     {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto tak = tokAt(scanner,(yylsp[0]));
@@ -9656,19 +9395,19 @@ yyreduce:
     }
     break;
 
-  case 589: /* enum_list: %empty  */
+  case 589:
         {
         (yyval.pEnum) = new Enumeration();
     }
     break;
 
-  case 590: /* enum_list: enum_list "end of expression"  */
+  case 590:
                           {
         (yyval.pEnum) = (yyvsp[-1].pEnum);
     }
     break;
 
-  case 591: /* enum_list: enum_list "name" "end of expression"  */
+  case 591:
                                      {
         das_checkName(scanner,*(yyvsp[-1].s),tokAt(scanner,(yylsp[-1])));
         if ( !(yyvsp[-2].pEnum)->add(*(yyvsp[-1].s),nullptr,tokAt(scanner,(yylsp[-1]))) ) {
@@ -9686,7 +9425,7 @@ yyreduce:
     }
     break;
 
-  case 592: /* enum_list: enum_list "name" '=' expr "end of expression"  */
+  case 592:
                                                      {
         das_checkName(scanner,*(yyvsp[-3].s),tokAt(scanner,(yylsp[-3])));
         if ( !(yyvsp[-4].pEnum)->add(*(yyvsp[-3].s),ExpressionPtr((yyvsp[-1].pExpression)),tokAt(scanner,(yylsp[-3]))) ) {
@@ -9704,19 +9443,19 @@ yyreduce:
     }
     break;
 
-  case 593: /* optional_public_or_private_alias: %empty  */
+  case 593:
                      { (yyval.b) = yyextra->g_Program->thisModule->isPublic; }
     break;
 
-  case 594: /* optional_public_or_private_alias: "private"  */
+  case 594:
                      { (yyval.b) = false; }
     break;
 
-  case 595: /* optional_public_or_private_alias: "public"  */
+  case 595:
                      { (yyval.b) = true; }
     break;
 
-  case 596: /* $@39: %empty  */
+  case 596:
                                                          {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto pubename = tokAt(scanner,(yylsp[0]));
@@ -9725,7 +9464,7 @@ yyreduce:
     }
     break;
 
-  case 597: /* single_alias: optional_public_or_private_alias "name" $@39 '=' type_declaration  */
+  case 597:
                                   {
         das_checkName(scanner,*(yyvsp[-3].s),tokAt(scanner,(yylsp[-3])));
         (yyvsp[0].pTypeDecl)->isPrivateAlias = !(yyvsp[-4].b);
@@ -9746,23 +9485,23 @@ yyreduce:
     }
     break;
 
-  case 601: /* $@40: %empty  */
+  case 601:
                     { yyextra->das_force_oxford_comma=true;}
     break;
 
-  case 603: /* optional_public_or_private_enum: %empty  */
+  case 603:
                      { (yyval.b) = yyextra->g_Program->thisModule->isPublic; }
     break;
 
-  case 604: /* optional_public_or_private_enum: "private"  */
+  case 604:
                      { (yyval.b) = false; }
     break;
 
-  case 605: /* optional_public_or_private_enum: "public"  */
+  case 605:
                      { (yyval.b) = true; }
     break;
 
-  case 606: /* enum_name: "name"  */
+  case 606:
                    {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto pubename = tokAt(scanner,(yylsp[0]));
@@ -9772,7 +9511,7 @@ yyreduce:
     }
     break;
 
-  case 607: /* $@41: %empty  */
+  case 607:
                                                                                                                 {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto tak = tokAt(scanner,(yylsp[-1]));
@@ -9781,7 +9520,7 @@ yyreduce:
     }
     break;
 
-  case 608: /* $@42: %empty  */
+  case 608:
                     {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto tak = tokAt(scanner,(yylsp[0]));
@@ -9790,7 +9529,7 @@ yyreduce:
     }
     break;
 
-  case 609: /* enum_declaration: optional_annotation_list "enum" optional_public_or_private_enum enum_name "begin of code block" $@41 enum_list $@42 "end of code block"  */
+  case 609:
           {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto pubename = tokAt(scanner,(yylsp[-2]));
@@ -9800,7 +9539,7 @@ yyreduce:
     }
     break;
 
-  case 610: /* $@43: %empty  */
+  case 610:
                                                                                                                                                      {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto tak = tokAt(scanner,(yylsp[-3]));
@@ -9809,7 +9548,7 @@ yyreduce:
     }
     break;
 
-  case 611: /* $@44: %empty  */
+  case 611:
                     {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto tak = tokAt(scanner,(yylsp[0]));
@@ -9818,7 +9557,7 @@ yyreduce:
     }
     break;
 
-  case 612: /* enum_declaration: optional_annotation_list "enum" optional_public_or_private_enum enum_name ':' enum_basic_type_declaration "begin of code block" $@43 enum_list $@44 "end of code block"  */
+  case 612:
           {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto pubename = tokAt(scanner,(yylsp[-2]));
@@ -9828,61 +9567,61 @@ yyreduce:
     }
     break;
 
-  case 613: /* optional_structure_parent: %empty  */
+  case 613:
                                         { (yyval.s) = nullptr; }
     break;
 
-  case 614: /* optional_structure_parent: ':' name_in_namespace  */
+  case 614:
                                         { (yyval.s) = (yyvsp[0].s); }
     break;
 
-  case 615: /* optional_sealed: %empty  */
+  case 615:
                         { (yyval.b) = false; }
     break;
 
-  case 616: /* optional_sealed: "sealed"  */
+  case 616:
                         { (yyval.b) = true; }
     break;
 
-  case 617: /* structure_name: optional_sealed "name" optional_structure_parent  */
+  case 617:
                                                                            {
         (yyval.pStructure) = ast_structureName(scanner,(yyvsp[-2].b),(yyvsp[-1].s),tokAt(scanner,(yylsp[-1])),(yyvsp[0].s),tokAt(scanner,(yylsp[0])));
     }
     break;
 
-  case 618: /* class_or_struct: "class"  */
+  case 618:
                     { (yyval.b) = true; }
     break;
 
-  case 619: /* class_or_struct: "struct"  */
+  case 619:
                     { (yyval.b) = false; }
     break;
 
-  case 620: /* optional_public_or_private_structure: %empty  */
+  case 620:
                      { (yyval.b) = yyextra->g_Program->thisModule->isPublic; }
     break;
 
-  case 621: /* optional_public_or_private_structure: "private"  */
+  case 621:
                      { (yyval.b) = false; }
     break;
 
-  case 622: /* optional_public_or_private_structure: "public"  */
+  case 622:
                      { (yyval.b) = true; }
     break;
 
-  case 623: /* optional_struct_variable_declaration_list: %empty  */
+  case 623:
         {
         (yyval.pVarDeclList) = new vector<VariableDeclaration*>();
     }
     break;
 
-  case 624: /* optional_struct_variable_declaration_list: "begin of code block" struct_variable_declaration_list "end of code block"  */
+  case 624:
                                                        {
         (yyval.pVarDeclList) = (yyvsp[-1].pVarDeclList);
     }
     break;
 
-  case 625: /* $@45: %empty  */
+  case 625:
                                                                                                         {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto tak = tokAt(scanner,(yylsp[-1]));
@@ -9891,11 +9630,11 @@ yyreduce:
     }
     break;
 
-  case 626: /* $@46: %empty  */
+  case 626:
                          { if ( (yyvsp[0].pStructure) ) { (yyvsp[0].pStructure)->isClass = (yyvsp[-3].b); (yyvsp[0].pStructure)->privateStructure = !(yyvsp[-2].b); } }
     break;
 
-  case 627: /* structure_declaration: optional_annotation_list class_or_struct optional_public_or_private_structure $@45 structure_name $@46 optional_struct_variable_declaration_list  */
+  case 627:
                                                                                                                                                     {
         if ( (yyvsp[-2].pStructure) ) {
             ast_structureDeclaration ( scanner, (yyvsp[-6].faList), tokAt(scanner,(yylsp[-5])), (yyvsp[-2].pStructure), tokAt(scanner,(yylsp[-2])), (yyvsp[0].pVarDeclList) );
@@ -9909,7 +9648,7 @@ yyreduce:
     }
     break;
 
-  case 628: /* variable_name_with_pos_list: "name"  */
+  case 628:
                     {
         das_checkName(scanner,*(yyvsp[0].s),tokAt(scanner,(yylsp[0])));
         auto pSL = new vector<VariableNameAndPosition>();
@@ -9919,7 +9658,7 @@ yyreduce:
     }
     break;
 
-  case 629: /* variable_name_with_pos_list: "$i" '(' expr ')'  */
+  case 629:
                                      {
         auto pSL = new vector<VariableNameAndPosition>();
         pSL->push_back(VariableNameAndPosition{"``MACRO``TAG``","",tokAt(scanner,(yylsp[-1])),(yyvsp[-1].pExpression)});
@@ -9927,7 +9666,7 @@ yyreduce:
     }
     break;
 
-  case 630: /* variable_name_with_pos_list: "name" "aka" "name"  */
+  case 630:
                                          {
         das_checkName(scanner,*(yyvsp[-2].s),tokAt(scanner,(yylsp[-2])));
         das_checkName(scanner,*(yyvsp[0].s),tokAt(scanner,(yylsp[0])));
@@ -9939,7 +9678,7 @@ yyreduce:
     }
     break;
 
-  case 631: /* variable_name_with_pos_list: variable_name_with_pos_list ',' "name"  */
+  case 631:
                                                          {
         das_checkName(scanner,*(yyvsp[0].s),tokAt(scanner,(yylsp[0])));
         (yyvsp[-2].pNameWithPosList)->push_back(VariableNameAndPosition{*(yyvsp[0].s),"",tokAt(scanner,(yylsp[0]))});
@@ -9948,7 +9687,7 @@ yyreduce:
     }
     break;
 
-  case 632: /* variable_name_with_pos_list: variable_name_with_pos_list ',' "name" "aka" "name"  */
+  case 632:
                                                                                {
         das_checkName(scanner,*(yyvsp[-2].s),tokAt(scanner,(yylsp[-2])));
         das_checkName(scanner,*(yyvsp[0].s),tokAt(scanner,(yylsp[0])));
@@ -9959,147 +9698,147 @@ yyreduce:
     }
     break;
 
-  case 633: /* basic_type_declaration: "bool"  */
+  case 633:
                         { (yyval.type) = Type::tBool; }
     break;
 
-  case 634: /* basic_type_declaration: "string"  */
+  case 634:
                         { (yyval.type) = Type::tString; }
     break;
 
-  case 635: /* basic_type_declaration: "int"  */
+  case 635:
                         { (yyval.type) = Type::tInt; }
     break;
 
-  case 636: /* basic_type_declaration: "int8"  */
+  case 636:
                         { (yyval.type) = Type::tInt8; }
     break;
 
-  case 637: /* basic_type_declaration: "int16"  */
+  case 637:
                         { (yyval.type) = Type::tInt16; }
     break;
 
-  case 638: /* basic_type_declaration: "int64"  */
+  case 638:
                         { (yyval.type) = Type::tInt64; }
     break;
 
-  case 639: /* basic_type_declaration: "int2"  */
+  case 639:
                         { (yyval.type) = Type::tInt2; }
     break;
 
-  case 640: /* basic_type_declaration: "int3"  */
+  case 640:
                         { (yyval.type) = Type::tInt3; }
     break;
 
-  case 641: /* basic_type_declaration: "int4"  */
+  case 641:
                         { (yyval.type) = Type::tInt4; }
     break;
 
-  case 642: /* basic_type_declaration: "uint"  */
+  case 642:
                         { (yyval.type) = Type::tUInt; }
     break;
 
-  case 643: /* basic_type_declaration: "uint8"  */
+  case 643:
                         { (yyval.type) = Type::tUInt8; }
     break;
 
-  case 644: /* basic_type_declaration: "uint16"  */
+  case 644:
                         { (yyval.type) = Type::tUInt16; }
     break;
 
-  case 645: /* basic_type_declaration: "uint64"  */
+  case 645:
                         { (yyval.type) = Type::tUInt64; }
     break;
 
-  case 646: /* basic_type_declaration: "uint2"  */
+  case 646:
                         { (yyval.type) = Type::tUInt2; }
     break;
 
-  case 647: /* basic_type_declaration: "uint3"  */
+  case 647:
                         { (yyval.type) = Type::tUInt3; }
     break;
 
-  case 648: /* basic_type_declaration: "uint4"  */
+  case 648:
                         { (yyval.type) = Type::tUInt4; }
     break;
 
-  case 649: /* basic_type_declaration: "float"  */
+  case 649:
                         { (yyval.type) = Type::tFloat; }
     break;
 
-  case 650: /* basic_type_declaration: "float2"  */
+  case 650:
                         { (yyval.type) = Type::tFloat2; }
     break;
 
-  case 651: /* basic_type_declaration: "float3"  */
+  case 651:
                         { (yyval.type) = Type::tFloat3; }
     break;
 
-  case 652: /* basic_type_declaration: "float4"  */
+  case 652:
                         { (yyval.type) = Type::tFloat4; }
     break;
 
-  case 653: /* basic_type_declaration: "void"  */
+  case 653:
                         { (yyval.type) = Type::tVoid; }
     break;
 
-  case 654: /* basic_type_declaration: "range"  */
+  case 654:
                         { (yyval.type) = Type::tRange; }
     break;
 
-  case 655: /* basic_type_declaration: "urange"  */
+  case 655:
                         { (yyval.type) = Type::tURange; }
     break;
 
-  case 656: /* basic_type_declaration: "range64"  */
+  case 656:
                         { (yyval.type) = Type::tRange64; }
     break;
 
-  case 657: /* basic_type_declaration: "urange64"  */
+  case 657:
                         { (yyval.type) = Type::tURange64; }
     break;
 
-  case 658: /* basic_type_declaration: "double"  */
+  case 658:
                         { (yyval.type) = Type::tDouble; }
     break;
 
-  case 659: /* basic_type_declaration: "bitfield"  */
+  case 659:
                         { (yyval.type) = Type::tBitfield; }
     break;
 
-  case 660: /* enum_basic_type_declaration: "int"  */
+  case 660:
                         { (yyval.type) = Type::tInt; }
     break;
 
-  case 661: /* enum_basic_type_declaration: "int8"  */
+  case 661:
                         { (yyval.type) = Type::tInt8; }
     break;
 
-  case 662: /* enum_basic_type_declaration: "int16"  */
+  case 662:
                         { (yyval.type) = Type::tInt16; }
     break;
 
-  case 663: /* enum_basic_type_declaration: "uint"  */
+  case 663:
                         { (yyval.type) = Type::tUInt; }
     break;
 
-  case 664: /* enum_basic_type_declaration: "uint8"  */
+  case 664:
                         { (yyval.type) = Type::tUInt8; }
     break;
 
-  case 665: /* enum_basic_type_declaration: "uint16"  */
+  case 665:
                         { (yyval.type) = Type::tUInt16; }
     break;
 
-  case 666: /* enum_basic_type_declaration: "int64"  */
+  case 666:
                         { (yyval.type) = Type::tInt64; }
     break;
 
-  case 667: /* enum_basic_type_declaration: "uint64"  */
+  case 667:
                         { (yyval.type) = Type::tUInt64; }
     break;
 
-  case 668: /* structure_type_declaration: name_in_namespace  */
+  case 668:
                                  {
         (yyval.pTypeDecl) = yyextra->g_Program->makeTypeDeclaration(tokAt(scanner,(yylsp[0])),*(yyvsp[0].s));
         if ( !(yyval.pTypeDecl) ) {
@@ -10110,14 +9849,14 @@ yyreduce:
     }
     break;
 
-  case 669: /* auto_type_declaration: "auto"  */
+  case 669:
                        {
         (yyval.pTypeDecl) = new TypeDecl(Type::autoinfer);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[0]));
     }
     break;
 
-  case 670: /* auto_type_declaration: "auto" '(' "name" ')'  */
+  case 670:
                                             {
         das_checkName(scanner,*(yyvsp[-1].s),tokAt(scanner,(yylsp[-1])));
         (yyval.pTypeDecl) = new TypeDecl(Type::autoinfer);
@@ -10127,7 +9866,7 @@ yyreduce:
     }
     break;
 
-  case 671: /* auto_type_declaration: "$t" '(' expr ')'  */
+  case 671:
                                           {
         (yyval.pTypeDecl) = new TypeDecl(Type::alias);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-3]));
@@ -10139,7 +9878,7 @@ yyreduce:
     }
     break;
 
-  case 672: /* bitfield_bits: "name"  */
+  case 672:
                     {
         das_checkName(scanner,*(yyvsp[0].s),tokAt(scanner,(yylsp[0])));
         auto pSL = new vector<string>();
@@ -10149,7 +9888,7 @@ yyreduce:
     }
     break;
 
-  case 673: /* bitfield_bits: bitfield_bits "end of expression" "name"  */
+  case 673:
                                            {
         das_checkName(scanner,*(yyvsp[0].s),tokAt(scanner,(yylsp[0])));
         (yyvsp[-2].pNameList)->push_back(*(yyvsp[0].s));
@@ -10158,7 +9897,7 @@ yyreduce:
     }
     break;
 
-  case 674: /* bitfield_alias_bits: %empty  */
+  case 674:
         {
         auto pSL = new vector<string>();
         (yyval.pNameList) = pSL;
@@ -10166,13 +9905,13 @@ yyreduce:
     }
     break;
 
-  case 675: /* bitfield_alias_bits: bitfield_alias_bits "end of expression"  */
+  case 675:
                                       {
         (yyval.pNameList) = (yyvsp[-1].pNameList);
     }
     break;
 
-  case 676: /* bitfield_alias_bits: bitfield_alias_bits "name" "end of expression"  */
+  case 676:
                                                  {
         das_checkName(scanner,*(yyvsp[-1].s),tokAt(scanner,(yylsp[-1])));
         (yyvsp[-2].pNameList)->push_back(*(yyvsp[-1].s));
@@ -10185,15 +9924,15 @@ yyreduce:
     }
     break;
 
-  case 677: /* $@47: %empty  */
+  case 677:
                                      { yyextra->das_arrow_depth ++; }
     break;
 
-  case 678: /* $@48: %empty  */
+  case 678:
                                                                                             { yyextra->das_arrow_depth --; }
     break;
 
-  case 679: /* bitfield_type_declaration: "bitfield" '<' $@47 bitfield_bits '>' $@48  */
+  case 679:
                                                                                                                              {
             (yyval.pTypeDecl) = new TypeDecl(Type::tBitfield);
             (yyval.pTypeDecl)->argNames = *(yyvsp[-2].pNameList);
@@ -10206,51 +9945,51 @@ yyreduce:
     }
     break;
 
-  case 680: /* table_type_pair: type_declaration  */
+  case 680:
                                       {
         (yyval.aTypePair).firstType = (yyvsp[0].pTypeDecl);
         (yyval.aTypePair).secondType = new TypeDecl(Type::tVoid);
     }
     break;
 
-  case 681: /* table_type_pair: type_declaration "end of expression" type_declaration  */
+  case 681:
                                                                           {
         (yyval.aTypePair).firstType = (yyvsp[-2].pTypeDecl);
         (yyval.aTypePair).secondType = (yyvsp[0].pTypeDecl);
     }
     break;
 
-  case 682: /* dim_list: '[' expr ']'  */
+  case 682:
                              {
         (yyval.pTypeDecl) = new TypeDecl(Type::autoinfer);
         appendDimExpr((yyval.pTypeDecl), (yyvsp[-1].pExpression));
     }
     break;
 
-  case 683: /* dim_list: dim_list '[' expr ']'  */
+  case 683:
                                             {
         (yyval.pTypeDecl) = (yyvsp[-3].pTypeDecl);
         appendDimExpr((yyval.pTypeDecl), (yyvsp[-1].pExpression));
     }
     break;
 
-  case 684: /* type_declaration_no_options: basic_type_declaration  */
+  case 684:
                                                             { (yyval.pTypeDecl) = new TypeDecl((yyvsp[0].type)); (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[0])); }
     break;
 
-  case 685: /* type_declaration_no_options: auto_type_declaration  */
+  case 685:
                                                             { (yyval.pTypeDecl) = (yyvsp[0].pTypeDecl); }
     break;
 
-  case 686: /* type_declaration_no_options: bitfield_type_declaration  */
+  case 686:
                                                             { (yyval.pTypeDecl) = (yyvsp[0].pTypeDecl); }
     break;
 
-  case 687: /* type_declaration_no_options: structure_type_declaration  */
+  case 687:
                                                             { (yyval.pTypeDecl) = (yyvsp[0].pTypeDecl); }
     break;
 
-  case 688: /* type_declaration_no_options: type_declaration_no_options dim_list  */
+  case 688:
                                                                 {
         if ( (yyvsp[-1].pTypeDecl)->baseType==Type::typeDecl ) {
             das_yyerror(scanner,"type declaration can`t be used as array base type",tokAt(scanner,(yylsp[-1])),
@@ -10268,7 +10007,7 @@ yyreduce:
     }
     break;
 
-  case 689: /* type_declaration_no_options: type_declaration_no_options '[' ']'  */
+  case 689:
                                                       {
         (yyvsp[-2].pTypeDecl)->dim.push_back(TypeDecl::dimAuto);
         (yyvsp[-2].pTypeDecl)->dimExpr.push_back(nullptr);
@@ -10277,22 +10016,22 @@ yyreduce:
     }
     break;
 
-  case 690: /* $@49: %empty  */
+  case 690:
                      { yyextra->das_arrow_depth ++; }
     break;
 
-  case 691: /* $@50: %empty  */
+  case 691:
                                                                                      { yyextra->das_arrow_depth --; }
     break;
 
-  case 692: /* type_declaration_no_options: "type" '<' $@49 type_declaration '>' $@50  */
+  case 692:
                                                                                                                       {
         (yyvsp[-2].pTypeDecl)->autoToAlias = true;
         (yyval.pTypeDecl) = (yyvsp[-2].pTypeDecl);
     }
     break;
 
-  case 693: /* type_declaration_no_options: "typedecl" '(' expr ')'  */
+  case 693:
                                                {
         (yyval.pTypeDecl) = new TypeDecl(Type::typeDecl);
         (yyval.pTypeDecl)->at = tokRangeAt(scanner,(yylsp[-3]),(yylsp[-1]));
@@ -10300,7 +10039,7 @@ yyreduce:
     }
     break;
 
-  case 694: /* type_declaration_no_options: '$' name_in_namespace '(' optional_expr_list ')'  */
+  case 694:
                                                                           {
         (yyval.pTypeDecl) = new TypeDecl(Type::typeMacro);
         (yyval.pTypeDecl)->at = tokRangeAt(scanner,(yylsp[-3]), (yylsp[-1]));
@@ -10310,11 +10049,11 @@ yyreduce:
     }
     break;
 
-  case 695: /* $@51: %empty  */
+  case 695:
                                         { yyextra->das_arrow_depth ++; }
     break;
 
-  case 696: /* type_declaration_no_options: '$' name_in_namespace '<' $@51 type_declaration_no_options_list '>' '(' optional_expr_list ')'  */
+  case 696:
                                                                                                                                                            {
         (yyval.pTypeDecl) = new TypeDecl(Type::typeMacro);
         (yyval.pTypeDecl)->at = tokRangeAt(scanner,(yylsp[-7]), (yylsp[-1]));
@@ -10324,21 +10063,21 @@ yyreduce:
     }
     break;
 
-  case 697: /* type_declaration_no_options: type_declaration_no_options '-' '[' ']'  */
+  case 697:
                                                           {
         (yyvsp[-3].pTypeDecl)->removeDim = true;
         (yyval.pTypeDecl) = (yyvsp[-3].pTypeDecl);
     }
     break;
 
-  case 698: /* type_declaration_no_options: type_declaration_no_options "explicit"  */
+  case 698:
                                                            {
         (yyvsp[-1].pTypeDecl)->isExplicit = true;
         (yyval.pTypeDecl) = (yyvsp[-1].pTypeDecl);
     }
     break;
 
-  case 699: /* type_declaration_no_options: type_declaration_no_options "const"  */
+  case 699:
                                                         {
         (yyvsp[-1].pTypeDecl)->constant = true;
         (yyvsp[-1].pTypeDecl)->removeConstant = false;
@@ -10346,7 +10085,7 @@ yyreduce:
     }
     break;
 
-  case 700: /* type_declaration_no_options: type_declaration_no_options '-' "const"  */
+  case 700:
                                                             {
         (yyvsp[-2].pTypeDecl)->constant = false;
         (yyvsp[-2].pTypeDecl)->removeConstant = true;
@@ -10354,7 +10093,7 @@ yyreduce:
     }
     break;
 
-  case 701: /* type_declaration_no_options: type_declaration_no_options '&'  */
+  case 701:
                                                   {
         (yyvsp[-1].pTypeDecl)->ref = true;
         (yyvsp[-1].pTypeDecl)->removeRef = false;
@@ -10362,7 +10101,7 @@ yyreduce:
     }
     break;
 
-  case 702: /* type_declaration_no_options: type_declaration_no_options '-' '&'  */
+  case 702:
                                                       {
         (yyvsp[-2].pTypeDecl)->ref = false;
         (yyvsp[-2].pTypeDecl)->removeRef = true;
@@ -10370,21 +10109,21 @@ yyreduce:
     }
     break;
 
-  case 703: /* type_declaration_no_options: type_declaration_no_options '#'  */
+  case 703:
                                                   {
         (yyval.pTypeDecl) = (yyvsp[-1].pTypeDecl);
         (yyval.pTypeDecl)->temporary = true;
     }
     break;
 
-  case 704: /* type_declaration_no_options: type_declaration_no_options "implicit"  */
+  case 704:
                                                            {
         (yyval.pTypeDecl) = (yyvsp[-1].pTypeDecl);
         (yyval.pTypeDecl)->implicit = true;
     }
     break;
 
-  case 705: /* type_declaration_no_options: type_declaration_no_options '-' '#'  */
+  case 705:
                                                       {
         (yyvsp[-2].pTypeDecl)->temporary = false;
         (yyvsp[-2].pTypeDecl)->removeTemporary = true;
@@ -10392,21 +10131,21 @@ yyreduce:
     }
     break;
 
-  case 706: /* type_declaration_no_options: type_declaration_no_options "==" "const"  */
+  case 706:
                                                                {
         (yyvsp[-2].pTypeDecl)->explicitConst = true;
         (yyval.pTypeDecl) = (yyvsp[-2].pTypeDecl);
     }
     break;
 
-  case 707: /* type_declaration_no_options: type_declaration_no_options "==" '&'  */
+  case 707:
                                                          {
         (yyvsp[-2].pTypeDecl)->explicitRef = true;
         (yyval.pTypeDecl) = (yyvsp[-2].pTypeDecl);
     }
     break;
 
-  case 708: /* type_declaration_no_options: type_declaration_no_options '?'  */
+  case 708:
                                                   {
         (yyval.pTypeDecl) = new TypeDecl(Type::tPointer);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-1]));
@@ -10414,15 +10153,15 @@ yyreduce:
     }
     break;
 
-  case 709: /* $@52: %empty  */
+  case 709:
                                { yyextra->das_arrow_depth ++; }
     break;
 
-  case 710: /* $@53: %empty  */
+  case 710:
                                                                                                { yyextra->das_arrow_depth --; }
     break;
 
-  case 711: /* type_declaration_no_options: "smart_ptr" '<' $@52 type_declaration '>' $@53  */
+  case 711:
                                                                                                                                 {
         (yyval.pTypeDecl) = new TypeDecl(Type::tPointer);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-5]));
@@ -10431,7 +10170,7 @@ yyreduce:
     }
     break;
 
-  case 712: /* type_declaration_no_options: type_declaration_no_options "??"  */
+  case 712:
                                                  {
         (yyval.pTypeDecl) = new TypeDecl(Type::tPointer);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-1]));
@@ -10441,15 +10180,15 @@ yyreduce:
     }
     break;
 
-  case 713: /* $@54: %empty  */
+  case 713:
                            { yyextra->das_arrow_depth ++; }
     break;
 
-  case 714: /* $@55: %empty  */
+  case 714:
                                                                                            { yyextra->das_arrow_depth --; }
     break;
 
-  case 715: /* type_declaration_no_options: "array" '<' $@54 type_declaration '>' $@55  */
+  case 715:
                                                                                                                             {
         (yyval.pTypeDecl) = new TypeDecl(Type::tArray);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-5]));
@@ -10457,15 +10196,15 @@ yyreduce:
     }
     break;
 
-  case 716: /* $@56: %empty  */
+  case 716:
                            { yyextra->das_arrow_depth ++; }
     break;
 
-  case 717: /* $@57: %empty  */
+  case 717:
                                                                                      { yyextra->das_arrow_depth --; }
     break;
 
-  case 718: /* type_declaration_no_options: "table" '<' $@56 table_type_pair '>' $@57  */
+  case 718:
                                                                                                                       {
         (yyval.pTypeDecl) = new TypeDecl(Type::tTable);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-5]));
@@ -10474,15 +10213,15 @@ yyreduce:
     }
     break;
 
-  case 719: /* $@58: %empty  */
+  case 719:
                                { yyextra->das_arrow_depth ++; }
     break;
 
-  case 720: /* $@59: %empty  */
+  case 720:
                                                                                                  { yyextra->das_arrow_depth --; }
     break;
 
-  case 721: /* type_declaration_no_options: "iterator" '<' $@58 type_declaration '>' $@59  */
+  case 721:
                                                                                                                                   {
         (yyval.pTypeDecl) = new TypeDecl(Type::tIterator);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-5]));
@@ -10490,22 +10229,22 @@ yyreduce:
     }
     break;
 
-  case 722: /* type_declaration_no_options: "block"  */
+  case 722:
                         {
         (yyval.pTypeDecl) = new TypeDecl(Type::tBlock);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[0]));
     }
     break;
 
-  case 723: /* $@60: %empty  */
+  case 723:
                              { yyextra->das_arrow_depth ++; }
     break;
 
-  case 724: /* $@61: %empty  */
+  case 724:
                                                                                               { yyextra->das_arrow_depth --; }
     break;
 
-  case 725: /* type_declaration_no_options: "block" '<' $@60 type_declaration '>' $@61  */
+  case 725:
                                                                                                                                {
         (yyval.pTypeDecl) = new TypeDecl(Type::tBlock);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-5]));
@@ -10513,15 +10252,15 @@ yyreduce:
     }
     break;
 
-  case 726: /* $@62: %empty  */
+  case 726:
                              { yyextra->das_arrow_depth ++; }
     break;
 
-  case 727: /* $@63: %empty  */
+  case 727:
                                                                                                                                        { yyextra->das_arrow_depth --; }
     break;
 
-  case 728: /* type_declaration_no_options: "block" '<' $@62 optional_function_argument_list optional_function_type '>' $@63  */
+  case 728:
                                                                                                                                                                         {
         (yyval.pTypeDecl) = new TypeDecl(Type::tBlock);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-6]));
@@ -10533,22 +10272,22 @@ yyreduce:
     }
     break;
 
-  case 729: /* type_declaration_no_options: "function"  */
+  case 729:
                            {
         (yyval.pTypeDecl) = new TypeDecl(Type::tFunction);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[0]));
     }
     break;
 
-  case 730: /* $@64: %empty  */
+  case 730:
                                { yyextra->das_arrow_depth ++; }
     break;
 
-  case 731: /* $@65: %empty  */
+  case 731:
                                                                                                 { yyextra->das_arrow_depth --; }
     break;
 
-  case 732: /* type_declaration_no_options: "function" '<' $@64 type_declaration '>' $@65  */
+  case 732:
                                                                                                                                  {
         (yyval.pTypeDecl) = new TypeDecl(Type::tFunction);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-5]));
@@ -10556,15 +10295,15 @@ yyreduce:
     }
     break;
 
-  case 733: /* $@66: %empty  */
+  case 733:
                                { yyextra->das_arrow_depth ++; }
     break;
 
-  case 734: /* $@67: %empty  */
+  case 734:
                                                                                                                                          { yyextra->das_arrow_depth --; }
     break;
 
-  case 735: /* type_declaration_no_options: "function" '<' $@66 optional_function_argument_list optional_function_type '>' $@67  */
+  case 735:
                                                                                                                                                                           {
         (yyval.pTypeDecl) = new TypeDecl(Type::tFunction);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-6]));
@@ -10576,22 +10315,22 @@ yyreduce:
     }
     break;
 
-  case 736: /* type_declaration_no_options: "lambda"  */
+  case 736:
                          {
         (yyval.pTypeDecl) = new TypeDecl(Type::tLambda);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[0]));
     }
     break;
 
-  case 737: /* $@68: %empty  */
+  case 737:
                              { yyextra->das_arrow_depth ++; }
     break;
 
-  case 738: /* $@69: %empty  */
+  case 738:
                                                                                               { yyextra->das_arrow_depth --; }
     break;
 
-  case 739: /* type_declaration_no_options: "lambda" '<' $@68 type_declaration '>' $@69  */
+  case 739:
                                                                                                                                {
         (yyval.pTypeDecl) = new TypeDecl(Type::tLambda);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-5]));
@@ -10599,15 +10338,15 @@ yyreduce:
     }
     break;
 
-  case 740: /* $@70: %empty  */
+  case 740:
                              { yyextra->das_arrow_depth ++; }
     break;
 
-  case 741: /* $@71: %empty  */
+  case 741:
                                                                                                                                        { yyextra->das_arrow_depth --; }
     break;
 
-  case 742: /* type_declaration_no_options: "lambda" '<' $@70 optional_function_argument_list optional_function_type '>' $@71  */
+  case 742:
                                                                                                                                                                         {
         (yyval.pTypeDecl) = new TypeDecl(Type::tLambda);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-6]));
@@ -10619,15 +10358,15 @@ yyreduce:
     }
     break;
 
-  case 743: /* $@72: %empty  */
+  case 743:
                             { yyextra->das_arrow_depth ++; }
     break;
 
-  case 744: /* $@73: %empty  */
+  case 744:
                                                                                        { yyextra->das_arrow_depth --; }
     break;
 
-  case 745: /* type_declaration_no_options: "tuple" '<' $@72 tuple_type_list '>' $@73  */
+  case 745:
                                                                                                                         {
         (yyval.pTypeDecl) = new TypeDecl(Type::tTuple);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-5]));
@@ -10636,15 +10375,15 @@ yyreduce:
     }
     break;
 
-  case 746: /* $@74: %empty  */
+  case 746:
                               { yyextra->das_arrow_depth ++; }
     break;
 
-  case 747: /* $@75: %empty  */
+  case 747:
                                                                                            { yyextra->das_arrow_depth --; }
     break;
 
-  case 748: /* type_declaration_no_options: "variant" '<' $@74 variant_type_list '>' $@75  */
+  case 748:
                                                                                                                             {
         (yyval.pTypeDecl) = new TypeDecl(Type::tVariant);
         (yyval.pTypeDecl)->at = tokAt(scanner,(yylsp[-5]));
@@ -10653,13 +10392,13 @@ yyreduce:
     }
     break;
 
-  case 749: /* type_declaration: type_declaration_no_options  */
+  case 749:
                                         {
         (yyval.pTypeDecl) = (yyvsp[0].pTypeDecl);
     }
     break;
 
-  case 750: /* type_declaration: type_declaration '|' type_declaration_no_options  */
+  case 750:
                                                                      {
         if ( (yyvsp[-2].pTypeDecl)->baseType==Type::option ) {
             (yyval.pTypeDecl) = (yyvsp[-2].pTypeDecl);
@@ -10673,7 +10412,7 @@ yyreduce:
     }
     break;
 
-  case 751: /* type_declaration: type_declaration '|' '#'  */
+  case 751:
                                              {
         if ( (yyvsp[-2].pTypeDecl)->baseType==Type::option ) {
             (yyval.pTypeDecl) = (yyvsp[-2].pTypeDecl);
@@ -10689,11 +10428,11 @@ yyreduce:
     }
     break;
 
-  case 752: /* $@76: %empty  */
+  case 752:
                                                           { yyextra->das_need_oxford_comma=false; }
     break;
 
-  case 753: /* $@77: %empty  */
+  case 753:
                                                                                                                 {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto atvname = tokAt(scanner,(yylsp[0]));
@@ -10702,7 +10441,7 @@ yyreduce:
     }
     break;
 
-  case 754: /* $@78: %empty  */
+  case 754:
           {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto atvname = tokAt(scanner,(yylsp[-2]));
@@ -10711,7 +10450,7 @@ yyreduce:
     }
     break;
 
-  case 755: /* $@79: %empty  */
+  case 755:
                                   {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto atvname = tokAt(scanner,(yylsp[-4]));
@@ -10720,7 +10459,7 @@ yyreduce:
     }
     break;
 
-  case 756: /* tuple_alias_declaration: "tuple" optional_public_or_private_alias $@76 "name" $@77 "begin of code block" $@78 tuple_alias_type_list $@79 "end of code block"  */
+  case 756:
           {
         auto vtype = make_smart<TypeDecl>(Type::tTuple);
         vtype->alias = *(yyvsp[-6].s);
@@ -10740,11 +10479,11 @@ yyreduce:
     }
     break;
 
-  case 757: /* $@80: %empty  */
+  case 757:
                                                             { yyextra->das_need_oxford_comma=false; }
     break;
 
-  case 758: /* $@81: %empty  */
+  case 758:
                                                                                                                   {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto atvname = tokAt(scanner,(yylsp[0]));
@@ -10753,7 +10492,7 @@ yyreduce:
     }
     break;
 
-  case 759: /* $@82: %empty  */
+  case 759:
           {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto atvname = tokAt(scanner,(yylsp[-2]));
@@ -10763,7 +10502,7 @@ yyreduce:
     }
     break;
 
-  case 760: /* $@83: %empty  */
+  case 760:
                                     {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto atvname = tokAt(scanner,(yylsp[-4]));
@@ -10772,7 +10511,7 @@ yyreduce:
     }
     break;
 
-  case 761: /* variant_alias_declaration: "variant" optional_public_or_private_alias $@80 "name" $@81 "begin of code block" $@82 variant_alias_type_list $@83 "end of code block"  */
+  case 761:
           {
         auto vtype = make_smart<TypeDecl>(Type::tVariant);
         vtype->alias = *(yyvsp[-6].s);
@@ -10792,11 +10531,11 @@ yyreduce:
     }
     break;
 
-  case 762: /* $@84: %empty  */
+  case 762:
                                                              { yyextra->das_need_oxford_comma=false; }
     break;
 
-  case 763: /* $@85: %empty  */
+  case 763:
                                                                                                                    {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto atvname = tokAt(scanner,(yylsp[0]));
@@ -10805,7 +10544,7 @@ yyreduce:
     }
     break;
 
-  case 764: /* $@86: %empty  */
+  case 764:
           {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto atvname = tokAt(scanner,(yylsp[-2]));
@@ -10814,7 +10553,7 @@ yyreduce:
     }
     break;
 
-  case 765: /* $@87: %empty  */
+  case 765:
                                 {
         if ( !yyextra->g_CommentReaders.empty() ) {
             auto atvname = tokAt(scanner,(yylsp[-4]));
@@ -10823,7 +10562,7 @@ yyreduce:
     }
     break;
 
-  case 766: /* bitfield_alias_declaration: "bitfield" optional_public_or_private_alias $@84 "name" $@85 "begin of code block" $@86 bitfield_alias_bits $@87 "end of code block"  */
+  case 766:
           {
         auto btype = make_smart<TypeDecl>(Type::tBitfield);
         btype->alias = *(yyvsp[-6].s);
@@ -10847,27 +10586,27 @@ yyreduce:
     }
     break;
 
-  case 767: /* make_decl: make_struct_decl  */
+  case 767:
                                  { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 768: /* make_decl: make_dim_decl  */
+  case 768:
                                  { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 769: /* make_decl: make_table_decl  */
+  case 769:
                                  { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 770: /* make_decl: array_comprehension  */
+  case 770:
                                  { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 771: /* make_decl: make_tuple_call  */
+  case 771:
                                  { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 772: /* make_struct_fields: "name" copy_or_move expr  */
+  case 772:
                                                {
         auto mfd = make_smart<MakeFieldDecl>(tokAt(scanner,(yylsp[-2])),*(yyvsp[-2].s),ExpressionPtr((yyvsp[0].pExpression)),(yyvsp[-1].b),false);
         delete (yyvsp[-2].s);
@@ -10877,7 +10616,7 @@ yyreduce:
     }
     break;
 
-  case 773: /* make_struct_fields: "name" ":=" expr  */
+  case 773:
                                       {
         auto mfd = make_smart<MakeFieldDecl>(tokAt(scanner,(yylsp[-2])),*(yyvsp[-2].s),ExpressionPtr((yyvsp[0].pExpression)),false,true);
         delete (yyvsp[-2].s);
@@ -10887,7 +10626,7 @@ yyreduce:
     }
     break;
 
-  case 774: /* make_struct_fields: make_struct_fields ',' "name" copy_or_move expr  */
+  case 774:
                                                                            {
         auto mfd = make_smart<MakeFieldDecl>(tokAt(scanner,(yylsp[-2])),*(yyvsp[-2].s),ExpressionPtr((yyvsp[0].pExpression)),(yyvsp[-1].b),false);
         delete (yyvsp[-2].s);
@@ -10896,7 +10635,7 @@ yyreduce:
     }
     break;
 
-  case 775: /* make_struct_fields: make_struct_fields ',' "name" ":=" expr  */
+  case 775:
                                                                   {
         auto mfd = make_smart<MakeFieldDecl>(tokAt(scanner,(yylsp[-2])),*(yyvsp[-2].s),ExpressionPtr((yyvsp[0].pExpression)),false,true);
         delete (yyvsp[-2].s);
@@ -10905,7 +10644,7 @@ yyreduce:
     }
     break;
 
-  case 776: /* make_struct_fields: "$f" '(' expr ')' copy_or_move expr  */
+  case 776:
                                                                    {
         auto mfd = make_smart<MakeFieldDecl>(tokAt(scanner,(yylsp[-3])),"``MACRO``TAG``FIELD``",ExpressionPtr((yyvsp[0].pExpression)),(yyvsp[-1].b),false);
         mfd->tag = ExpressionPtr((yyvsp[-3].pExpression));
@@ -10915,7 +10654,7 @@ yyreduce:
     }
     break;
 
-  case 777: /* make_struct_fields: "$f" '(' expr ')' ":=" expr  */
+  case 777:
                                                           {
         auto mfd = make_smart<MakeFieldDecl>(tokAt(scanner,(yylsp[-3])),"``MACRO``TAG``FIELD``",ExpressionPtr((yyvsp[0].pExpression)),false,true);
         mfd->tag = ExpressionPtr((yyvsp[-3].pExpression));
@@ -10925,7 +10664,7 @@ yyreduce:
     }
     break;
 
-  case 778: /* make_struct_fields: make_struct_fields ',' "$f" '(' expr ')' copy_or_move expr  */
+  case 778:
                                                                                                {
         auto mfd = make_smart<MakeFieldDecl>(tokAt(scanner,(yylsp[-3])),"``MACRO``TAG``FIELD``",ExpressionPtr((yyvsp[0].pExpression)),(yyvsp[-1].b),false);
         mfd->tag = ExpressionPtr((yyvsp[-3].pExpression));
@@ -10934,7 +10673,7 @@ yyreduce:
     }
     break;
 
-  case 779: /* make_struct_fields: make_struct_fields ',' "$f" '(' expr ')' ":=" expr  */
+  case 779:
                                                                                       {
         auto mfd = make_smart<MakeFieldDecl>(tokAt(scanner,(yylsp[-3])),"``MACRO``TAG``FIELD``",ExpressionPtr((yyvsp[0].pExpression)),false,true);
         mfd->tag = ExpressionPtr((yyvsp[-3].pExpression));
@@ -10943,7 +10682,7 @@ yyreduce:
     }
     break;
 
-  case 780: /* make_struct_single: make_struct_fields  */
+  case 780:
                                 {
         auto msd = new ExprMakeStruct();
         msd->structs.push_back(MakeStructPtr((yyvsp[0].pMakeStruct)));
@@ -10951,7 +10690,7 @@ yyreduce:
     }
     break;
 
-  case 781: /* make_struct_dim: make_struct_fields  */
+  case 781:
                                 {
         auto msd = new ExprMakeStruct();
         msd->structs.push_back(MakeStructPtr((yyvsp[0].pMakeStruct)));
@@ -10959,30 +10698,30 @@ yyreduce:
     }
     break;
 
-  case 782: /* make_struct_dim: make_struct_dim "end of expression" make_struct_fields  */
+  case 782:
                                                          {
         ((ExprMakeStruct *) (yyvsp[-2].pExpression))->structs.push_back(MakeStructPtr((yyvsp[0].pMakeStruct)));
         (yyval.pExpression) = (yyvsp[-2].pExpression);
     }
     break;
 
-  case 783: /* optional_block: %empty  */
+  case 783:
         { (yyval.pExpression) = nullptr; }
     break;
 
-  case 784: /* optional_block: "where" expr_block  */
+  case 784:
                                   { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 797: /* use_initializer: %empty  */
+  case 797:
                             { (yyval.b) = true; }
     break;
 
-  case 798: /* use_initializer: "uninitialized"  */
+  case 798:
                             { (yyval.b) = false; }
     break;
 
-  case 799: /* make_struct_decl: "[[" type_declaration_no_options make_struct_dim optional_block optional_trailing_delim_sqr_sqr  */
+  case 799:
                                                                                                                                 {
         ((ExprMakeStruct *)(yyvsp[-2].pExpression))->makeType = TypeDeclPtr((yyvsp[-3].pTypeDecl));
         ((ExprMakeStruct *)(yyvsp[-2].pExpression))->block = (yyvsp[-1].pExpression);
@@ -10991,7 +10730,7 @@ yyreduce:
     }
     break;
 
-  case 800: /* make_struct_decl: "[[" type_declaration_no_options optional_block optional_trailing_delim_sqr_sqr  */
+  case 800:
                                                                                                            {
         auto msd = new ExprMakeStruct();
         msd->makeType = TypeDeclPtr((yyvsp[-2].pTypeDecl));
@@ -11001,7 +10740,7 @@ yyreduce:
     }
     break;
 
-  case 801: /* make_struct_decl: "[[" type_declaration_no_options '(' ')' optional_block optional_trailing_delim_sqr_sqr  */
+  case 801:
                                                                                                                    {
         auto msd = new ExprMakeStruct();
         msd->makeType = TypeDeclPtr((yyvsp[-4].pTypeDecl));
@@ -11012,7 +10751,7 @@ yyreduce:
     }
     break;
 
-  case 802: /* make_struct_decl: "[[" type_declaration_no_options '(' ')' make_struct_dim optional_block optional_trailing_delim_sqr_sqr  */
+  case 802:
                                                                                                                                         {
         ((ExprMakeStruct *)(yyvsp[-2].pExpression))->makeType = TypeDeclPtr((yyvsp[-5].pTypeDecl));
         ((ExprMakeStruct *)(yyvsp[-2].pExpression))->useInitializer = true;
@@ -11022,7 +10761,7 @@ yyreduce:
     }
     break;
 
-  case 803: /* make_struct_decl: "[{" type_declaration_no_options make_struct_dim optional_block optional_trailing_delim_cur_sqr  */
+  case 803:
                                                                                                                                 {
         ((ExprMakeStruct *)(yyvsp[-2].pExpression))->makeType = TypeDeclPtr((yyvsp[-3].pTypeDecl));
         ((ExprMakeStruct *)(yyvsp[-2].pExpression))->block = (yyvsp[-1].pExpression);
@@ -11033,7 +10772,7 @@ yyreduce:
     }
     break;
 
-  case 804: /* make_struct_decl: "[{" type_declaration_no_options '(' ')' make_struct_dim optional_block optional_trailing_delim_cur_sqr  */
+  case 804:
                                                                                                                                         {
         ((ExprMakeStruct *)(yyvsp[-2].pExpression))->makeType = TypeDeclPtr((yyvsp[-5].pTypeDecl));
         ((ExprMakeStruct *)(yyvsp[-2].pExpression))->useInitializer = true;
@@ -11045,15 +10784,15 @@ yyreduce:
     }
     break;
 
-  case 805: /* $@88: %empty  */
+  case 805:
                              { yyextra->das_force_oxford_comma=true; yyextra->das_arrow_depth ++; }
     break;
 
-  case 806: /* $@89: %empty  */
+  case 806:
                                                                                                                                          { yyextra->das_arrow_depth --; }
     break;
 
-  case 807: /* make_struct_decl: "struct" '<' $@88 type_declaration_no_options '>' $@89 '(' use_initializer make_struct_dim ')'  */
+  case 807:
                                                                                                                                                                                                                               {
         (yyvsp[-1].pExpression)->at = tokAt(scanner,(yylsp[-9]));
         ((ExprMakeStruct *)(yyvsp[-1].pExpression))->makeType = TypeDeclPtr((yyvsp[-6].pTypeDecl));
@@ -11064,15 +10803,15 @@ yyreduce:
     }
     break;
 
-  case 808: /* $@90: %empty  */
+  case 808:
                             { yyextra->das_force_oxford_comma=true; yyextra->das_arrow_depth ++; }
     break;
 
-  case 809: /* $@91: %empty  */
+  case 809:
                                                                                                                                         { yyextra->das_arrow_depth --; }
     break;
 
-  case 810: /* make_struct_decl: "class" '<' $@90 type_declaration_no_options '>' $@91 '(' use_initializer make_struct_dim ')'  */
+  case 810:
                                                                                                                                                                                                                             {
         (yyvsp[-1].pExpression)->at = tokAt(scanner,(yylsp[-9]));
         ((ExprMakeStruct *)(yyvsp[-1].pExpression))->makeType = TypeDeclPtr((yyvsp[-6].pTypeDecl));
@@ -11082,15 +10821,15 @@ yyreduce:
     }
     break;
 
-  case 811: /* $@92: %empty  */
+  case 811:
                                { yyextra->das_force_oxford_comma=true; yyextra->das_arrow_depth ++; }
     break;
 
-  case 812: /* $@93: %empty  */
+  case 812:
                                                                                                                                            { yyextra->das_arrow_depth --; }
     break;
 
-  case 813: /* make_struct_decl: "variant" '<' $@92 type_declaration_no_options '>' $@93 '(' make_struct_dim ')'  */
+  case 813:
                                                                                                                                                                                                           {
         (yyvsp[-1].pExpression)->at = tokAt(scanner,(yylsp[-8]));
         ((ExprMakeStruct *)(yyvsp[-1].pExpression))->makeType = TypeDeclPtr((yyvsp[-5].pTypeDecl));
@@ -11100,15 +10839,15 @@ yyreduce:
     }
     break;
 
-  case 814: /* $@94: %empty  */
+  case 814:
                               { yyextra->das_arrow_depth ++; }
     break;
 
-  case 815: /* $@95: %empty  */
+  case 815:
                                                                                                     { yyextra->das_arrow_depth --; }
     break;
 
-  case 816: /* make_struct_decl: "default" '<' $@94 type_declaration_no_options '>' $@95 use_initializer  */
+  case 816:
                                                                                                                                                            {
         auto msd = new ExprMakeStruct();
         msd->at = tokAt(scanner,(yylsp[-6]));
@@ -11119,13 +10858,13 @@ yyreduce:
     }
     break;
 
-  case 817: /* make_tuple: expr  */
+  case 817:
                   {
         (yyval.pExpression) = (yyvsp[0].pExpression);
     }
     break;
 
-  case 818: /* make_tuple: expr "=>" expr  */
+  case 818:
                                          {
         ExprMakeTuple * mt = new ExprMakeTuple(tokAt(scanner,(yylsp[-1])));
         mt->values.push_back(ExpressionPtr((yyvsp[-2].pExpression)));
@@ -11134,7 +10873,7 @@ yyreduce:
     }
     break;
 
-  case 819: /* make_tuple: make_tuple ',' expr  */
+  case 819:
                                       {
         ExprMakeTuple * mt;
         if ( (yyvsp[-2].pExpression)->rtti_isMakeTuple() ) {
@@ -11148,7 +10887,7 @@ yyreduce:
     }
     break;
 
-  case 820: /* make_map_tuple: expr "=>" expr  */
+  case 820:
                                          {
         ExprMakeTuple * mt = new ExprMakeTuple(tokAt(scanner,(yylsp[-1])));
         mt->values.push_back(ExpressionPtr((yyvsp[-2].pExpression)));
@@ -11157,13 +10896,13 @@ yyreduce:
     }
     break;
 
-  case 821: /* make_map_tuple: expr  */
+  case 821:
                  {
         (yyval.pExpression) = (yyvsp[0].pExpression);
     }
     break;
 
-  case 822: /* make_tuple_call: "tuple" '(' expr_list optional_comma ')'  */
+  case 822:
                                                                     {
         auto mkt = new ExprMakeTuple(tokAt(scanner,(yylsp[-4])));
         mkt->values = sequenceToList((yyvsp[-2].pExpression));
@@ -11172,15 +10911,15 @@ yyreduce:
     }
     break;
 
-  case 823: /* $@96: %empty  */
+  case 823:
                              { yyextra->das_force_oxford_comma=true; yyextra->das_arrow_depth ++; }
     break;
 
-  case 824: /* $@97: %empty  */
+  case 824:
                                                                                                                                          { yyextra->das_arrow_depth --; }
     break;
 
-  case 825: /* make_tuple_call: "tuple" '<' $@96 type_declaration_no_options '>' $@97 '(' use_initializer make_struct_dim ')'  */
+  case 825:
                                                                                                                                                                                                                               {
         (yyvsp[-1].pExpression)->at = tokAt(scanner,(yylsp[-9]));
         ((ExprMakeStruct *)(yyvsp[-1].pExpression))->makeType = TypeDeclPtr((yyvsp[-6].pTypeDecl));
@@ -11190,7 +10929,7 @@ yyreduce:
     }
     break;
 
-  case 826: /* make_dim: make_tuple  */
+  case 826:
                         {
         auto mka = new ExprMakeArray();
         mka->values.push_back(ExpressionPtr((yyvsp[0].pExpression)));
@@ -11198,14 +10937,14 @@ yyreduce:
     }
     break;
 
-  case 827: /* make_dim: make_dim "end of expression" make_tuple  */
+  case 827:
                                           {
         ((ExprMakeArray *) (yyvsp[-2].pExpression))->values.push_back(ExpressionPtr((yyvsp[0].pExpression)));
         (yyval.pExpression) = (yyvsp[-2].pExpression);
     }
     break;
 
-  case 828: /* make_dim_decl: '[' expr_list optional_comma ']'  */
+  case 828:
                                                           {
         auto mka = make_smart<ExprMakeArray>(tokAt(scanner,(yylsp[-3])));
         mka->values = sequenceToList((yyvsp[-2].pExpression));
@@ -11216,7 +10955,7 @@ yyreduce:
     }
     break;
 
-  case 829: /* make_dim_decl: "[[" type_declaration_no_options make_dim optional_trailing_semicolon_sqr_sqr  */
+  case 829:
                                                                                                          {
         ((ExprMakeArray *)(yyvsp[-1].pExpression))->makeType = TypeDeclPtr((yyvsp[-2].pTypeDecl));
         (yyvsp[-1].pExpression)->at = tokAt(scanner,(yylsp[-3]));
@@ -11224,7 +10963,7 @@ yyreduce:
     }
     break;
 
-  case 830: /* make_dim_decl: "[{" type_declaration_no_options make_dim optional_trailing_semicolon_cur_sqr  */
+  case 830:
                                                                                                          {
         ((ExprMakeArray *)(yyvsp[-1].pExpression))->makeType = TypeDeclPtr((yyvsp[-2].pTypeDecl));
         (yyvsp[-1].pExpression)->at = tokAt(scanner,(yylsp[-3]));
@@ -11234,15 +10973,15 @@ yyreduce:
     }
     break;
 
-  case 831: /* $@98: %empty  */
+  case 831:
                                        { yyextra->das_arrow_depth ++; }
     break;
 
-  case 832: /* $@99: %empty  */
+  case 832:
                                                                                                              { yyextra->das_arrow_depth --; }
     break;
 
-  case 833: /* make_dim_decl: "array" "struct" '<' $@98 type_declaration_no_options '>' $@99 '(' use_initializer make_struct_dim ')'  */
+  case 833:
                                                                                                                                                                                                   {
         (yyvsp[-1].pExpression)->at = tokAt(scanner,(yylsp[-10]));
         ((ExprMakeStruct *)(yyvsp[-1].pExpression))->makeType = TypeDeclPtr((yyvsp[-6].pTypeDecl));
@@ -11255,15 +10994,15 @@ yyreduce:
     }
     break;
 
-  case 834: /* $@100: %empty  */
+  case 834:
                                        { yyextra->das_arrow_depth ++; }
     break;
 
-  case 835: /* $@101: %empty  */
+  case 835:
                                                                                                              { yyextra->das_arrow_depth --; }
     break;
 
-  case 836: /* make_dim_decl: "array" "tuple" '<' $@100 type_declaration_no_options '>' $@101 '(' use_initializer make_struct_dim ')'  */
+  case 836:
                                                                                                                                                                                                   {
         (yyvsp[-1].pExpression)->at = tokAt(scanner,(yylsp[-10]));
         ((ExprMakeStruct *)(yyvsp[-1].pExpression))->makeType = TypeDeclPtr((yyvsp[-6].pTypeDecl));
@@ -11276,15 +11015,15 @@ yyreduce:
     }
     break;
 
-  case 837: /* $@102: %empty  */
+  case 837:
                                          { yyextra->das_arrow_depth ++; }
     break;
 
-  case 838: /* $@103: %empty  */
+  case 838:
                                                                                                                { yyextra->das_arrow_depth --; }
     break;
 
-  case 839: /* make_dim_decl: "array" "variant" '<' $@102 type_declaration_no_options '>' $@103 '(' make_struct_dim ')'  */
+  case 839:
                                                                                                                                                                               {
         (yyvsp[-1].pExpression)->at = tokAt(scanner,(yylsp[-9]));
         ((ExprMakeStruct *)(yyvsp[-1].pExpression))->makeType = TypeDeclPtr((yyvsp[-5].pTypeDecl));
@@ -11297,7 +11036,7 @@ yyreduce:
     }
     break;
 
-  case 840: /* make_dim_decl: "array" '(' expr_list optional_comma ')'  */
+  case 840:
                                                                    {
         auto mka = make_smart<ExprMakeArray>(tokAt(scanner,(yylsp[-4])));
         mka->values = sequenceToList((yyvsp[-2].pExpression));
@@ -11308,15 +11047,15 @@ yyreduce:
     }
     break;
 
-  case 841: /* $@104: %empty  */
+  case 841:
                            { yyextra->das_arrow_depth ++; }
     break;
 
-  case 842: /* $@105: %empty  */
+  case 842:
                                                                                                  { yyextra->das_arrow_depth --; }
     break;
 
-  case 843: /* make_dim_decl: "array" '<' $@104 type_declaration_no_options '>' $@105 '(' expr_list optional_comma ')'  */
+  case 843:
                                                                                                                                                                               {
         auto mka = make_smart<ExprMakeArray>(tokAt(scanner,(yylsp[-9])));
         mka->values = sequenceToList((yyvsp[-2].pExpression));
@@ -11327,7 +11066,7 @@ yyreduce:
     }
     break;
 
-  case 844: /* make_dim_decl: "fixed_array" '(' expr_list optional_comma ')'  */
+  case 844:
                                                                          {
         auto mka = new ExprMakeArray(tokAt(scanner,(yylsp[-4])));
         mka->values = sequenceToList((yyvsp[-2].pExpression));
@@ -11337,15 +11076,15 @@ yyreduce:
     }
     break;
 
-  case 845: /* $@106: %empty  */
+  case 845:
                                  { yyextra->das_arrow_depth ++; }
     break;
 
-  case 846: /* $@107: %empty  */
+  case 846:
                                                                                                        { yyextra->das_arrow_depth --; }
     break;
 
-  case 847: /* make_dim_decl: "fixed_array" '<' $@106 type_declaration_no_options '>' $@107 '(' expr_list optional_comma ')'  */
+  case 847:
                                                                                                                                                                                     {
         auto mka = new ExprMakeArray(tokAt(scanner,(yylsp[-9])));
         mka->values = sequenceToList((yyvsp[-2].pExpression));
@@ -11355,7 +11094,7 @@ yyreduce:
     }
     break;
 
-  case 848: /* make_table: make_map_tuple  */
+  case 848:
                             {
         auto mka = new ExprMakeArray();
         mka->values.push_back(ExpressionPtr((yyvsp[0].pExpression)));
@@ -11363,26 +11102,26 @@ yyreduce:
     }
     break;
 
-  case 849: /* make_table: make_table "end of expression" make_map_tuple  */
+  case 849:
                                                 {
         ((ExprMakeArray *) (yyvsp[-2].pExpression))->values.push_back(ExpressionPtr((yyvsp[0].pExpression)));
         (yyval.pExpression) = (yyvsp[-2].pExpression);
     }
     break;
 
-  case 850: /* expr_map_tuple_list: make_map_tuple  */
+  case 850:
                                 {
         (yyval.pExpression) = (yyvsp[0].pExpression);
     }
     break;
 
-  case 851: /* expr_map_tuple_list: expr_map_tuple_list ',' make_map_tuple  */
+  case 851:
                                                                 {
             (yyval.pExpression) = new ExprSequence(tokAt(scanner,(yylsp[-2])),ExpressionPtr((yyvsp[-2].pExpression)),ExpressionPtr((yyvsp[0].pExpression)));
     }
     break;
 
-  case 852: /* make_table_decl: "begin of code block" expr_map_tuple_list optional_comma "end of code block"  */
+  case 852:
                                                                     {
         auto mka = make_smart<ExprMakeArray>(tokAt(scanner,(yylsp[-3])));
         mka->values = sequenceToList((yyvsp[-2].pExpression));
@@ -11393,7 +11132,7 @@ yyreduce:
     }
     break;
 
-  case 853: /* make_table_decl: "{{" make_table optional_trailing_semicolon_cur_cur  */
+  case 853:
                                                                           {
         auto mkt = make_smart<TypeDecl>(Type::autoinfer);
         mkt->dim.push_back(TypeDecl::dimAuto);
@@ -11405,7 +11144,7 @@ yyreduce:
     }
     break;
 
-  case 854: /* make_table_decl: "table" '(' expr_map_tuple_list optional_comma ')'  */
+  case 854:
                                                                              {
         auto mka = make_smart<ExprMakeArray>(tokAt(scanner,(yylsp[-4])));
         mka->values = sequenceToList((yyvsp[-2].pExpression));
@@ -11416,7 +11155,7 @@ yyreduce:
     }
     break;
 
-  case 855: /* make_table_decl: "table" '<' type_declaration_no_options '>' '(' expr_map_tuple_list optional_comma ')'  */
+  case 855:
                                                                                                                        {
         auto mka = make_smart<ExprMakeArray>(tokAt(scanner,(yylsp[-7])));
         mka->values = sequenceToList((yyvsp[-2].pExpression));
@@ -11427,7 +11166,7 @@ yyreduce:
     }
     break;
 
-  case 856: /* make_table_decl: "table" '<' type_declaration_no_options "end of expression" type_declaration_no_options '>' '(' expr_map_tuple_list optional_comma ')'  */
+  case 856:
                                                                                                                                                                 {
         auto mka = make_smart<ExprMakeArray>(tokAt(scanner,(yylsp[-9])));
         mka->values = sequenceToList((yyvsp[-2].pExpression));
@@ -11440,53 +11179,53 @@ yyreduce:
     }
     break;
 
-  case 857: /* array_comprehension_where: %empty  */
+  case 857:
                                     { (yyval.pExpression) = nullptr; }
     break;
 
-  case 858: /* array_comprehension_where: "end of expression" "where" expr  */
+  case 858:
                                     { (yyval.pExpression) = (yyvsp[0].pExpression); }
     break;
 
-  case 859: /* optional_comma: %empty  */
+  case 859:
                 { (yyval.b) = false; }
     break;
 
-  case 860: /* optional_comma: ','  */
+  case 860:
                 { (yyval.b) = true; }
     break;
 
-  case 861: /* array_comprehension: '[' "for" variable_name_with_pos_list "in" expr_list "end of expression" expr array_comprehension_where ']'  */
+  case 861:
                                                                                                                                                     {
         (yyval.pExpression) = ast_arrayComprehension(scanner,tokAt(scanner,(yylsp[-7])),(yyvsp[-6].pNameWithPosList),(yyvsp[-4].pExpression),(yyvsp[-2].pExpression),(yyvsp[-1].pExpression),tokRangeAt(scanner,(yylsp[-2]),(yylsp[0])),false,false);
     }
     break;
 
-  case 862: /* array_comprehension: '[' "iterator" "for" variable_name_with_pos_list "in" expr_list "end of expression" expr array_comprehension_where ']'  */
+  case 862:
                                                                                                                                                                  {
         (yyval.pExpression) = ast_arrayComprehension(scanner,tokAt(scanner,(yylsp[-7])),(yyvsp[-6].pNameWithPosList),(yyvsp[-4].pExpression),(yyvsp[-2].pExpression),(yyvsp[-1].pExpression),tokRangeAt(scanner,(yylsp[-2]),(yylsp[0])),true,false);
     }
     break;
 
-  case 863: /* array_comprehension: "[[" "for" variable_name_with_pos_list "in" expr_list "end of expression" expr array_comprehension_where ']' ']'  */
+  case 863:
                                                                                                                                                             {
         (yyval.pExpression) = ast_arrayComprehension(scanner,tokAt(scanner,(yylsp[-8])),(yyvsp[-7].pNameWithPosList),(yyvsp[-5].pExpression),(yyvsp[-3].pExpression),(yyvsp[-2].pExpression),tokRangeAt(scanner,(yylsp[-3]),(yylsp[0])),true,false);
     }
     break;
 
-  case 864: /* array_comprehension: "[{" "for" variable_name_with_pos_list "in" expr_list "end of expression" expr array_comprehension_where "end of code block" ']'  */
+  case 864:
                                                                                                                                                             {
         (yyval.pExpression) = ast_arrayComprehension(scanner,tokAt(scanner,(yylsp[-8])),(yyvsp[-7].pNameWithPosList),(yyvsp[-5].pExpression),(yyvsp[-3].pExpression),(yyvsp[-2].pExpression),tokRangeAt(scanner,(yylsp[-3]),(yylsp[0])),false,false);
     }
     break;
 
-  case 865: /* array_comprehension: "begin of code block" "for" variable_name_with_pos_list "in" expr_list "end of expression" make_map_tuple array_comprehension_where "end of code block"  */
+  case 865:
                                                                                                                                                               {
         (yyval.pExpression) = ast_arrayComprehension(scanner,tokAt(scanner,(yylsp[-7])),(yyvsp[-6].pNameWithPosList),(yyvsp[-4].pExpression),(yyvsp[-2].pExpression),(yyvsp[-1].pExpression),tokRangeAt(scanner,(yylsp[-2]),(yylsp[0])),false,true);
     }
     break;
 
-  case 866: /* array_comprehension: "{{" "for" variable_name_with_pos_list "in" expr_list "end of expression" make_map_tuple array_comprehension_where "end of code block" "end of code block"  */
+  case 866:
                                                                                                                                                                     {
         (yyval.pExpression) = ast_arrayComprehension(scanner,tokAt(scanner,(yylsp[-8])),(yyvsp[-7].pNameWithPosList),(yyvsp[-5].pExpression),(yyvsp[-3].pExpression),(yyvsp[-2].pExpression),tokRangeAt(scanner,(yylsp[-3]),(yylsp[0])),true,true);
     }
@@ -11507,10 +11246,11 @@ yyreduce:
      case of YYERROR or YYBACKUP, subsequent parser actions might lead
      to an incorrect destructor call or verbose syntax error message
      before the lookahead is translated.  */
-  YY_SYMBOL_PRINT ("-> $$ =", YY_CAST (yysymbol_kind_t, yyr1[yyn]), &yyval, &yyloc);
+  YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
 
   YYPOPSTACK (yylen);
   yylen = 0;
+  YY_STACK_PRINT (yyss, yyssp);
 
   *++yyvsp = yyval;
   *++yylsp = yyloc;
@@ -11535,61 +11275,66 @@ yyreduce:
 yyerrlab:
   /* Make sure we have latest lookahead translation.  See comments at
      user semantic actions for why this is necessary.  */
-  yytoken = yychar == DAS_YYEMPTY ? YYSYMBOL_YYEMPTY : YYTRANSLATE (yychar);
+  yytoken = yychar == YYEMPTY ? YYEMPTY : YYTRANSLATE (yychar);
+
   /* If not already recovering from an error, report this error.  */
   if (!yyerrstatus)
     {
       ++yynerrs;
+#if ! YYERROR_VERBOSE
+      yyerror (&yylloc, scanner, YY_("syntax error"));
+#else
+# define YYSYNTAX_ERROR yysyntax_error (&yymsg_alloc, &yymsg, \
+                                        yyssp, yytoken)
       {
-        yypcontext_t yyctx
-          = {yyssp, yytoken, &yylloc};
         char const *yymsgp = YY_("syntax error");
         int yysyntax_error_status;
-        yysyntax_error_status = yysyntax_error (&yymsg_alloc, &yymsg, &yyctx);
+        yysyntax_error_status = YYSYNTAX_ERROR;
         if (yysyntax_error_status == 0)
           yymsgp = yymsg;
-        else if (yysyntax_error_status == -1)
+        else if (yysyntax_error_status == 1)
           {
             if (yymsg != yymsgbuf)
               YYSTACK_FREE (yymsg);
-            yymsg = YY_CAST (char *,
-                             YYSTACK_ALLOC (YY_CAST (YYSIZE_T, yymsg_alloc)));
-            if (yymsg)
-              {
-                yysyntax_error_status
-                  = yysyntax_error (&yymsg_alloc, &yymsg, &yyctx);
-                yymsgp = yymsg;
-              }
-            else
+            yymsg = YY_CAST (char *, YYSTACK_ALLOC (YY_CAST (YYSIZE_T, yymsg_alloc)));
+            if (!yymsg)
               {
                 yymsg = yymsgbuf;
                 yymsg_alloc = sizeof yymsgbuf;
-                yysyntax_error_status = YYENOMEM;
+                yysyntax_error_status = 2;
+              }
+            else
+              {
+                yysyntax_error_status = YYSYNTAX_ERROR;
+                yymsgp = yymsg;
               }
           }
         yyerror (&yylloc, scanner, yymsgp);
-        if (yysyntax_error_status == YYENOMEM)
-          YYNOMEM;
+        if (yysyntax_error_status == 2)
+          goto yyexhaustedlab;
       }
+# undef YYSYNTAX_ERROR
+#endif
     }
 
   yyerror_range[1] = yylloc;
+
   if (yyerrstatus == 3)
     {
       /* If just tried and failed to reuse lookahead token after an
          error, discard it.  */
 
-      if (yychar <= DAS_YYEOF)
+      if (yychar <= YYEOF)
         {
           /* Return failure if at end of input.  */
-          if (yychar == DAS_YYEOF)
+          if (yychar == YYEOF)
             YYABORT;
         }
       else
         {
           yydestruct ("Error: discarding",
                       yytoken, &yylval, &yylloc, scanner);
-          yychar = DAS_YYEMPTY;
+          yychar = YYEMPTY;
         }
     }
 
@@ -11606,7 +11351,6 @@ yyerrorlab:
      label yyerrorlab therefore never appears in user code.  */
   if (0)
     YYERROR;
-  ++yynerrs;
 
   /* Do not reclaim the symbols of the rule whose action triggered
      this YYERROR.  */
@@ -11623,14 +11367,13 @@ yyerrorlab:
 yyerrlab1:
   yyerrstatus = 3;      /* Each real token shifted decrements this.  */
 
-  /* Pop stack until we find a state that shifts the error token.  */
   for (;;)
     {
       yyn = yypact[yystate];
       if (!yypact_value_is_default (yyn))
         {
-          yyn += YYSYMBOL_YYerror;
-          if (0 <= yyn && yyn <= YYLAST && yycheck[yyn] == YYSYMBOL_YYerror)
+          yyn += YYTERROR;
+          if (0 <= yyn && yyn <= YYLAST && yycheck[yyn] == YYTERROR)
             {
               yyn = yytable[yyn];
               if (0 < yyn)
@@ -11644,7 +11387,7 @@ yyerrlab1:
 
       yyerror_range[1] = *yylsp;
       yydestruct ("Error: popping",
-                  YY_ACCESSING_SYMBOL (yystate), yyvsp, yylsp, scanner);
+                  yystos[yystate], yyvsp, yylsp, scanner);
       YYPOPSTACK (1);
       yystate = *yyssp;
       YY_STACK_PRINT (yyss, yyssp);
@@ -11655,11 +11398,13 @@ yyerrlab1:
   YY_IGNORE_MAYBE_UNINITIALIZED_END
 
   yyerror_range[2] = yylloc;
-  ++yylsp;
-  YYLLOC_DEFAULT (*yylsp, yyerror_range, 2);
+  /* Using YYLLOC is tempting, but would change the location of
+     the lookahead.  YYLOC is available though.  */
+  YYLLOC_DEFAULT (yyloc, yyerror_range, 2);
+  *++yylsp = yyloc;
 
   /* Shift the error token.  */
-  YY_SYMBOL_PRINT ("Shifting", YY_ACCESSING_SYMBOL (yyn), yyvsp, yylsp);
+  YY_SYMBOL_PRINT ("Shifting", yystos[yyn], yyvsp, yylsp);
 
   yystate = yyn;
   goto yynewstate;
@@ -11670,7 +11415,7 @@ yyerrlab1:
 `-------------------------------------*/
 yyacceptlab:
   yyresult = 0;
-  goto yyreturnlab;
+  goto yyreturn;
 
 
 /*-----------------------------------.
@@ -11678,23 +11423,25 @@ yyacceptlab:
 `-----------------------------------*/
 yyabortlab:
   yyresult = 1;
-  goto yyreturnlab;
+  goto yyreturn;
 
 
-/*-----------------------------------------------------------.
-| yyexhaustedlab -- YYNOMEM (memory exhaustion) comes here.  |
-`-----------------------------------------------------------*/
+#if !defined yyoverflow || YYERROR_VERBOSE
+/*-------------------------------------------------.
+| yyexhaustedlab -- memory exhaustion comes here.  |
+`-------------------------------------------------*/
 yyexhaustedlab:
   yyerror (&yylloc, scanner, YY_("memory exhausted"));
   yyresult = 2;
-  goto yyreturnlab;
+  /* Fall through.  */
+#endif
 
 
-/*----------------------------------------------------------.
-| yyreturnlab -- parsing is finished, clean up and return.  |
-`----------------------------------------------------------*/
-yyreturnlab:
-  if (yychar != DAS_YYEMPTY)
+/*-----------------------------------------------------.
+| yyreturn -- parsing is finished, return the result.  |
+`-----------------------------------------------------*/
+yyreturn:
+  if (yychar != YYEMPTY)
     {
       /* Make sure we have latest lookahead translation.  See comments at
          user semantic actions for why this is necessary.  */
@@ -11709,18 +11456,19 @@ yyreturnlab:
   while (yyssp != yyss)
     {
       yydestruct ("Cleanup: popping",
-                  YY_ACCESSING_SYMBOL (+*yyssp), yyvsp, yylsp, scanner);
+                  yystos[+*yyssp], yyvsp, yylsp, scanner);
       YYPOPSTACK (1);
     }
 #ifndef yyoverflow
   if (yyss != yyssa)
     YYSTACK_FREE (yyss);
 #endif
+#if YYERROR_VERBOSE
   if (yymsg != yymsgbuf)
     YYSTACK_FREE (yymsg);
+#endif
   return yyresult;
 }
-
 
 
 void das_yyfatalerror ( DAS_YYLTYPE * lloc, yyscan_t scanner, const string & error, CompilationError cerr ) {
